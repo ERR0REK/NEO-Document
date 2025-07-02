@@ -1,0 +1,236 @@
+/**
+ * Docusaurus custom styles.
+ * You can add your own CSS rules here.
+ * For more details, see https://docusaurus.io/docs/styling-css
+ */
+
+/* ========================================= */
+/* Globalne zmienne CSS (kolory, czcionki) */
+/* ========================================= */
+:root {
+  --ifm-color-primary: #5d5dff; /* Główny kolor akcentu (głębszy niebieski/fiolet) */
+  --ifm-color-primary-dark: #4a4adc;
+  --ifm-color-primary-darker: #4242d5;
+  --ifm-color-primary-darkest: #3939cd;
+  --ifm-color-primary-light: #7b7bff;
+  --ifm-color-primary-lighter: #8989ff;
+  --ifm-color-primary-lightest: #9797ff;
+
+  --ifm-background-color: #1a1a1a; /* Bardzo ciemne tło */
+  --ifm-font-color-base: #f0f0f0; /* Jasny tekst na ciemnym tle */
+
+  --ifm-code-font-size: 95%;
+
+  /* Dodatkowe kolory dla Twojego motywu NEO */
+  --neo-accent-glow: #a872ff; /* Jasny fiolet do efektów glow (dla tekstu tytułu) */
+  --neo-button-cta: #ffcc00; /* Kolor CTA przycisku (jasny żółty) */
+  --neo-button-cta-dark: #e6b800; /* Ciemniejszy odcień CTA */
+  --neo-card-background: #2a2a2a; /* Ciemniejszy odcień tła dla kart */
+  --neo-card-border: #444444; /* Delikatna ramka dla kart */
+}
+
+/* ========================================= */
+/* Globalne style dla body i linków */
+/* ========================================= */
+body {
+    background-color: var(--ifm-background-color);
+    color: var(--ifm-font-color-base);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Bardziej nowoczesna czcionka */
+}
+
+a {
+    color: var(--ifm-color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--neo-accent-glow); /* Jaśniejszy fiolet na hover */
+    text-decoration: underline;
+}
+
+
+/* ========================================= */
+/* Przyciski (standardowe Docusaurusowe) */
+/* ========================================= */
+.button--primary {
+  /* Kolor tła dla głównego przycisku CTA */
+  background-color: var(--neo-button-cta);
+  color: #1a1a1a; /* Ciemny tekst na jasnym tle */
+  border: 2px solid var(--neo-button-cta-dark);
+  border-radius: 8px;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Mocniejszy cień */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-transform: uppercase; /* Tekst wielkimi literami */
+  filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.6)); /* Delikatny glow */
+}
+
+.button--primary:hover {
+  background-color: var(--neo-button-cta-dark);
+  border-color: #cc9900; /* Ciemniejsza ramka na hover */
+  transform: translateY(-3px); /* Większe podniesienie */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Bardziej wyraźny cień na hover */
+  filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.8)); /* Intensywniejszy glow na hover */
+}
+
+/* Drugi typ przycisku (np. jeśli masz "Dowiedz się więcej" lub "GitHub") */
+.button--secondary {
+  background-color: transparent;
+  color: var(--ifm-font-color-base); /* Jasny tekst */
+  border: 2px solid var(--ifm-font-color-base); /* Jasna ramka */
+  border-radius: 8px;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  margin-left: 15px; /* Odstęp od innego przycisku */
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-font-color-base);
+  color: var(--ifm-background-color); /* Ciemny tekst na jasnym tle przy najechaniu */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================= */
+/* Ikony i Karty w sekcjach (Czym jest N.E.O.?, Struktura, Sojusze) */
+/* ========================================= */
+
+/* Stylizuj karty dla tych sekcji (zakładam standardowy layout Docusaurusa z 'col--4') */
+.col.col--4 { /* To jest kontener dla każdej z 3 kolumn */
+    background-color: var(--neo-card-background);
+    border: 1px solid var(--neo-card-border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2.5rem; /* Większy odstęp między kolumnami a nagłówkiem hero */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Głęboki cień pod kartą */
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Wyrównanie do góry, aby tekst zaczynał się podobnie */
+    align-items: center;
+    text-align: center;
+}
+
+.col.col--4:hover {
+    transform: translateY(-8px) scale(1.02); /* Wyraźniejsze podniesienie i lekkie powiększenie */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+/* Przykładowa klasa dla ikon w tych sekcjach - ZMIEŃ NA WŁAŚCIWĄ! */
+/* Musisz sprawdzić w narzędziach deweloperskich, jaka klasa jest przypisana do tych SVG/obrazków */
+.featureSvg { /* Zastąp na właściwą klasę, np. ikonę wewnątrz karty */
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(123, 123, 255, 0.5)); /* Lekki glow na ikonach */
+    width: 80px; /* Przykład rozmiaru ikony */
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+.col.col--4:hover .featureSvg { /* Animacja ikony przy najechaniu na kartę */
+    transform: scale(1.15); /* Większe powiększenie ikony */
+    filter: drop-shadow(0 0 12px var(--neo-accent-glow)); /* Intensywniejszy glow */
+}
+
+/* Tytuły w sekcjach kart */
+.col.col--4 h3 {
+    color: var(--neo-accent-glow); /* Kolor tytułów w kartach */
+    margin-bottom: 0.75rem;
+    font-size: 1.7rem; /* Większy rozmiar tytułu karty */
+}
+
+.col.col--4 p {
+    color: var(--ifm-font-color-base); /* Kolor tekstu w kartach */
+    font-size: 1rem;
+}
+
+
+/* ========================================= */
+/* Nagłówek i stopka */
+/* ========================================= */
+.navbar {
+    background-color: #121212; /* Nieco jaśniejsze tło dla navbara niż body */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 1.5rem; /* Większy padding dla navbara */
+}
+
+.navbar__brand {
+    color: var(--ifm-font-color-base);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.navbar__link {
+    color: #cccccc;
+    transition: color 0.3s ease;
+}
+
+.navbar__link:hover {
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #121212;
+    padding: 2.5rem 0; /* Większy padding dla stopki */
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    border-top: 1px solid #333333; /* Delikatna linia na górze stopki */
+}
+
+/* Możesz dodać style dla scrollbara, aby pasował do ciemnego motywu */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777777;
+}
+
+.image-row {
+  display: flex; /* Używamy flexboxa do ułożenia elementów obok siebie */
+  flex-wrap: wrap; /* Pozwala obrazkom przechodzić do nowej linii, jeśli zabraknie miejsca */
+  gap: 15px; /* Odstęp między obrazkami */
+  justify-content: center; /* Wyśrodkowuje obrazki, jeśli jest ich mniej niż cały rząd */
+  align-items: flex-start; /* Wyrównuje obrazki do góry, jeśli mają różne wysokości */
+  margin-top: 20px; /* Odstęp od poprzedniego tekstu */
+  margin-bottom: 20px; /* Odstęp od kolejnego tekstu */
+}
+
+.image-row img {
+  max-width: 100%; /* Upewnia się, że obrazki nie wychodzą poza kontener */
+  height: auto; /* Zachowuje proporcje */
+  /* Możesz również ustawić konkretną szerokość, jeśli chcesz, aby były bardziej równe: */
+  /* width: 48%; */ /* Np. dla dwóch obrazków obok siebie */
+  /* lub konkretną wartość: */
+  /* width: 300px; */
+  border-radius: 8px; /* Opcjonalnie: zaokrąglone rogi dla obrazków */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Opcjonalnie: cień pod obrazkiem */
+}
+
+/* Możesz dodać media queries, jeśli chcesz, aby na małych ekranach obrazki znowu układały się w kolumnach */
+@media (max-width: 768px) {
+  .image-row {
+    flex-direction: column; /* Na małych ekranach układaj w kolumnie */
+    align-items: center; /* Wyśrodkuj w kolumnie */
+  }
+  .image-row img {
+    max-width: 90%; /* Zmniejsz szerokość na małych ekranach */
+  }
+}
