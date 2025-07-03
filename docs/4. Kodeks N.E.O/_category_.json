@@ -1,0 +1,12 @@
+{
+  "label": "Kodeks N.E.O",
+  "link": {
+    "type": "generated-index",
+    "title": "Zasady i Kodeks N.E.O",
+    "description": "Poznaj zasady, którymi kierują się członkowie Nowej Elitarnej Organizacji.",
+    "slug": "/category/kodeks-neo"
+  },
+  "customProps": {
+    "keywords": ["kodeks", "zasady", "etyka"]
+  }
+}

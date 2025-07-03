@@ -35,7 +35,7 @@ Tak, ale rekrutacja nie jest publiczna. Odbywa się głównie przez wiadomości 
 ## 🔹 Z kim N.E.O jest w sojuszu, a z kim w konflikcie?
 
 Relacje z innymi graczami i klanami są dynamiczne. Prowadzimy listę obecnych sojuszników oraz aktywnych wrogów, która jest regularnie aktualizowana w dokumentacji. Konflikty często dotyczą walk o dominację na serwerach w grach takich jak MadCity czy War Tycoon.
-[Sprawdź listę sojuszy tutaj](/docs/6.%20Sojusze%20i%20Wrogowie/6.1%20Sojusze.md) Oraz [Sprawdź listę wrogów tutaj](/docs/6.%20Sojusze%20i%20Wrogowie/6.2%20Wrogowie.md).
+[Sprawdź listę sojuszy tutaj](/docs/7.%20Sojusze%20i%20Wrogowie/7.1%20Sojusze.md) Oraz [Sprawdź listę wrogów tutaj](/docs//7.%20Sojusze%20i%20Wrogowie/7.2%20Wrogowie.md).
 
 ---
 

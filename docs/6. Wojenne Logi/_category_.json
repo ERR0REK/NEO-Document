@@ -1,0 +1,12 @@
+{
+  "label": "Wojenne Logi",
+  "link": {
+    "type": "generated-index",
+    "title": "Wojenne Logi",
+    "description": "Tutaj znajdziesz informacje o wojnach (wygranych/latwo wygranych itd)",
+    "slug": "/category/wojenne-logi"
+  },
+  "customProps": {
+    "keywords": ["logi", "wojny"]
+  }
+}

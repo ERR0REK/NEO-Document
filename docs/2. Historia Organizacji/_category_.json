@@ -1,0 +1,12 @@
+{
+  "label": "Historia Organizacji",
+  "link": {
+    "type": "generated-index",
+    "title": "Historia Organizacji N.E.O",
+    "description": "Poznaj historię Elity i ewolucję w Nową Elitarną Organizację.",
+    "slug": "/category/historia-organizacji"
+  },
+  "customProps": {
+    "keywords": ["historia", "rozwój", "elita"]
+  }
+}

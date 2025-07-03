@@ -1,0 +1,12 @@
+{
+  "label": "Wprowadzenie",
+  "link": {
+    "type": "generated-index",
+    "title": "Wprowadzenie do N.E.O",
+    "description": "Dowiedz się, czym jest Nowa Elitarna Organizacja i jakie są jej podstawy.",
+    "slug": "/category/wprowadzenie"
+  },
+  "customProps": {
+    "keywords": ["NEO", "wprowadzenie", "czym jest"]
+  }
+}

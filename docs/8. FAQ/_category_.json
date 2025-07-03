@@ -1,0 +1,12 @@
+{
+  "label": "FAQ",
+  "link": {
+    "type": "generated-index",
+    "title": "Często Zadawane Pytania (FAQ)",
+    "description": "Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące N.E.O.",
+    "slug": "/category/faq"
+  },
+  "customProps": {
+    "keywords": ["faq", "pytania", "odpowiedzi"]
+  }
+}

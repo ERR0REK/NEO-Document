@@ -1,33 +1,74 @@
 /**
  * Docusaurus custom styles.
- * You can add your own CSS rules here.
+ * You.can add your own CSS rules here.
  * For more details, see https://docusaurus.io/docs/styling-css
  */
 
 /* ========================================= */
-/* Globalne zmienne CSS (kolory, czcionki) */
+/* Globalne zmienne CSS (kolory, czcionki) dla TRYBU JASNEGO (domyślnego) */
 /* ========================================= */
 :root {
-  --ifm-color-primary: #5d5dff; /* Główny kolor akcentu (głębszy niebieski/fiolet) */
-  --ifm-color-primary-dark: #4a4adc;
-  --ifm-color-primary-darker: #4242d5;
-  --ifm-color-primary-darkest: #3939cd;
-  --ifm-color-primary-light: #7b7bff;
-  --ifm-color-primary-lighter: #8989ff;
-  --ifm-color-primary-lightest: #9797ff;
+  --ifm-color-primary: #1e88e5; /* Soczysty, dynamiczny niebieski (np. linki, akcenty) */
+  --ifm-color-primary-dark: #1976d2;
+  --ifm-color-primary-darker: #1769cf;
+  --ifm-color-primary-darkest: #115293;
+  --ifm-color-primary-light: #42a5f5;
+  --ifm-color-primary-lighter: #64b5f6;
+  --ifm-color-primary-lightest: #90caf9;
 
-  --ifm-background-color: #1a1a1a; /* Bardzo ciemne tło */
-  --ifm-font-color-base: #f0f0f0; /* Jasny tekst na ciemnym tle */
+  --ifm-background-color: #ffffff; /* Czysta biel tła */
+  --ifm-font-color-base: #212121; /* Bardzo ciemny, prawie czarny tekst dla maksymalnej czytelności */
+  --ifm-font-color-secondary: #424242; /* Nieco jaśniejszy ciemny tekst dla mniej ważnych elementów */
 
   --ifm-code-font-size: 95%;
 
-  /* Dodatkowe kolory dla Twojego motywu NEO */
-  --neo-accent-glow: #a872ff; /* Jasny fiolet do efektów glow (dla tekstu tytułu) */
-  --neo-button-cta: #ffcc00; /* Kolor CTA przycisku (jasny żółty) */
-  --neo-button-cta-dark: #e6b800; /* Ciemniejszy odcień CTA */
-  --neo-card-background: #2a2a2a; /* Ciemniejszy odcień tła dla kart */
-  --neo-card-border: #444444; /* Delikatna ramka dla kart */
+  /* Dodatkowe kolory dla Twojego motywu NEO w TRYBIE JASNYM */
+  --neo-accent-glow: #00bcd4; /* Intensywny błękit do wyróżnień (glow, tytuły, hover) */
+  --neo-button-cta: #ffcc00; /* Kolor CTA przycisku (jasny żółty - bez zmian) */
+  --neo-button-cta-dark: #e6b800; /* Ciemniejszy odcień CTA (bez zmian) */
+  --neo-card-background: #f8f8f8; /* Bardzo jasne, delikatne tło dla kart */
+  --neo-card-border: #e0e0e0; /* Subtelna ramka dla kart */
+  --neo-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Lekki, dyskretny cień dla jasnego trybu */
+
+  /* Dedykowane kolory dla NAVBARA i FOOTERA w TRYBIE JASNYM */
+  --neo-navbar-background: #f8f8f8; /* Jasne tło dla navbara i footera */
+  --neo-footer-background: #f8f8f8;
+  --neo-footer-text: #212121; /* Ciemny tekst w stopce */
+  --neo-footer-link: var(--ifm-color-primary); /* Linki w stopce */
+  --neo-footer-border: #e0e0e0; /* Ramka stopki */
 }
+
+/* ========================================= */
+/* Globalne zmienne CSS (kolory, czcionki) dla TRYBU CIEMNEGO */
+/* ========================================= */
+html[data-theme='dark'] {
+  --ifm-color-primary: #00ffe1;
+  --ifm-color-primary-dark: #00e6cb;
+  --ifm-color-primary-darker: #00cdb4;
+  --ifm-color-primary-darkest: #00b49d;
+  --ifm-color-primary-light: #1affec;
+  --ifm-color-primary-lighter: #33ffef;
+  --ifm-color-primary-lightest: #4dfff2;
+
+  --ifm-background-color: #1a1a1a;
+  --ifm-font-color-base: #f0f0f0;
+  --ifm-font-color-secondary: #aaaaaa;
+
+  --neo-accent-glow: #a872ff;
+  --neo-button-cta: #ffcc00;
+  --neo-button-cta-dark: #e6b800;
+  --neo-card-background: #2a2a2a;
+  --neo-card-border: #444444;
+  --neo-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+
+  /* Dedykowane kolory dla NAVBARA i FOOTERA w TRYBIE CIEMNYM */
+  --neo-navbar-background: #121212; /* Ciemne tło dla navbara i footera (Twoje oryginalne) */
+  --neo-footer-background: #121212;
+  --neo-footer-text: #aaaaaa; /* Jasny tekst w stopce */
+  --neo-footer-link: #cccccc; /* Linki w stopce */
+  --neo-footer-border: #333333; /* Ramka stopki */
+}
+
 
 /* ========================================= */
 /* Globalne style dla body i linków */
@@ -35,7 +76,7 @@
 body {
     background-color: var(--ifm-background-color);
     color: var(--ifm-font-color-base);
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Bardziej nowoczesna czcionka */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 a {
@@ -45,7 +86,7 @@ a {
 }
 
 a:hover {
-    color: var(--neo-accent-glow); /* Jaśniejszy fiolet na hover */
+    color: var(--neo-accent-glow);
     text-decoration: underline;
 }
 
@@ -54,35 +95,33 @@ a:hover {
 /* Przyciski (standardowe Docusaurusowe) */
 /* ========================================= */
 .button--primary {
-  /* Kolor tła dla głównego przycisku CTA */
   background-color: var(--neo-button-cta);
-  color: #1a1a1a; /* Ciemny tekst na jasnym tle */
+  color: #1a1a1a;
   border: 2px solid var(--neo-button-cta-dark);
   border-radius: 8px;
   padding: 0.8rem 2.2rem;
   font-size: 1.15rem;
   font-weight: bold;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Mocniejszy cień */
+  box-shadow: var(--neo-box-shadow);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  text-transform: uppercase; /* Tekst wielkimi literami */
-  filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.6)); /* Delikatny glow */
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.6));
 }
 
 .button--primary:hover {
   background-color: var(--neo-button-cta-dark);
-  border-color: #cc9900; /* Ciemniejsza ramka na hover */
-  transform: translateY(-3px); /* Większe podniesienie */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Bardziej wyraźny cień na hover */
-  filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.8)); /* Intensywniejszy glow na hover */
+  border-color: #cc9900;
+  transform: translateY(-3px);
+  box-shadow: var(--neo-box-shadow);
+  filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.8));
 }
 
-/* Drugi typ przycisku (np. jeśli masz "Dowiedz się więcej" lub "GitHub") */
 .button--secondary {
   background-color: transparent;
-  color: var(--ifm-font-color-base); /* Jasny tekst */
-  border: 2px solid var(--ifm-font-color-base); /* Jasna ramka */
+  color: var(--ifm-font-color-base);
+  border: 2px solid var(--ifm-font-color-base);
   border-radius: 8px;
   padding: 0.8rem 2.2rem;
   font-size: 1.15rem;
@@ -90,12 +129,12 @@ a:hover {
   letter-spacing: 0.05em;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  margin-left: 15px; /* Odstęp od innego przycisku */
+  margin-left: 15px;
 }
 
 .button--secondary:hover {
   background-color: var(--ifm-font-color-base);
-  color: var(--ifm-background-color); /* Ciemny tekst na jasnym tle przy najechaniu */
+  color: var(--ifm-background-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -104,51 +143,47 @@ a:hover {
 /* Ikony i Karty w sekcjach (Czym jest N.E.O.?, Struktura, Sojusze) */
 /* ========================================= */
 
-/* Stylizuj karty dla tych sekcji (zakładam standardowy layout Docusaurusa z 'col--4') */
-.col.col--4 { /* To jest kontener dla każdej z 3 kolumn */
+.col.col--4 {
     background-color: var(--neo-card-background);
     border: 1px solid var(--neo-card-border);
     border-radius: 12px;
     padding: 2rem;
-    margin-top: 2.5rem; /* Większy odstęp między kolumnami a nagłówkiem hero */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Głęboki cień pod kartą */
+    margin-top: 2.5rem;
+    box-shadow: var(--neo-box-shadow);
     transition: all 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Wyrównanie do góry, aby tekst zaczynał się podobnie */
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
 }
 
 .col.col--4:hover {
-    transform: translateY(-8px) scale(1.02); /* Wyraźniejsze podniesienie i lekkie powiększenie */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--neo-box-shadow);
 }
 
-/* Przykładowa klasa dla ikon w tych sekcjach - ZMIEŃ NA WŁAŚCIWĄ! */
-/* Musisz sprawdzić w narzędziach deweloperskich, jaka klasa jest przypisana do tych SVG/obrazków */
-.featureSvg { /* Zastąp na właściwą klasę, np. ikonę wewnątrz karty */
+.featureSvg {
     transition: transform 0.3s ease, filter 0.3s ease;
-    filter: drop-shadow(0 0 5px rgba(123, 123, 255, 0.5)); /* Lekki glow na ikonach */
-    width: 80px; /* Przykład rozmiaru ikony */
+    filter: drop-shadow(0 0 5px var(--ifm-color-primary-light));
+    width: 80px;
     height: 80px;
     margin-bottom: 1rem;
 }
 
-.col.col--4:hover .featureSvg { /* Animacja ikony przy najechaniu na kartę */
-    transform: scale(1.15); /* Większe powiększenie ikony */
-    filter: drop-shadow(0 0 12px var(--neo-accent-glow)); /* Intensywniejszy glow */
+.col.col--4:hover .featureSvg {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px var(--neo-accent-glow));
 }
 
-/* Tytuły w sekcjach kart */
 .col.col--4 h3 {
-    color: var(--neo-accent-glow); /* Kolor tytułów w kartach */
+    color: var(--neo-accent-glow);
     margin-bottom: 0.75rem;
-    font-size: 1.7rem; /* Większy rozmiar tytułu karty */
+    font-size: 1.7rem;
 }
 
 .col.col--4 p {
-    color: var(--ifm-font-color-base); /* Kolor tekstu w kartach */
+    color: var(--ifm-font-color-base);
     font-size: 1rem;
 }
 
@@ -157,9 +192,9 @@ a:hover {
 /* Nagłówek i stopka */
 /* ========================================= */
 .navbar {
-    background-color: #121212; /* Nieco jaśniejsze tło dla navbara niż body */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    padding: 0.8rem 1.5rem; /* Większy padding dla navbara */
+    background-color: var(--neo-navbar-background); /* Teraz ta zmienna jest definiowana dla obu motywów */
+    box-shadow: var(--neo-box-shadow);
+    padding: 0.8rem 1.5rem;
 }
 
 .navbar__brand {
@@ -169,68 +204,108 @@ a:hover {
 }
 
 .navbar__link {
-    color: #cccccc;
+    color: var(--ifm-font-color-secondary);
     transition: color 0.3s ease;
 }
 
 .navbar__link:hover {
-    color: #ffffff;
+    color: var(--ifm-font-color-base);
 }
 
 .footer {
-    background-color: #121212;
-    padding: 2.5rem 0; /* Większy padding dla stopki */
+    background-color: var(--neo-footer-background); /* Teraz ta zmienna jest definiowana dla obu motywów */
+    padding: 2.5rem 0;
     font-size: 0.95rem;
-    color: #aaaaaa;
-    border-top: 1px solid #333333; /* Delikatna linia na górze stopki */
+    color: var(--neo-footer-text); /* Tekst w stopce - zmienna definiowana dla obu motywów */
+    border-top: 1px solid var(--neo-footer-border); /* Ramka stopki - zmienna definiowana dla obu motywów */
 }
 
-/* Możesz dodać style dla scrollbara, aby pasował do ciemnego motywu */
+/* Linki w stopce */
+.footer a {
+    color: var(--neo-footer-link); /* Linki w stopce - zmienna definiowana dla obu motywów */
+}
+
+/* Hover dla linków w stopce */
+.footer a:hover {
+    color: var(--ifm-color-primary-dark);
+}
+
+/* Kolumny tytułowe w stopce ("Dokumentacja", "Społeczność", "Więcej") */
+.footer__title {
+    color: var(--neo-footer-text); /* Upewniamy się, że tytuły kolumn mają odpowiedni kolor tekstu */
+}
+
+
+/* Scrollbar (może wymagać doprecyzowania dla jasnego motywu, ale ogólnie jest OK) */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #2a2a2a;
+    background: var(--neo-card-background);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #555555;
+    background: var(--neo-card-border);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #777777;
+    background: var(--ifm-color-primary-dark);
 }
 
+/* Style dla obrazków */
 .image-row {
-  display: flex; /* Używamy flexboxa do ułożenia elementów obok siebie */
-  flex-wrap: wrap; /* Pozwala obrazkom przechodzić do nowej linii, jeśli zabraknie miejsca */
-  gap: 15px; /* Odstęp między obrazkami */
-  justify-content: center; /* Wyśrodkowuje obrazki, jeśli jest ich mniej niż cały rząd */
-  align-items: flex-start; /* Wyrównuje obrazki do góry, jeśli mają różne wysokości */
-  margin-top: 20px; /* Odstęp od poprzedniego tekstu */
-  margin-bottom: 20px; /* Odstęp od kolejnego tekstu */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .image-row img {
-  max-width: 100%; /* Upewnia się, że obrazki nie wychodzą poza kontener */
-  height: auto; /* Zachowuje proporcje */
-  /* Możesz również ustawić konkretną szerokość, jeśli chcesz, aby były bardziej równe: */
-  /* width: 48%; */ /* Np. dla dwóch obrazków obok siebie */
-  /* lub konkretną wartość: */
-  /* width: 300px; */
-  border-radius: 8px; /* Opcjonalnie: zaokrąglone rogi dla obrazków */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Opcjonalnie: cień pod obrazkiem */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--neo-box-shadow);
 }
 
-/* Możesz dodać media queries, jeśli chcesz, aby na małych ekranach obrazki znowu układały się w kolumnach */
 @media (max-width: 768px) {
   .image-row {
-    flex-direction: column; /* Na małych ekranach układaj w kolumnie */
-    align-items: center; /* Wyśrodkuj w kolumnie */
+    flex-direction: column;
+    align-items: center;
   }
   .image-row img {
-    max-width: 90%; /* Zmniejsz szerokość na małych ekranach */
+    max-width: 90%;
   }
+}
+
+/* Właściwy tekst dokumentacji (sekcje docs) */
+.main-wrapper, .docMainContainer {
+    background-color: var(--ifm-background-color);
+    color: var(--ifm-font-color-base);
+}
+
+.markdown p, .markdown li, .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+    color: var(--ifm-font-color-base);
+}
+
+/* Sidebar dokumentacji */
+.theme-doc-sidebar-menu, .theme-doc-sidebar-item-link, .theme-doc-sidebar-category-label {
+    color: var(--ifm-font-color-secondary);
+}
+
+.theme-doc-sidebar-item-link.active, .theme-doc-sidebar-category-label.active {
+    color: var(--ifm-color-primary);
+}
+
+.theme-doc-sidebar-item-link:hover, .theme-doc-sidebar-category-label:hover {
+    color: var(--ifm-font-color-base);
+}
+
+.theme-doc-sidebar-item-category-level-1 {
+    color: var(--ifm-font-color-base);
+    font-weight: bold;
 }
