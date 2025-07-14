@@ -1,0 +1,67 @@
+/* src/components/LanguageWarningBanner/styles.module.css */
+
+.languageWarningBanner {
+  background: linear-gradient(90deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary) 100%); /* Domyślny gradient z custom.css */
+  color: var(--ifm-color-white); /* Biały tekst dla kontrastu */
+  text-align: center;
+  padding: 0.9rem 1.8rem; /* Zwiększony padding */
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 2.5rem;
+  border-radius: 8px; /* Mniej zaokrąglone rogi dla technicznego wyglądu */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  width: fit-content;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInDown 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid var(--ifm-color-primary-dark); /* Subtelna ramka */
+}
+
+.languageWarningBanner p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.languageWarningBanner p::before {
+  content: '🌐'; /* Ikona globusa */
+  font-size: 1.5rem;
+  line-height: 1;
+  /* Dodatkowy cień/glow dla ikony w trybie jasnym */
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dostosowanie koloru dla trybu ciemnego */
+html[data-theme='dark'] .languageWarningBanner {
+  background: linear-gradient(90deg, var(--ifm-color-primary-dark) 0%, var(--neo-accent-glow) 100%); /* Ciemniejszy gradient z accent-glow */
+  color: var(--ifm-color-white);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Intensywny neonowy cień w ciemnym trybie */
+  border-color: var(--neo-cyan); /* Neonowa ramka */
+}
+
+/* Zmiana ikony dla trybu ciemnego */
+html[data-theme='dark'] .languageWarningBanner p::before {
+  content: '⚠️'; /* Zmiana na ikonę ostrzeżenia */
+  color: var(--neo-cyan); /* Neonowy kolor */
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8)); /* Mocniejszy glow dla ikony */
+}

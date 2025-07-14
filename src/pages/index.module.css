@@ -3,21 +3,182 @@
  * and scoped locally.
  */
 
+/* Nagłówek główny - Hero Banner */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0; /* Zwiększony padding dla większej przestrzeni */
   text-align: center;
   position: relative;
-  overflow: hidden;
-}
+  overflow: hidden; /* Ważne dla efektów tła i animacji */
+  /* Tło heroBanner będzie dziedziczone z --ifm-background-color z custom.css,
+     ale możemy dodać subtelne efekty, które będą działać w obu trybach. */
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+  /* Delikatny efekt "szumu/siatki" - kolor będzie się mieszał z tłem trybu */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Używamy półprzezroczystych kolorów, aby efekt dobrze wyglądał na obu tłach */
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(0, 255, 255, 0.02), /* Bardzo delikatne cyanowe linie */
+      rgba(0, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+    opacity: 0.15; /* Bardzo subtelny efekt */
+    pointer-events: none; /* Upewnij się, że nie blokuje interakcji */
+    z-index: 1; /* Pod treścią, ale nad głównym tłem */
   }
 }
 
+/* Dostosowanie dla małych ekranów */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1rem; /* Mniejszy padding na mobilnych */
+  }
+}
+
+/* Stylizacja głównego tytułu (N.E.O. – Nowa Elitarna Organizacja) */
+.hero__title {
+  font-family: 'Montserrat', sans-serif; /* Używamy Montserrat, jak w custom.css */
+  font-weight: 700; /* Zapewniamy, że jest pogrubiony */
+  color: var(--ifm-font-color-base); /* Kolor tekstu zależy od trybu (ciemny w jasnym, jasny w ciemnym) */
+  letter-spacing: 2px; /* Zwiększone odstępy między literami dla nowoczesnego wyglądu */
+  margin-bottom: 0.5rem;
+  font-size: 3.5rem;
+  transition: all 0.3s ease; /* Płynna zmiana koloru przy przełączaniu trybów */
+
+  /* Efekt neonu/glow, który będzie się dostosowywał do trybu */
+  /* W trybie jasnym będzie to ciemny cień, w ciemnym - świecący */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2), /* Subtelny cień dla jasnego trybu */
+               0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dodatkowy efekt cienia/neonu dla tytułu w TRYBIE CIEMNYM */
+html[data-theme='dark'] .hero__title {
+  color: var(--ifm-color-primary); /* Jasny neonowy kolor z custom.css (np. #00ffe1) */
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), /* Poświata cyan */
+               0 0 20px rgba(0, 255, 255, 0.4);
+  animation: neonPulseDark 2s infinite alternate; /* Animacja tylko dla trybu ciemnego */
+}
+
+
+/* Rozmiar tytułu na małych ekranach */
+@media screen and (max-width: 768px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Główny podtytuł (Oficjalna dokumentacja społeczności...) */
+.hero__subtitle {
+  font-family: 'Open Sans', sans-serif; /* Używamy Open Sans */
+  color: var(--ifm-font-color-base); /* Kolor tekstu zależy od trybu */
+  font-weight: 400; /* Zapewniamy, że jest standardowy */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* Slogan N.E.O. (Honor. Dyscyplina. Braterstwo.) */
+.slogan {
+  font-family: 'Montserrat', sans-serif; /* Używamy Montserrat */
+  font-weight: 700; /* Pogrubiony */
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+
+  /* Kolor i cień dla sloganu w trybie jasnym */
+  color: var(--neo-dark-bg, #1a1a1a); /* Użyj ciemnego koloru tła z custom.css, aby był widoczny na jasnym tle */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4); /* Subtelny cień dla lepszej czytelności */
+}
+
+/* Kolor i cień dla sloganu w TRYBIE CIEMNYM */
+html[data-theme='dark'] .slogan {
+  color: var(--neo-magenta, #ff00ff); /* Intensywny neonowy kolor z custom.css */
+  text-shadow: 0 0 8px rgba(255, 0, 255, 0.7),
+               0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+/* Kontener przycisków */
 .buttons {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Zwiększony odstęp między przyciskami */
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Ogólna stylizacja przycisków w heroBanner */
+.buttons .button {
+  font-family: 'Open Sans', sans-serif; /* Używamy Open Sans dla przycisków */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.9rem 1.8rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  border-radius: 4px; /* Ostre, techniczne rogi */
+  font-weight: 600; /* Pogrubienie tekstu przycisku */
+}
+
+/* Stylizacja przycisków secondary (np. "Dowiedz się", "Kodeks") */
+/* Te style będą działać w OBU trybach, używając zmiennych Docusaurus/Twoich */
+.buttons .button--secondary {
+  background-color: transparent;
+  border-color: var(--ifm-font-color-base); /* Ramka w kolorze tekstu */
+  color: var(--ifm-font-color-base); /* Tekst w kolorze bazowym */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Subtelny cień */
+}
+
+.buttons .button--secondary:hover {
+  background-color: var(--ifm-color-primary); /* Tło hover w głównym kolorze akcentu */
+  color: var(--ifm-background-color); /* Tekst w kolorze tła (biały/ciemny) */
+  border-color: var(--ifm-color-primary); /* Ramka również w kolorze akcentu */
+  box-shadow: 0 0 15px var(--ifm-color-primary); /* Poświata w kolorze akcentu */
+  transform: translateY(-5px) scale(1.03); /* Większe podniesienie i powiększenie */
+}
+
+/* Stylizacja przycisku primary (Rekrutacja) */
+/* Ten przycisk ma specjalne kolory z custom.css niezależne od głównego akcentu */
+.buttons .button--primary {
+  background-color: var(--neo-button-cta); /* Kolor CTA z custom.css */
+  border-color: var(--neo-button-cta);
+  color: #1a1a1a; /* Zawsze ciemny tekst na tym przycisku */
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.7); /* Poświata żółta/pomarańczowa */
+}
+
+.buttons .button--primary:hover {
+  background-color: var(--neo-button-cta-dark); /* Ciemniejszy odcień na hover */
+  border-color: var(--neo-button-cta-dark);
+  box-shadow: 0 0 25px rgba(255, 204, 0, 1); /* Intensywniejsza poświata */
+  transform: translateY(-5px) scale(1.03); /* Większe podniesienie i powiększenie */
+}
+
+/* Animacja pulsowania neonu dla tytułu - tylko w TRYBIE CIEMNYM */
+@keyframes neonPulseDark {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.4);
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.9), 0 0 40px rgba(0, 255, 255, 0.7), 0 0 60px rgba(0, 255, 255, 0.5);
+    opacity: 0.9;
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.4);
+    opacity: 1;
+  }
 }

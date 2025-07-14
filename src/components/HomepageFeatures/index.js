@@ -33,7 +33,7 @@ const FeatureList = [
   // --- TUTAJ DODAJESZ NOWE KARTY ---
   {
     title: '⏳ Historia i Rozwój', // Nowa karta
-    Image: require('@site/static/img/Brak.png').default, // Potrzebujesz pliku PNG np. HistoriaIRozwoj.png
+    Image: require('@site/static/img/HistoriaIRozwoj.png').default, // Potrzebujesz pliku PNG np. HistoriaIRozwoj.png
     description: (
       <>
         Odkryj korzenie N.E.O. od jej powstania z Elity, przez kluczowe wydarzenia, aż po obecny kształt i plany na przyszłość.
@@ -42,7 +42,7 @@ const FeatureList = [
   },
   {
     title: '🛡️ Rekrutacja i Członkostwo', // Kolejna nowa karta
-    Image: require('@site/static/img/Brak.png').default, // Potrzebujesz pliku PNG
+    Image: require('@site/static/img/RekrutacjaICzlonkowstwo.png').default, // Potrzebujesz pliku PNG
     description: (
       <>
         Dowiedz się, jak dołączyć do N.E.O. i jakie są wymagania stawiane naszym członkom. Twoja droga do Elity zaczyna się tutaj.
@@ -51,7 +51,7 @@ const FeatureList = [
   },
   {
     title: '❓ Pytania i Odpowiedzi (FAQ)', // I jeszcze jedna
-    Image: require('@site/static/img/Brak.png').default, // Potrzebujesz pliku PNG
+    Image: require('@site/static/img/FAQ.png').default, // Potrzebujesz pliku PNG
     description: (
       <>
         Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące N.E.O., jej zasad, działań i przyszłości.

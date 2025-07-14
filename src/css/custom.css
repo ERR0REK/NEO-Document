@@ -1,3 +1,10 @@
+/* src/css/custom.css */
+
+/* IMPORT CZCIONEK NA SAMEJ GÓRZE PLIKU! */
+/* Montserrat dla nagłówków (np. 700) i Open Sans dla treści (np. 400, 600) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+
 /**
  * Docusaurus custom styles.
  * You.can add your own CSS rules here.
@@ -36,13 +43,29 @@
   --neo-footer-text: #212121; /* Ciemny tekst w stopce */
   --neo-footer-link: var(--ifm-color-primary); /* Linki w stopce */
   --neo-footer-border: #e0e0e0; /* Ramka stopki */
+
+  /* NOWE/Zaktualizowane ZMIENNE DLA NAVBARA W TRYBIE JASNYM */
+  --ifm-navbar-background-color: var(--neo-navbar-background); /* Użyj zmiennej neo */
+  --ifm-navbar-item-color: var(--ifm-font-color-base); /* Ciemny tekst linków */
+  --ifm-navbar-link-hover-color: var(--ifm-color-primary); /* Kolor hover, np. turkusowy */
+  --ifm-navbar-link-active-color: var(--ifm-color-primary); /* Kolor aktywnego linku */
+  --ifm-navbar-sidebar-background-color: var(--neo-navbar-background); /* Tło sidebar dla mobila */
+  --neo-navbar-border-color-light: var(--neo-footer-border); /* Jasna linia w trybie jasnym */
+  --neo-navbar-shadow-light: rgba(0, 0, 0, 0.15); /* Subtelniejszy cień dla navbara */
+  /* RGB dla transparentnych hoverów */
+  --ifm-color-primary-rgb: 30, 136, 229;
+
+  /* NOWE ZMIENNE DLA EFEKTÓW NEONOWYCH (tryb jasny) */
+  --neo-title-glow-color-light: 0, 188, 212; /* RGB dla turkusowego blasku (odpowiednik --neo-accent-glow, ale RGB) */
+  --neo-subtitle-glow-color-light: 255, 165, 0; /* Pomarańczowy/żółty dla podtytułu */
+  --neo-slogan-glow-color-light: 153, 50, 204; /* Fioletowy dla sloganu */
 }
 
 /* ========================================= */
 /* Globalne zmienne CSS (kolory, czcionki) dla TRYBU CIEMNEGO */
 /* ========================================= */
 html[data-theme='dark'] {
-  --ifm-color-primary: #00ffe1;
+  --ifm-color-primary: #00ffe1; /* Zielono-cyjanowy neon */
   --ifm-color-primary-dark: #00e6cb;
   --ifm-color-primary-darker: #00cdb4;
   --ifm-color-primary-darkest: #00b49d;
@@ -50,11 +73,12 @@ html[data-theme='dark'] {
   --ifm-color-primary-lighter: #33ffef;
   --ifm-color-primary-lightest: #4dfff2;
 
-  --ifm-background-color: #1a1a1a;
-  --ifm-font-color-base: #f0f0f0;
-  --ifm-font-color-secondary: #aaaaaa;
+  --ifm-background-color: #1a1a1a; /* Bardzo ciemne tło */
+  --ifm-font-color-base: #f0f0f0; /* Jasny tekst */
+  --ifm-font-color-secondary: #aaaaaa; /* Szary tekst */
 
-  --neo-accent-glow: #a872ff;
+  --neo-accent-glow: #a872ff; /* Fioletowy/magenta glow */
+  --neo-accent-glow-rgb: 168, 114, 255;
   --neo-button-cta: #ffcc00;
   --neo-button-cta-dark: #e6b800;
   --neo-card-background: #2a2a2a;
@@ -67,6 +91,28 @@ html[data-theme='dark'] {
   --neo-footer-text: #aaaaaa; /* Jasny tekst w stopce */
   --neo-footer-link: #cccccc; /* Linki w stopce */
   --neo-footer-border: #333333; /* Ramka stopki */
+
+  /* NOWE/Zaktualizowane ZMIENNE DLA NAVBARA W TRYBIE CIEMNYM */
+  --ifm-navbar-background-color: var(--neo-navbar-background); /* Użyj zmiennej neo */
+  --ifm-navbar-item-color: var(--ifm-font-color-base); /* Jasny tekst linków */
+  --ifm-navbar-link-hover-color: var(--ifm-color-primary); /* Neonowy turkus na hover */
+  --ifm-navbar-link-active-color: var(--neo-accent-glow); /* Neonowy magenta dla aktywnego */
+  --ifm-navbar-sidebar-background-color: #222; /* Tło sidebar dla mobila */
+  --neo-navbar-border-color-dark: var(--ifm-color-primary); /* Neonowa linia w trybie ciemnym */
+  --neo-navbar-shadow-dark: rgba(0, 255, 255, 0.25); /* Intensywniejsza poświata neonowa */
+  /* RGB dla transparentnych hoverów */
+  --neo-cyan-rgb: 0, 255, 225; /* Przykład RGB dla --ifm-color-primary w ciemnym trybie */
+  --neo-magenta-rgb: 168, 114, 255; /* Przykład RGB dla --neo-accent-glow w ciemnym trybie */
+
+  /* NOWE ZMIENNE DLA EFEKTÓW NEONOWYCH (tryb ciemny) */
+  --neo-title-glow-color-dark: var(--neo-cyan-rgb); /* Cyan dla tytułu */
+  --neo-subtitle-glow-color-dark: var(--neo-magenta-rgb); /* Magenta dla podtytułu */
+  --neo-slogan-glow-color-dark: 255, 105, 180; /* Gorący róż dla sloganu */
+
+  /* Zmienna dla tła Hero w trybie ciemnym - siatka */
+  --hero-background-dark: #101010; /* Głęboki, prawie czarny */
+  --hero-grid-color-dark: rgba(0, 255, 225, 0.15); /* Subtelny neonowy turkus dla linii siatki */
+  --hero-grid-glow-dark: rgba(0, 255, 225, 0.05); /* Delikatna poświata siatki */
 }
 
 
@@ -74,20 +120,21 @@ html[data-theme='dark'] {
 /* Globalne style dla body i linków */
 /* ========================================= */
 body {
-    background-color: var(--ifm-background-color);
-    color: var(--ifm-font-color-base);
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  /* ZASTOSUJ GLOBALNĄ CZCIONKĘ DLA CAŁEJ STRONY (treść) */
+  font-family: 'Open Sans', sans-serif, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 a {
-    color: var(--ifm-color-primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--neo-accent-glow);
-    text-decoration: underline;
+  color: var(--neo-accent-glow);
+  text-decoration: underline;
 }
 
 
@@ -108,6 +155,7 @@ a:hover {
   cursor: pointer;
   text-transform: uppercase;
   filter: drop-shadow(0 0 8px rgba(255, 204, 0, 0.6));
+  font-family: 'Open Sans', sans-serif; /* Zastosuj czcionkę do przycisków */
 }
 
 .button--primary:hover {
@@ -130,6 +178,7 @@ a:hover {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   margin-left: 15px;
+  font-family: 'Open Sans', sans-serif; /* Zastosuj czcionkę do przycisków */
 }
 
 .button--secondary:hover {
@@ -144,132 +193,336 @@ a:hover {
 /* ========================================= */
 
 .col.col--4 {
-    background-color: var(--neo-card-background);
-    border: 1px solid var(--neo-card-border);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-top: 2.5rem;
-    box-shadow: var(--neo-box-shadow);
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
+  background-color: var(--neo-card-background);
+  border: 1px solid var(--neo-card-border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+  box-shadow: var(--neo-box-shadow);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
 .col.col--4:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--neo-box-shadow);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--neo-box-shadow);
 }
 
 .featureSvg {
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: drop-shadow(0 0 5px var(--ifm-color-primary-light));
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 5px var(--ifm-color-primary-light));
+  width: 120px; /* <--- TUTAJ ZWIĘKSZONE! */
+  height: 120px; /* <--- TUTAJ ZWIĘKSZONE! */
+  margin-bottom: 1rem;
 }
 
 .col.col--4:hover .featureSvg {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 12px var(--neo-accent-glow));
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 12px var(--neo-accent-glow));
 }
 
 .col.col--4 h3 {
-    color: var(--neo-accent-glow);
-    margin-bottom: 0.75rem;
-    font-size: 1.7rem;
+  color: var(--neo-accent-glow);
+  margin-bottom: 0.75rem;
+  font-size: 1.7rem;
+  font-family: 'Montserrat', sans-serif; /* Zastosuj czcionkę do nagłówków kart */
 }
 
 .col.col--4 p {
-    color: var(--ifm-font-color-base);
-    font-size: 1rem;
+  color: var(--ifm-font-color-base);
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif; /* Zastosuj czcionkę do treści kart */
 }
 
 
 /* ========================================= */
-/* Nagłówek i stopka */
+/* Nagłówek (Navbar) - ZMIENIONA SEKCJA */
 /* ========================================= */
 .navbar {
-    background-color: var(--neo-navbar-background); /* Teraz ta zmienna jest definiowana dla obu motywów */
-    box-shadow: var(--neo-box-shadow);
-    padding: 0.8rem 1.5rem;
+  /* Kolor tła jest teraz kontrolowany przez --ifm-navbar-background-color */
+  background-color: var(--ifm-navbar-background-color);
+  /* Linia na dole i cień dostosowują się do trybu */
+  border-bottom: 1px solid var(--neo-navbar-border-color-light);
+  box-shadow: 0 2px 8px var(--neo-navbar-shadow-light);
+  padding: 0.8rem 1.5rem;
+  font-family: 'Open Sans', sans-serif; /* Zastosuj czcionkę do navbara */
+  transition: all 0.3s ease; /* Płynne przejścia przy zmianie motywu */
+}
+
+/* Specyficzne style dla Navbara w trybie ciemnym */
+html[data-theme='dark'] .navbar {
+  border-bottom: 1px solid var(--neo-navbar-border-color-dark); /* Neonowa linia w trybie ciemnym */
+  box-shadow: 0 2px 15px var(--neo-navbar-shadow-dark); /* Lekka poświata neonowa */
 }
 
 .navbar__brand {
-    color: var(--ifm-font-color-base);
-    font-weight: bold;
-    font-size: 1.2rem;
+  color: var(--ifm-navbar-item-color); /* Kolor dziedziczony ze zmiennych */
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif; /* Zastosuj czcionkę do brandu w navbarze */
+  transition: color 0.3s ease;
 }
 
+html[data-theme='dark'] .navbar__brand {
+  color: var(--ifm-color-primary); /* Neonowy kolor w trybie ciemnym */
+  text-shadow: 0 0 5px var(--ifm-color-primary); /* Lekki cień neonowy */
+}
+
+/* Stylizacja linków nawigacyjnych w Navbarze */
 .navbar__link {
-    color: var(--ifm-font-color-secondary);
-    transition: color 0.3s ease;
+  color: var(--ifm-navbar-item-color); /* Kolor tekstu zależy od trybu */
+  transition: all 0.3s ease;
+  padding: 0.75rem 1rem; /* Większy obszar klikalny */
+  border-radius: 4px; /* Zaokrąglenie przycisku hover */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
+/* Efekty hover dla linków w Navbarze (jasny tryb) */
 .navbar__link:hover {
-    color: var(--ifm-font-color-base);
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.1); /* Lekkie tło na hover */
+  transform: translateY(-1px); /* Subtelne uniesienie */
+  color: var(--ifm-navbar-link-hover-color); /* Zmiana koloru na akcent */
+  text-shadow: 0 0 5px var(--ifm-navbar-link-hover-color); /* Delikatny glow */
 }
 
+/* Efekty hover dla linków w Navbarze (ciemny tryb) */
+html[data-theme='dark'] .navbar__link:hover {
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.1); /* Lekkie tło neonowe na hover (używam ifm-color-primary-rgb, czyli cyan) */
+  color: var(--ifm-navbar-link-hover-color); /* Zmiana koloru na neonowy turkus */
+  text-shadow: 0 0 8px var(--ifm-color-primary), 0 0 15px var(--neo-magenta); /* Silniejszy neonowy glow (cyan i magenta) */
+}
+
+/* Stylizacja aktywnego linku w Navbarze */
+.navbar__link--active {
+  color: var(--ifm-navbar-link-active-color); /* Kolor zdefiniowany zmienną */
+  font-weight: bold;
+  /* background-color: rgba(var(--ifm-navbar-link-active-color-rgb), 0.1); */ /* Usunięto, aby nie kolidowało z border-bottom */
+  border-bottom: 2px solid var(--ifm-navbar-link-active-color); /* Podkreślenie aktywnego linku */
+  padding-bottom: calc(0.75rem - 2px); /* Dostosuj padding, aby linia była równa */
+}
+
+/* Aktywny link w trybie ciemnym */
+html[data-theme='dark'] .navbar__link--active {
+  color: var(--neo-magenta); /* Magenta */
+  text-shadow: 0 0 8px var(--neo-magenta), 0 0 15px var(--neo-magenta); /* Neonowy glow dla aktywnego */
+  border-bottom-color: var(--neo-magenta); /* Podkreślenie w kolorze magenta */
+}
+
+/* Dostosowanie przełącznika motywu (słońce/księżyc) */
+.toggleButton_gllP { /* Upewnij się, że ta klasa jest poprawna */
+    color: var(--ifm-navbar-item-color); /* Kolor ikony */
+    transition: color 0.3s ease, transform 0.2s ease, filter 0.3s ease;
+    padding: 0 0.5rem; /* Zwiększony obszar klikalny */
+}
+
+html[data-theme='dark'] .toggleButton_gllP {
+    color: var(--ifm-color-primary); /* Neonowy kolor w trybie ciemnym (cyan) */
+    filter: drop-shadow(0 0 5px var(--ifm-color-primary));
+}
+
+.toggleButton_gllP:hover {
+    transform: scale(1.1);
+    color: var(--ifm-navbar-link-hover-color); /* Kolor hover, aby było spójne */
+}
+
+html[data-theme='dark'] .toggleButton_gllP:hover {
+    color: var(--neo-accent-glow); /* Magenta na hover w trybie ciemnym */
+    filter: drop-shadow(0 0 8px var(--neo-accent-glow));
+}
+
+/* Stylizacja rozwijanej listy języków (lub innych dropdownów w Navbarze) */
+.dropdown__toggle {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--ifm-navbar-item-color);
+  transition: all 0.3s ease;
+}
+
+html[data-theme='dark'] .dropdown__toggle {
+  color: var(--ifm-navbar-item-color); /* Jasny tekst w trybie ciemnym */
+}
+
+.dropdown__toggle:hover {
+  color: var(--ifm-navbar-link-hover-color);
+  text-shadow: 0 0 5px var(--ifm-navbar-link-hover-color);
+}
+
+html[data-theme='dark'] .dropdown__toggle:hover {
+  color: var(--ifm-color-primary); /* Cyan */
+  text-shadow: 0 0 8px var(--ifm-color-primary);
+}
+
+.dropdown__menu {
+  background-color: var(--ifm-navbar-background-color);
+  border: 1px solid var(--neo-navbar-border-color-light);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+html[data-theme='dark'] .dropdown__menu {
+  background-color: var(--neo-dark-bg); /* Ciemniejsze tło dropdownu */
+  border: 1px solid var(--neo-magenta); /* Neonowa ramka */
+  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4); /* Neonowy cień */
+}
+
+.dropdown__link {
+  color: var(--ifm-navbar-item-color);
+  transition: all 0.2s ease;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+html[data-theme='dark'] .dropdown__link {
+  color: var(--ifm-font-color-base); /* Jasny tekst w dropdownie */
+}
+
+.dropdown__link:hover {
+  background-color: var(--ifm-color-primary); /* Jasny akcent na hover */
+  color: var(--ifm-background-color); /* Ciemny tekst na jasnym tle */
+}
+
+html[data-theme='dark'] .dropdown__link:hover {
+  background-color: var(--neo-magenta); /* Neonowy akcent na hover */
+  color: #fff; /* Biały tekst na neonowym tle */
+}
+
+
+/* Na małych ekranach (Mobile Navbar / Sidebar) */
+@media screen and (max-width: 996px) {
+  .navbar__toggle { /* Ikona hamburgera */
+    color: var(--ifm-navbar-item-color);
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+
+  html[data-theme='dark'] .navbar__toggle {
+    color: var(--ifm-color-primary); /* Neonowy cyan */
+  }
+
+  .navbar__toggle:hover {
+    transform: scale(1.1);
+  }
+
+  .navbar-sidebar {
+    background-color: var(--ifm-navbar-sidebar-background-color);
+    border-left: 1px solid var(--neo-navbar-border-color-light); /* Linia boczna */
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  html[data-theme='dark'] .navbar-sidebar {
+    background-color: #222; /* Nieco jaśniejszy niż pełny czarny dla czytelności */
+    border-left: 1px solid var(--neo-magenta); /* Neonowa linia boczna */
+    box-shadow: -5px 0 20px rgba(255, 0, 255, 0.4); /* Neonowy cień */
+  }
+
+  /* Linki w sidebarze mobilnym */
+  .navbar-sidebar__link {
+    color: var(--ifm-navbar-item-color);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  html[data-theme='dark'] .navbar-sidebar__link {
+    color: var(--ifm-font-color-base); /* Jaśniejszy tekst */
+  }
+
+  .navbar-sidebar__link:hover {
+    color: var(--ifm-navbar-link-hover-color);
+    background-color: rgba(var(--ifm-color-primary-rgb), 0.05);
+  }
+
+  html[data-theme='dark'] .navbar-sidebar__link:hover {
+    color: var(--ifm-color-primary);
+    background-color: rgba(var(--ifm-color-primary-rgb), 0.1);
+  }
+
+  .navbar-sidebar__link--active {
+    color: var(--ifm-navbar-link-active-color);
+    font-weight: bold;
+    border-left: 3px solid var(--ifm-navbar-link-active-color);
+    padding-left: calc(1rem - 3px); /* Dostosuj padding, aby linia była równa */
+  }
+
+  html[data-theme='dark'] .navbar-sidebar__link--active {
+    color: var(--neo-magenta);
+    border-left-color: var(--neo-magenta);
+  }
+}
+
+
+/* ========================================= */
+/* Stopka (Footer) - BEZ ZMIAN W TEJ SEKCJI, bo jest już dobrze zdefiniowana */
+/* ========================================= */
 .footer {
-    background-color: var(--neo-footer-background); /* Teraz ta zmienna jest definiowana dla obu motywów */
-    padding: 2.5rem 0;
-    font-size: 0.95rem;
-    color: var(--neo-footer-text); /* Tekst w stopce - zmienna definiowana dla obu motywów */
-    border-top: 1px solid var(--neo-footer-border); /* Ramka stopki - zmienna definiowana dla obu motywów */
+  background-color: var(--neo-footer-background); /* Teraz ta zmienna jest definiowana dla obu motywów */
+  padding: 2.5rem 0;
+  font-size: 0.95rem;
+  color: var(--neo-footer-text); /* Tekst w stopce - zmienna definiowana dla obu motywów */
+  border-top: 1px solid var(--neo-footer-border); /* Ramka stopki - zmienna definiowana dla obu motywów */
+  font-family: 'Open Sans', sans-serif; /* Zastosuj czcionkę do stopki */
 }
 
 /* Linki w stopce */
 .footer a {
-    color: var(--neo-footer-link); /* Linki w stopce - zmienna definiowana dla obu motywów */
+  color: var(--neo-footer-link); /* Linki w stopce - zmienna definiowana dla obu motywów */
 }
 
 /* Hover dla linków w stopce */
 .footer a:hover {
-    color: var(--ifm-color-primary-dark);
+  color: var(--ifm-color-primary-dark);
 }
 
 /* Kolumny tytułowe w stopce ("Dokumentacja", "Społeczność", "Więcej") */
 .footer__title {
-    color: var(--neo-footer-text); /* Upewniamy się, że tytuły kolumn mają odpowiedni kolor tekstu */
+  color: var(--neo-footer-text); /* Upewniamy się, że tytuły kolumn mają odpowiedni kolor tekstu */
+  font-family: 'Montserrat', sans-serif; /* Zastosuj czcionkę do tytułów kolumn w stopce */
 }
 
 
 /* Scrollbar (może wymagać doprecyzowania dla jasnego motywu, ale ogólnie jest OK) */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--neo-card-background);
+  background: var(--neo-card-background);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--neo-card-border);
-    border-radius: 5px;
+  background: var(--neo-card-border);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--ifm-color-primary-dark);
+  background: var(--ifm-color-primary-dark);
 }
 
 /* Style dla obrazków */
 .image-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .image-row img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: var(--neo-box-shadow);
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--neo-box-shadow);
 }
 
 @media (max-width: 768px) {
@@ -284,28 +537,38 @@ a:hover {
 
 /* Właściwy tekst dokumentacji (sekcje docs) */
 .main-wrapper, .docMainContainer {
-    background-color: var(--ifm-background-color);
-    color: var(--ifm-font-color-base);
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-family: 'Open Sans', sans-serif; /* Zastosuj czcionkę do głównej treści dokumentacji */
 }
 
-.markdown p, .markdown li, .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
-    color: var(--ifm-font-color-base);
+.markdown p, .markdown li {
+  color: var(--ifm-font-color-base);
+  font-family: 'Open Sans', sans-serif; /* Zastosuj czcionkę do paragrafów i list w markdownie */
+}
+
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+  color: var(--ifm-font-color-base);
+  font-family: 'Montserrat', sans-serif; /* Zastosuj czcionkę do nagłówków w markdownie */
+  font-weight: 700; /* Upewnij się, że są pogrubione */
 }
 
 /* Sidebar dokumentacji */
 .theme-doc-sidebar-menu, .theme-doc-sidebar-item-link, .theme-doc-sidebar-category-label {
-    color: var(--ifm-font-color-secondary);
+  color: var(--ifm-font-color-secondary);
+  font-family: 'Open Sans', sans-serif; /* Zastosuj czcionkę do elementów sidebar */
 }
 
 .theme-doc-sidebar-item-link.active, .theme-doc-sidebar-category-label.active {
-    color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
 }
 
 .theme-doc-sidebar-item-link:hover, .theme-doc-sidebar-category-label:hover {
-    color: var(--ifm-font-color-base);
+  color: var(--ifm-font-color-base);
 }
 
 .theme-doc-sidebar-item-category-level-1 {
-    color: var(--ifm-font-color-base);
-    font-weight: bold;
+  color: var(--ifm-font-color-base);
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif; /* Zastosuj czcionkę do głównych kategorii sidebar */
 }

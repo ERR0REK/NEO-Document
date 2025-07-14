@@ -51,7 +51,7 @@ Szczegółowy kodeks znajduje się w sekcji [Kodeks N.E.O](/docs/4.%20Kodeks%20N
 
 ---
 
-## 🎮 W jakie gry gramy? {/* Nowa sekcja FAQ */}
+## 🎮 W jakie gry gramy?
 
 Poniżej znajdziecie listę gier, z którymi **N.E.O** jest powiązana. Aktywnie uczestniczymy w tych tytułach, organizując wspólne akcje, rywalizując z innymi grupami i wspierając się nawzajem.
 

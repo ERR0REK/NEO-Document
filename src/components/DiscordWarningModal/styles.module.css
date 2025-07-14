@@ -1,0 +1,122 @@
+/* src/components/DiscordWarningModal/styles.module.css */
+
+.warningOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85); /* Jeszcze ciemniejsze tło, by skupić uwagę */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  backdrop-filter: blur(8px); /* Lekko mocniejsze rozmycie */
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+  transition: opacity 0.3s ease-out;
+}
+
+.warningOverlay.closing {
+  opacity: 0;
+}
+
+.warningContent {
+  /* Tło modala ostrzegawczego będzie ciemne, niezależnie od trybu */
+  background: var(--neo-dark-bg, #1a1a1a);
+  padding: 2.5rem; /* Więcej paddingu */
+  border-radius: 6px; /* Bardzo ostre rogi */
+  max-width: 450px; /* Nieco szerszy */
+  width: 90%;
+  position: relative;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.6); /* Intensywny, fioletowy neonowy cień */
+  color: var(--neo-light-text, #add8e6);
+  text-align: center;
+  border: 1px solid var(--neo-magenta, #ff00ff); /* Fioletowa neonowa ramka */
+
+  transform: scale(0.9);
+  opacity: 0;
+  animation: scaleIn 0.4s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Wydłużona animacja */
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.warningContent.closing {
+  animation: scaleOut 0.4s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.85); opacity: 0; } /* Start z mniejszej skali */
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+
+.warningContent h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--ifm-color-danger); /* Czerwony kolor dla ostrzeżenia */
+  margin-bottom: 1rem;
+  font-size: 2rem; /* Większy nagłówek */
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Neonowy cień czerwony */
+}
+
+.warningContent p {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  color: var(--neo-light-text, #add8e6);
+}
+
+.okButton {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--ifm-color-primary); /* Główny kolor akcentu Docusaurusa */
+  color: var(--ifm-color-white);
+  border: 1px solid var(--ifm-color-primary); /* Ramka pasująca do tła */
+  border-radius: 6px; /* Ostre rogi */
+  padding: 0.9rem 1.8rem; /* Większy padding */
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px var(--ifm-color-primary); /* Neonowy cień w kolorze akcentu */
+}
+
+.okButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-3px); /* Większe uniesienie */
+  box-shadow: 0 0 25px var(--ifm-color-primary-dark); /* Mocniejszy neonowy cień */
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2.2rem; /* Większy X */
+  cursor: pointer;
+  color: var(--neo-light-text, #add8e6);
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+  opacity: 1;
+  color: var(--ifm-color-danger);
+}

@@ -1,0 +1,179 @@
+/* src/components/RecruitmentModal/styles.module.css */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75); /* Nieco ciemniejsze tło */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(12px); /* Nieco mocniejsze rozmycie tła */
+  -webkit-backdrop-filter: blur(12px);
+
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modalOverlay.open {
+  opacity: 1;
+}
+
+.modalOverlay.closing {
+  opacity: 0;
+}
+
+.modalContent {
+  /* Tło modala będzie ciemne niezależnie od trybu, aby pasować do koncepcji rekrutacji */
+  background: var(--neo-dark-bg, #1a1a1a); /* Używamy ciemnego tła z custom.css */
+  padding: 3rem; /* Więcej paddingu */
+  border-radius: 8px; /* Mniej zaokrąglone rogi dla bardziej technicznego wyglądu */
+  max-width: 600px; /* Lekko zmniejszony max-width */
+  width: 90%;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Mocniejszy, cyberpunkowy cień/glow */
+  color: var(--neo-light-text, #add8e6); /* Jasny tekst na ciemnym tle */
+  border: 1px solid var(--ifm-color-primary-dark); /* Subtelna ramka w kolorze akcentu */
+
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: modalEnter 0.4s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Wydłużona animacja wejścia */
+}
+
+.modalContent.closing {
+  animation: modalExit 0.4s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53); /* Wydłużona animacja wyjścia */
+}
+
+@keyframes modalEnter {
+  from {
+    transform: translateY(-30px) scale(0.95); /* Większe przesunięcie i lekko mniejsze na start */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modalExit {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-30px) scale(0.95);
+    opacity: 0;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--neo-light-text, #add8e6); /* Kolor tekstu, by pasował do modala */
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+  opacity: 1;
+  color: var(--ifm-color-danger); /* Czerwony przy najechaniu */
+}
+
+.modalContent h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--ifm-color-primary); /* Główny kolor akcentu Docusaurusa */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em; /* Delikatny spacing */
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5); /* Neonowy cień dla nagłówka modala */
+}
+
+.modalContent p {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.7; /* Zwiększony line-height dla czytelności */
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--neo-light-text, #add8e6);
+}
+
+.modalContent ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.modalContent ul li {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  padding-left: 2rem; /* Więcej miejsca na niestandardową ikonę */
+  margin-bottom: 1rem; /* Większy odstęp między punktami */
+  font-size: 1.05rem;
+  color: var(--neo-light-text, #add8e6);
+}
+
+.modalContent ul li::before {
+  content: '⚡'; /* Cyberpunkowa ikona (np. błyskawica) */
+  position: absolute;
+  left: 0;
+  color: var(--neo-cyan, #00ffff); /* Kolor neonowy dla ikony */
+  font-size: 1.4rem; /* Większy rozmiar ikony */
+  top: 0px; /* Drobna korekta pozycji pionowej */
+  filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5)); /* Subtelny glow */
+}
+
+.discordContact {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  margin-top: 2.5rem; /* Większy odstęp */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--neo-light-text, #add8e6);
+}
+
+.discordContact a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  color: var(--ifm-color-white);
+  background-color: #7289DA; /* Klasyczny kolor Discorda */
+  padding: 0.9rem 1.8rem; /* Większy padding dla przycisku */
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1.2rem; /* Większy odstęp od tekstu */
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 15px rgba(114, 137, 218, 0.7); /* Neonowy cień Discorda */
+}
+
+.discordContact a:hover {
+  background-color: #677BC4;
+  transform: translateY(-3px); /* Większe uniesienie */
+  box-shadow: 0 0 25px rgba(114, 137, 218, 1); /* Mocniejszy neonowy cień */
+}
+
+.discordIcon {
+  width: 30px; /* Większa ikona Discorda */
+  height: 30px;
+}
+
+.modalFooter {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 2.5rem; /* Większy odstęp */
+  font-style: italic;
+  text-align: center;
+  opacity: 0.7; /* Lekko ciemniejszy opacity */
+  font-size: 0.95rem;
+  color: var(--neo-light-text, #add8e6);
+}
