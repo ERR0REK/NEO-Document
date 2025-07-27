@@ -16,13 +16,13 @@ N.E.O (Nowa Elitarna Organizacja) to społeczność graczy Roblox, która powsta
 
 ## 🔹 Skąd się wzięła N.E.O?
 
-N.E.O została założona przez dawnych członków Elity – nieformalnej grupy graczy, która dominowała w grze MadCity (Chapter 1). Gdy stara Elita przestała działać, z inicjatywy liderów powstała nowa struktura, oparta na wartościach starej, ale dostosowana do nowych realiów.
+N.E.O została założona przez dawnych członków Elity nieformalnej grupy graczy, która dominowała w grze MadCity (Chapter 1). Gdy stara Elita przestała działać, z inicjatywy liderów powstała nowa struktura, oparta na wartościach starej, ale dostosowana do nowych realiów.
 
 ---
 
 ## 🔹 Czym różni się N.E.O od zwykłej grupy na Robloxie?
 
-To nie tylko grupa – to organizacja z historią, strukturą, kodeksem i hierarchią. Posiada właścicieli, współwłaścicieli, rekrutację, dokumentację, a nawet sojusze i listę wrogów. Członkowie traktują udział poważnie – jako część większego projektu.
+To nie tylko grupa to organizacja z historią, strukturą, kodeksem i hierarchią. Posiada właścicieli, współwłaścicieli, rekrutację, dokumentację, a nawet sojusze i listę wrogów. Członkowie traktują udział poważnie jako część większego projektu.
 
 ---
 
@@ -58,8 +58,8 @@ Poniżej znajdziecie listę gier, z którymi **N.E.O** jest powiązana. Aktywnie
 ### **Nasze Główne Gry:**
 
 * **💥 MadCity – Chapter 1 & Chapter 2**
-    * **MadCity Chapter 1 (2019–2022)** to czas, w którym narodziła się tzw. **Sztuczna Elita** – legendarna, nieformalna grupa graczy, która zdobyła reputację poprzez walki w więzieniu, konflikty z innymi nacjami i obecność na publicznych serwerach. To był okres budowania tożsamości, zasad i honoru – fundamentów, które przetrwały do dziś.
-    * Wraz z premierą **MadCity Chapter 2 (2022–20XX)** przyszedł nowy rozdział – **odrodzenie Elity pod nazwą N.E.O (Nowa Elitarna Organizacja)**. Nowa struktura, nowe pokolenie graczy, ale ten sam duch elitarności i lojalności wobec wspólnoty. W N.E.O kontynuujemy dziedzictwo, adaptując się do nowych mechanik, map i wyzwań.
+    * **MadCity Chapter 1 (2019–2022)** to czas, w którym narodziła się tzw. **Sztuczna Elita** legendarna, nieformalna grupa graczy, która zdobyła reputację poprzez walki w więzieniu, konflikty z innymi nacjami i obecność na publicznych serwerach. To był okres budowania tożsamości, zasad i honoru – fundamentów, które przetrwały do dziś.
+    * Wraz z premierą **MadCity Chapter 2 (2022–20XX)** przyszedł nowy rozdział **odrodzenie Elity pod nazwą N.E.O (Nowa Elitarna Organizacja)**. Nowa struktura, nowe pokolenie graczy, ale ten sam duch elitarności i lojalności wobec wspólnoty. W N.E.O kontynuujemy dziedzictwo, adaptując się do nowych mechanik, map i wyzwań.
     * > 🕊️ *Przeszłość tworzy legendy, ale to przyszłość pisze historię.*
     
 * * **🔫 Weaponry**

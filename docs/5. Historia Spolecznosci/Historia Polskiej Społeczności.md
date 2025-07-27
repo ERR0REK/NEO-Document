@@ -6,7 +6,7 @@
 
 ## 1. Rozkwit i Aktywność (2019–2022)
 
-W **2019 roku** zaczęła formować się polska społeczność w grze **Mad City: Chapter 1**. Byliśmy wtedy jednymi z najbardziej aktywnych graczy – nasza grupa liczyła **ponad 30 osób**. Naszą największą siłą były umiejętności w PvP oraz doskonała znajomość zaawansowanych broni, takich jak **AWP** czy **Deagle**, co dawało nam ogromną przewagę nad innymi.
+W **2019 roku** zaczęła formować się polska społeczność w grze **Mad City: Chapter 1**. Byliśmy wtedy jednymi z najbardziej aktywnych graczy, nasza grupa liczyła **ponad 30 osób**. Naszą największą siłą były umiejętności w PvP oraz doskonała znajomość zaawansowanych broni, takich jak **AWP** czy **Deagle**, co dawało nam ogromną przewagę nad innymi.
 
 W **2020 roku** powstała **Sztuczna Elita**, która połączyła graczy Mad City i **Murder Mystery 2 (MM2)**. Choć czasem dochodziło do wewnętrznych rywalizacji i konfliktów, byliśmy jedną z najważniejszych polskich grup na Robloxie. Wzajemnie się wspieraliśmy i rozwijaliśmy nasze umiejętności, co pozwoliło nam dominować w obu grach.
 
@@ -20,9 +20,9 @@ Rok **2022** przyniósł spore zmiany wraz z premierą **Mad City: Chapter 2**. 
 
 ## 3. Odrodzenie i Nowa Nadzieja (2023–2024)
 
-Pod koniec **2023 roku** nasza społeczność zaczęła się odradzać. Dołączyli do nas nowi gracze, a starzy znajomi wrócili, szukając nowych wyzwań. Nasza aktywność rozkwitła w grach takich jak **Weaponry**, **Jailbreak**, **MM2**, a także w oczekiwaniu na premierę gry **Wanted**.
+Pod koniec **2023 roku** nasza społeczność zaczęła się odradzać. Dołączyli do nas nowi gracze, a starzy znajomi wrócili, szukając nowych wyzwań. Nasza aktywność rozkwitła w grach takich jak **Weaponry**, **Jailbreak**, **MM2**, a także w oczekiwaniu na premierę gry **Wanted (wcześniej LockedUp)**.
 
-**Nowa Elita**, składająca się z weteranów Mad City, Jailbreak i MM2, tchnęła w grupę nową energię. Choć dołączyli też nowi gracze, ich wpływ był jeszcze ograniczony. Mimo to rywalizacja pozostawała zacięta – szczególnie w Weaponry, gdzie ja i **Tiuulgu1** zaczęliśmy wyraźnie pokazywać swój potencjał.
+**Nowa Elita**, składająca się z weteranów Mad City, Jailbreak i MM2, tchnęła w grupę nową energię. Choć dołączyli też nowi gracze, ich wpływ był jeszcze ograniczony. Mimo to rywalizacja pozostawała zacięta, szczególnie w Weaponry, gdzie ja i **Tiuulgu1** zaczęliśmy wyraźnie pokazywać swój potencjał.
 
 ---
 
@@ -48,7 +48,7 @@ Jednak po dłuższych rozważaniach uznałem, że Mad City: Chapter 1 **ostatecz
 
 ## 6. Przekształcenie Nowej Elity na Organizację
 
-W pierwszym kwartale **2025 roku** postanowiłem, że **Nowa Elita** nie będzie już zwykłą grupą, lecz prawdziwą **organizacją**. Organizacja oznacza współpracę i konkretne zasady – pomagamy sobie nawzajem, ale też wspólnie bronimy swoich członków. W przeszłości Elita była oparta na rywalizacji, ale teraz nauczyliśmy się doceniać wartość współpracy.
+W pierwszym kwartale **2025 roku** postanowiłem, że **Nowa Elita** nie będzie już zwykłą grupą, lecz prawdziwą **organizacją**. Organizacja oznacza współpracę i konkretne zasady, pomagamy sobie nawzajem, ale też wspólnie bronimy swoich członków. W przeszłości Elita była oparta na rywalizacji, ale teraz nauczyliśmy się doceniać wartość współpracy.
 
 ---
 
@@ -57,6 +57,9 @@ W pierwszym kwartale **2025 roku** postanowiłem, że **Nowa Elita** nie będzie
 * **11 marca 2025**: Usunęliśmy **MM2** i **Jailbreak** z listy gier Elity, ponieważ nie pasowały już do jej charakteru i strategii.
 * **19 marca 2025**: Dodaliśmy **Mad City: Chapter 1** do Elity.
 * **21 marca 2025**: Dodaliśmy **War Tycoon** do Elity.
+* **11 czerwca 2025** - Utworzono "Wojenne Logi" na discordzie.
+* **2 lipca 2025** - Oficjalne uruchomienie Strony Internetowej pod nazwą "NEO Dokumentacja".
+* **3 lipca 2025** - Utworzono "Wojenne Logi" na stronie internetowej i opublikowanie pierwszej wygranej N.E.O.
 
 ---
 

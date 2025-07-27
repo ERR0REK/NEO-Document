@@ -1,50 +1,57 @@
 # 🌟 Czym jest N.E.O?
 
-**N.E.O – Nowa Elitarna Organizacja** to społeczność graczy na Robloxie. Ale to nie byle jaka grupa! Jesteśmy **spadkobiercami legendarnej "Elity"**, która rządziła w latach 2020-2022. N.E.O. to nic innego jak **odrodzenie tego samego ducha**, który kiedyś łączył najlepszych, najbardziej oddanych i lojalnych graczy w wybranych tytułach. To nie tylko nowa nazwa – to nowy rozdział dla prawdziwych elit.
+**N.E.O – Nowa Elitarna Organizacja** to społeczność graczy na Robloxie. Ale to nie byle jaka grupa. Jesteśmy **spadkobiercami legendarnej Elity**, która działała w latach 2020–2022. N.E.O to **odrodzenie tamtego ducha** – łączy nas lojalność, zaangażowanie i klimat prawdziwej ekipy. Nie zmieniamy tylko nazwy, otwieramy **nowy rozdział**.
 
 ---
 
 ## 🧭 Skąd się wzięło N.E.O?
 
-W latach 2020-2022 istniała taka nieoficjalna, ale bardzo znana społeczność, którą nazywaliśmy po prostu **"Elitą"**. Jej członkowie działali głównie w grze **Mad City (Chapter 1)**. Tam wspólnie organizowali akcje, walczyli z innymi frakcjami (i z graczami spoza nich), budując silną tożsamość opartą na honorze, zasadach i braterstwie.
+W latach 2020–2022 istniała znana, choć nieformalna społeczność – **Elita**. Działała głównie w grze **Mad City (Chapter 1)**. Wspólne akcje, walki z innymi grupami, konkretne zasady i braterstwo – to był jej znak rozpoznawczy.
 
-Z czasem Elita przestała działać, ale **pamięć o niej wcale nie zginęła**. Właśnie z tego ducha, z tej historii, narodziła się **N.E.O.** Jesteśmy jej kontynuacją, ale też **otwieramy zupełnie nowy rozdział**.
+Z czasem Elita przestała istnieć, ale pamięć przetrwała. Właśnie z tej historii powstała **N.E.O.**. Nie kopiujemy przeszłości – **rozwijamy ją** i robimy coś nowego.
 
 ---
 
 ## 🛡️ Kim jesteśmy dzisiaj?
 
-Dzisiaj **N.E.O.** to przede wszystkim:
+Dzisiaj **N.E.O.** to:
 
-* **Społeczność graczy Roblox**, których łączy wspólny cel i lojalność wobec grupy.
-* **Organizacją z prawdziwego zdarzenia**, z własnymi zasadami, jasną hierarchią i wartościami.
-* **Elitarną siłą**, która działa w wybranych grach, dążąc do perfekcji w grze zespołowej i dominacji.
+• społeczność graczy Roblox z wspólnym celem  
+• zorganizowana grupa z jasnymi zasadami i hierarchią  
+• elitarna ekipa, która gra zespołowo i dąży do dominacji w grach
 
 ---
 
 ## 🎮 Gdzie nas znajdziesz?
 
-Skupiamy się na grach, gdzie **liczy się strategia, współpraca i dominacja**:
+Gramy tam, gdzie liczy się strategia i współpraca:
 
-* 🪖 **War Tycoon** – tutaj skupiamy się na **budowie i rozwijaniu potężnych baz wojskowych**, zarządzaniu zasobami i tworzeniu armii. Naszym celem jest **dominacja nad serwerem** poprzez strategiczną ekspansję, modernizację uzbrojenia i udział w bitwach o hegemonię.
-* 🕵️ **Wanted** – zanurzamy się w **rozbudowanym otwartym świecie**, gdzie nasi członkowie mogą wcielać się w **stróżów prawa, przestępców lub zwykłych obywateli**. Angażujemy się w napady, misje i prace, wykorzystując **rozległe możliwości miasta** do strategicznych działań N.E.O. (P.S. Jeszcze ta gra nie wyszła)
-* 🏙️ **Mad City Chapter 1 & 2** – to nasza historyczna arena, **otwarty świat** pełen możliwości, gdzie kontynuujemy dziedzictwo Elity. Tutaj nasi członkowie wcielają się w **bohaterów lub złoczyńców**, uczestnicząc w **intensywnych napadach, pościgach policyjnych i strategicznych operacjach**. To właśnie w Mad City budowaliśmy naszą legendę i nadal dążymy do dominacji.
-* 🔫 **Weaponry** – dynamiczna strzelanka PvP, w której kluczowe są **umiejętności strzeleckie i natychmiastowa akcja**. Gra oferuje **szeroki wybór broni**, a jej sednem są szybkie, bezkompromisowe starcia.
+**🪖 War Tycoon**  
+Budujemy bazy, rozwijamy wojsko (Frakcje), zarządzamy zasobami i walczymy o kontrolę nad serwerem.
+
+**🕵️ Wanted**  
+Otwarty świat, w którym wcielamy się w policjantów, przestępców albo obywateli. Napady, misje, działania w mieście – to nasz żywioł. (P.S. Gra jeszcze w produkcji)
+
+**🏙️ Mad City Chapter 1 & 2**  
+To tu wszystko się zaczęło. Do dziś działamy w Mad City, kontynuując historię Elity i biorąc udział w napadach, pościgach i strategicznych akcjach.
+
+**🔫 Weaponry**  
+Szybka, dynamiczna strzelanka PvP. Liczą się refleks, celność i dobre wyczucie chwili. Idealna do wspólnych treningów i zabawy.
 
 ---
 
 ## 💎 Co nas wyróżnia?
 
-**N.E.O.** to nie tylko wspólne granie – to przede wszystkim **sposób myślenia i bycia**, który opiera się na:
+**N.E.O.** to nie tylko wspólne granie. To sposób bycia. Liczą się dla nas:
 
-* **Zasadach** – u nas nie ma miejsca na chaos, nielojalność czy oszustwa (hackowanie).
-* **Doświadczeniu** – wielu z nas to weterani dawnej Elity, więc wiemy, co robimy.
-* **Hierarchii i szacunku** – każdy zna swoje miejsce i wie, co ma robić, a szacunek jest podstawą.
-* **Jedności** – nie zostawiamy nikogo samego. Jesteśmy jak rodzina.
+• zasady – bez oszustw i nielojalności  
+• doświadczenie – wielu z nas to dawni członkowie Elity  
+• hierarchia – każdy zna swoje miejsce, a szacunek to podstawa  
+• jedność – nie zostawiamy nikogo samego, działamy jak rodzina
 
-Jesteśmy wspólnotą, która **pamięta swoje korzenie** i **wie, dokąd zmierza**.
+Pamiętamy, skąd pochodzimy i wiemy, dokąd idziemy.
 
 ---
 
-> **N.E.O. to coś więcej niż grupa. To nasza wspólna historia, nasz honor i nowy początek.**
-> Jeśli czujesz, że to miejsce dla Ciebie – witaj w rodzinie.
+> **N.E.O. to coś więcej niż grupa. To wspólna historia, honor i nowy początek.**  
+> Jeśli czujesz, że to dla Ciebie – **witaj w rodzinie**.

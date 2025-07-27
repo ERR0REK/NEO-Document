@@ -1,43 +1,81 @@
 /* src/components/LanguageWarningBanner/styles.module.css */
 
+/* Zmienne dla gradientów, aby łatwiej było je zmieniać i utrzymać spójność */
+:root {
+  --banner-gradient-light: linear-gradient(90deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary) 100%);
+  --banner-border-light: var(--ifm-color-primary-dark);
+  --banner-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme='dark'] {
+  --banner-gradient-dark: linear-gradient(90deg, var(--neo-cyan-rgb), var(--neo-magenta-rgb)); /* Od cyjanu do magenty dla trybu ciemnego */
+  --banner-border-dark: var(--neo-magenta);
+  --banner-shadow-dark: 0 0 25px rgba(var(--neo-cyan-rgb), 0.7), 0 0 40px rgba(var(--neo-magenta-rgb), 0.5);
+}
+
 .languageWarningBanner {
-  background: linear-gradient(90deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary) 100%); /* Domyślny gradient z custom.css */
-  color: var(--ifm-color-white); /* Biały tekst dla kontrastu */
+  background: var(--banner-gradient-light);
+  color: var(--ifm-color-white);
   text-align: center;
-  padding: 0.9rem 1.8rem; /* Zwiększony padding */
-  font-size: 1.05rem;
+  padding: 1rem 2rem; /* Zwiększony padding, użyj rem */
+  font-size: 1.05rem; /* Użyj rem */
   font-weight: 600;
   font-family: 'Open Sans', sans-serif;
-  margin-bottom: 2.5rem;
-  border-radius: 8px; /* Mniej zaokrąglone rogi dla technicznego wyglądu */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  margin-bottom: 2.5rem; /* Użyj rem */
+  border-radius: 10px; /* Nieco bardziej zaokrąglone rogi dla lepszego wrażenia */
+  box-shadow: var(--banner-shadow-light);
   width: fit-content;
-  max-width: 90%;
+  max-width: 90vw; /* Użyj vw dla responsywności względem szerokości viewportu */
   margin-left: auto;
   margin-right: auto;
-  animation: fadeInDown 0.5s ease-out forwards;
+  animation: fadeInDown 0.6s ease-out forwards, subtleNeonGlow 3s infinite alternate ease-in-out; /* Nowa animacja subtleNeonGlow */
   opacity: 0;
   transform: translateY(-20px);
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  border: 1px solid var(--ifm-color-primary-dark); /* Subtelna ramka */
+  gap: 1rem; /* Zwiększony odstęp między elementami */
+  border: 1px solid var(--banner-border-light);
+  position: relative; /* Potrzebne dla przycisku zamknięcia */
+  overflow: hidden; /* Aby glow nie wychodził poza zaokrąglenia */
 }
+
+/* Pseudo-element do animacji tła (tylko w trybie ciemnym) */
+html[data-theme='dark'] .languageWarningBanner::before {
+  content: '';
+  position: absolute;
+  top: -20px; /* Rozszerzenie poza element dla efektu glow */
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(45deg, rgba(var(--neo-cyan-rgb), 0.3), rgba(var(--neo-magenta-rgb), 0.3));
+  filter: blur(25px); /* Mocne rozmycie dla poświaty */
+  z-index: -1;
+  opacity: 0; /* Domyślnie niewidoczny */
+  transition: opacity 0.3s ease-in-out;
+  animation: neonBackgroundPulse 4s infinite alternate ease-in-out; /* Animacja pulsowania tła */
+}
+
+html[data-theme='dark'] .languageWarningBanner:hover::before {
+  opacity: 1; /* Aktywacja poświaty na hover */
+}
+
 
 .languageWarningBanner p {
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem; /* Użyj rem */
+  flex-grow: 1; /* Pozwoli na elastyczne rozciąganie tekstu */
+  justify-content: center; /* Wyśrodkuj tekst */
 }
 
 .languageWarningBanner p::before {
   content: '🌐'; /* Ikona globusa */
-  font-size: 1.5rem;
+  font-size: 1.8rem; /* Większa ikona */
   line-height: 1;
-  /* Dodatkowy cień/glow dla ikony w trybie jasnym */
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2)); /* Subtelniejszy cień dla trybu jasnego */
+  transition: filter 0.3s ease; /* Płynne przejście dla filtra */
 }
 
 @keyframes fadeInDown {
@@ -51,17 +89,118 @@
   }
 }
 
+/* Animacja subtelnego pulsowania neonowego glow */
+@keyframes subtleNeonGlow {
+  0% {
+    box-shadow: var(--banner-shadow-light);
+  }
+  50% {
+    box-shadow: var(--banner-shadow-light), 0 0 10px rgba(var(--ifm-color-primary-rgb), 0.4);
+  }
+  100% {
+    box-shadow: var(--banner-shadow-light);
+  }
+}
+
+/* Animacja pulsowania tła w trybie ciemnym */
+@keyframes neonBackgroundPulse {
+  0% {
+    filter: blur(20px);
+    opacity: 0.2;
+  }
+  50% {
+    filter: blur(35px);
+    opacity: 0.5;
+  }
+  100% {
+    filter: blur(20px);
+    opacity: 0.2;
+  }
+}
+
+
 /* Dostosowanie koloru dla trybu ciemnego */
 html[data-theme='dark'] .languageWarningBanner {
-  background: linear-gradient(90deg, var(--ifm-color-primary-dark) 0%, var(--neo-accent-glow) 100%); /* Ciemniejszy gradient z accent-glow */
+  background: var(--banner-gradient-dark);
   color: var(--ifm-color-white);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Intensywny neonowy cień w ciemnym trybie */
-  border-color: var(--neo-cyan); /* Neonowa ramka */
+  box-shadow: var(--banner-shadow-dark);
+  border-color: var(--banner-border-dark);
+  /* Animacja glow już dodana w .languageWarningBanner */
 }
 
 /* Zmiana ikony dla trybu ciemnego */
 html[data-theme='dark'] .languageWarningBanner p::before {
   content: '⚠️'; /* Zmiana na ikonę ostrzeżenia */
-  color: var(--neo-cyan); /* Neonowy kolor */
-  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8)); /* Mocniejszy glow dla ikony */
+  color: var(--neo-yellow); /* Neonowy żółty dla ikony ostrzeżenia */
+  filter: drop-shadow(0 0 10px rgba(var(--neo-yellow-rgb), 0.9)); /* Mocniejszy glow dla ikony */
+}
+
+/* --- Przycisk zamknięcia --- */
+.closeBannerButton {
+  background: none;
+  border: none;
+  font-size: 1.8rem; /* Użyj rem */
+  color: var(--ifm-color-white);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  padding: 0.2rem; /* Mały padding dla obszaru kliknięcia */
+  line-height: 1; /* Aby ikona była wyśrodkowana */
+  margin-left: auto; /* Przesuwa przycisk na prawo */
+}
+
+.closeBannerButton:hover {
+  opacity: 1;
+  transform: scale(1.1) rotate(15deg); /* Delikatny obrót i powiększenie */
+  color: var(--ifm-color-white); /* Utrzymanie białego koloru */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); /* Lekki biały glow */
+}
+
+html[data-theme='dark'] .closeBannerButton {
+  color: var(--neo-light-text);
+  filter: drop-shadow(0 0 5px rgba(var(--neo-light-text-rgb), 0.5)); /* Zakładając, że masz RGB dla neo-light-text */
+}
+
+html[data-theme='dark'] .closeBannerButton:hover {
+  color: var(--neo-magenta);
+  filter: drop-shadow(0 0 10px rgba(var(--neo-magenta-rgb), 0.8));
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* --- Responsywność --- */
+@media (max-width: 768px) {
+  .languageWarningBanner {
+    padding: 0.8rem 1rem; /* Mniejszy padding na mobilnych */
+    font-size: 0.95rem; /* Mniejszy font */
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+  }
+
+  .languageWarningBanner p::before {
+    font-size: 1.2rem; /* Mniejsza ikona na mobilnych */
+  }
+
+  .closeBannerButton {
+    font-size: 1.5rem; /* Mniejszy przycisk zamknięcia na mobilnych */
+    padding: 0.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .languageWarningBanner {
+    flex-direction: column; /* Ułóż elementy w kolumnie */
+    gap: 0.5rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .languageWarningBanner p {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 0.2rem;
+  }
+
+  .closeBannerButton {
+    position: static; /* Pozycjonowanie statyczne, aby był pod tekstem */
+    margin-top: 0.5rem; /* Odstęp od tekstu */
+  }
 }
