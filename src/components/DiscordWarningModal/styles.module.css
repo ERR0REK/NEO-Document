@@ -3,18 +3,23 @@
 /* Definicje zmiennych dla modala ostrzegawczego */
 :root {
   /* Jasny tryb - zmienne */
-  --warning-shadow-light: 0 0 20px rgba(255, 0, 0, 0.4); /* Subtelniejszy cień czerwony */
-  --warning-border-light: 1px solid var(--ifm-color-danger);
-  --warning-button-shadow-light: 0 0 15px var(--ifm-color-primary);
+  --warning-shadow-light: 0 0 20px rgba(var(--neo-magenta-rgb), 0.4);
+  --warning-border-light: 1px solid var(--neo-magenta);
+  --warning-header-color-light: var(--ifm-color-danger);
+  --warning-header-shadow-light: 0 0 15px rgba(var(--ifm-color-danger-rgb), 0.9), 0 0 30px rgba(var(--ifm-color-danger-rgb), 0.6);
+  --warning-button-ok-shadow-light: 0 0 15px rgba(var(--neo-cyan-rgb), 0.5);
+  --warning-button-cancel-shadow-light: 0 0 15px rgba(var(--ifm-color-danger-rgb), 0.5);
 }
 
 html[data-theme='dark'] {
   /* Ciemny tryb - zmienne neonowe */
-  --warning-shadow-dark: 0 0 40px rgba(var(--neo-magenta-rgb), 0.7), 0 0 80px rgba(255, 0, 0, 0.4); /* Podwójny neon: magenta i czerwień */
+  --warning-shadow-dark: 0 0 40px rgba(var(--neo-magenta-rgb), 0.7);
   --warning-border-dark: 1px solid var(--neo-magenta);
-  --warning-header-color-dark: var(--ifm-color-danger); /* Czerwień dla nagłówka */
-  --warning-header-shadow-dark: 0 0 15px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 0, 0, 0.6); /* Mocniejszy czerwony neon */
-  --warning-button-shadow-dark: 0 0 20px rgba(var(--neo-cyan-rgb), 0.8); /* Neonowy cień przycisku */
+  --warning-header-color-dark: var(--ifm-color-danger);
+  --warning-header-shadow-dark: 0 0 15px rgba(var(--ifm-color-danger-rgb), 0.9), 0 0 30px rgba(var(--ifm-color-danger-rgb), 0.6);
+  --warning-button-ok-shadow-dark: 0 0 20px rgba(var(--neo-cyan-rgb), 0.8);
+  --warning-button-cancel-shadow-dark: 0 0 20px rgba(var(--neo-magenta-rgb), 0.8);
+  --neo-box-shadow-hover-dark: 0 12px 45px rgba(0, 0, 0, 0.7);
 }
 
 .warningOverlay {
@@ -23,40 +28,39 @@ html[data-theme='dark'] {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9); /* Jeszcze ciemniejsze tło, by maksymalnie skupić uwagę */
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1001;
-  backdrop-filter: blur(10px); /* Mocniejsze rozmycie */
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
-  animation: fadeIn 0.4s forwards; /* Dłuższa animacja */
-  transition: opacity 0.4s ease-out; /* Dłuższa transycja */
+  animation: fadeIn 0.4s forwards;
 }
 
 .warningOverlay.closing {
   opacity: 0;
-  transition: opacity 0.4s ease-in; /* Animacja znikania */
+  transition: opacity 0.4s ease-in;
 }
 
 .warningContent {
   background: var(--neo-dark-bg, #1a1a1a);
-  padding: clamp(2rem, 5vw, 3rem); /* Dynamiczny padding */
-  border-radius: 8px; /* Nieco bardziej zaokrąglone rogi dla lepszego wrażenia */
-  max-width: clamp(300px, 80vw, 500px); /* Dynamiczna szerokość z marginesami od krawędzi */
-  max-height: 90vh; /* Zapewnia bufor od góry/dołu */
-  overflow-y: auto; /* Przewijanie, jeśli zawartość jest za długa */
+  padding: clamp(2rem, 5vw, 3rem);
+  border-radius: 8px;
+  max-width: clamp(300px, 80vw, 500px);
+  max-height: 90vh;
+  overflow-y: auto;
   width: 90%;
   position: relative;
-  box-shadow: var(--warning-shadow-light); /* Użycie zmiennej */
+  box-shadow: var(--warning-shadow-light);
   color: var(--neo-light-text, #add8e6);
   text-align: center;
-  border: var(--warning-border-light); /* Użycie zmiennej */
+  border: var(--warning-border-light);
 
-  transform: scale(0.85); /* Start z mniejszej skali */
+  transform: scale(0.85);
   opacity: 0;
-  animation: scaleIn 0.5s forwards cubic-bezier(0.25, 0.8, 0.5, 1.2); /* Lekko "sprężyste" wejście */
+  animation: scaleIn 0.5s forwards cubic-bezier(0.25, 0.8, 0.5, 1.2), pulseGlow 3s infinite alternate ease-in-out;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
@@ -75,7 +79,7 @@ html[data-theme='dark'] .warningContent {
 }
 
 @keyframes scaleIn {
-  from { transform: scale(0.7); opacity: 0; } /* Jeszcze mniejsza skala startowa */
+  from { transform: scale(0.7); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
@@ -85,33 +89,29 @@ html[data-theme='dark'] .warningContent {
     opacity: 1;
   }
   to {
-    transform: scale(0.7); /* Z powrotem do mniejszej skali */
+    transform: scale(0.7);
     opacity: 0;
   }
 }
 
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 20px rgba(var(--neo-magenta-rgb), 0.5); }
+  to { box-shadow: 0 0 35px rgba(var(--neo-magenta-rgb), 0.9); }
+}
+
 .warningContent h3 {
   font-family: 'Montserrat', sans-serif;
-  color: var(--ifm-color-danger); /* Czerwony kolor dla ostrzeżenia */
+  color: var(--ifm-color-danger);
   margin-bottom: 1rem;
-  font-size: clamp(1.8rem, 5vw, 2.5rem); /* Dynamiczny rozmiar nagłówka */
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Neonowy cień czerwony */
-  position: relative; /* Dla ikony */
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem; /* Odstęp między ikoną a tekstem */
-}
-
-/* Ikona ostrzeżenia w nagłówku */
-.warningContent h3::before {
-  content: '⚠'; /* Symbol ostrzeżenia */
-  font-size: 1.2em; /* Relatywny rozmiar */
-  line-height: 1;
-  color: inherit; /* Dziedziczy kolor z h3 */
-  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)); /* Czerwony glow dla ikony */
-  animation: warningPulse 1.5s infinite alternate ease-in-out; /* Animacja pulsowania */
+  gap: 0.8rem;
+  animation: warningTextPulse 1.5s infinite alternate ease-in-out;
 }
 
 html[data-theme='dark'] .warningContent h3 {
@@ -119,15 +119,29 @@ html[data-theme='dark'] .warningContent h3 {
   text-shadow: var(--warning-header-shadow-dark);
 }
 
-@keyframes warningPulse {
+@keyframes warningTextPulse {
+  from { text-shadow: 0 0 5px rgba(255, 0, 0, 0.7); }
+  to { text-shadow: 0 0 15px rgba(255, 0, 0, 1); }
+}
+
+.warningContent h3::before {
+  content: '⚠';
+  font-size: 1.2em;
+  line-height: 1;
+  color: inherit;
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+  animation: warningIconPulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes warningIconPulse {
   from { filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.7)); }
   to { filter: drop-shadow(0 0 15px rgba(255, 0, 0, 1)); }
 }
 
 .warningContent p {
   font-family: 'Open Sans', sans-serif;
-  line-height: 1.7; /* Zwiększony line-height dla czytelności */
-  margin-bottom: 2rem; /* Większy odstęp od przycisków */
+  line-height: 1.7;
+  margin-bottom: 2rem;
   font-size: 1.05rem;
   color: var(--neo-light-text, #add8e6);
 }
@@ -135,91 +149,87 @@ html[data-theme='dark'] .warningContent h3 {
 .buttonContainer {
   display: flex;
   justify-content: center;
-  gap: 1.5rem; /* Odstęp między przyciskami */
-  flex-wrap: wrap; /* Zezwól na zawijanie przycisków na małych ekranach */
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .okButton,
-.cancelButton { /* Dodano styl dla przycisku anulowania */
+.cancelButton {
   font-family: 'Open Sans', sans-serif;
+  border-radius: 8px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  min-width: 120px;
+}
+
+.okButton {
   background-color: var(--ifm-color-primary);
   color: var(--ifm-color-white);
   border: 1px solid var(--ifm-color-primary);
-  border-radius: 8px; /* Zaokrąglone rogi */
-  padding: 0.8rem 1.6rem; /* Lekko mniejszy padding */
-  font-size: 1.05rem; /* Lekko mniejszy font */
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  box-shadow: var(--warning-button-shadow-light); /* Użycie zmiennej */
-  min-width: 120px; /* Minimalna szerokość przycisku */
+  box-shadow: var(--warning-button-ok-shadow-light);
 }
 
-html[data-theme='dark'] .okButton,
-html[data-theme='dark'] .cancelButton {
-  background-color: var(--ifm-color-primary-dark); /* Ciemniejszy dla trybu ciemnego */
-  border-color: var(--neo-cyan); /* Neonowy kolor ramki */
-  box-shadow: var(--warning-button-shadow-dark);
+html[data-theme='dark'] .okButton {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--neo-cyan);
+  box-shadow: var(--warning-button-ok-shadow-dark);
 }
 
-.okButton:hover,
-.cancelButton:hover {
-  background-color: var(--ifm-color-primary-darker); /* Ciemniejszy na hover */
-  transform: translateY(-4px) scale(1.03); /* Większe uniesienie i powiększenie */
-  box-shadow: 0 0 30px var(--ifm-color-primary), 0 0 50px rgba(var(--ifm-color-primary-rgb), 0.5); /* Mocniejszy cień na hover */
+.okButton:hover {
+  background-color: var(--neo-cyan);
+  color: var(--ifm-color-white);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 30px rgba(var(--neo-cyan-rgb), 0.8), 0 0 50px rgba(var(--neo-cyan-rgb), 0.5);
 }
 
-html[data-theme='dark'] .okButton:hover,
-html[data-theme='dark'] .cancelButton:hover {
-  background-color: var(--neo-cyan); /* Neonowy cyjan na hover */
-  box-shadow: 0 0 40px rgba(var(--neo-cyan-rgb), 1), 0 0 70px rgba(var(--neo-cyan-rgb), 0.7);
-}
-
-/* Styl dla przycisku "Anuluj" / "Nie zgadzam się" */
 .cancelButton {
-  background-color: transparent; /* Przezroczyste tło */
-  color: var(--ifm-color-danger); /* Czerwony tekst */
-  border-color: var(--ifm-color-danger); /* Czerwona ramka */
-  box-shadow: none; /* Brak początkowego cienia */
+  background-color: transparent;
+  color: var(--ifm-color-danger);
+  border: 1px solid var(--ifm-color-danger);
+  box-shadow: none;
 }
 
 html[data-theme='dark'] .cancelButton {
-  background-color: transparent;
-  color: var(--neo-magenta); /* Neonowa magenta dla anuluj w trybie ciemnym */
+  color: var(--neo-magenta);
   border-color: var(--neo-magenta);
+  box-shadow: var(--warning-button-cancel-shadow-dark);
 }
 
 .cancelButton:hover {
-  background-color: var(--ifm-color-danger); /* Czerwone tło na hover */
-  color: var(--ifm-color-white); /* Biały tekst na hover */
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7); /* Czerwony cień na hover */
+  background-color: var(--ifm-color-danger);
+  color: var(--ifm-color-white);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
 }
 
 html[data-theme='dark'] .cancelButton:hover {
-  background-color: var(--neo-magenta); /* Neonowa magenta na hover */
+  background-color: var(--neo-magenta);
   color: var(--ifm-color-white);
   box-shadow: 0 0 30px rgba(var(--neo-magenta-rgb), 1), 0 0 50px rgba(var(--neo-magenta-rgb), 0.6);
 }
 
 .closeButton {
   position: absolute;
-  top: 1rem; /* Użycie rem */
-  right: 1rem; /* Użycie rem */
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
-  font-size: 2.2rem; /* Użycie rem */
+  font-size: 2.2rem;
   cursor: pointer;
   color: var(--neo-light-text, #add8e6);
   opacity: 0.7;
   transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.3s ease;
-  filter: drop-shadow(0 0 5px rgba(var(--neo-cyan-rgb), 0.5)); /* Subtelny glow */
+  filter: drop-shadow(0 0 5px rgba(var(--neo-cyan-rgb), 0.5));
 }
 
 .closeButton:hover {
   opacity: 1;
   color: var(--ifm-color-danger);
-  transform: rotate(90deg) scale(1.1); /* Obrót i powiększenie */
-  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8)); /* Mocniejszy czerwony glow */
+  transform: rotate(90deg) scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
 }
 
 /* --- Responsywność --- */
@@ -228,33 +238,27 @@ html[data-theme='dark'] .cancelButton:hover {
     padding: 1.5rem;
     max-width: 95vw;
   }
-
   .warningContent h3 {
     font-size: clamp(1.5rem, 7vw, 2rem);
     gap: 0.5rem;
   }
-
   .warningContent h3::before {
-    font-size: 1em; /* Mniejsza ikona na mobilnych */
+    font-size: 1em;
   }
-
   .warningContent p {
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
   }
-
   .okButton,
   .cancelButton {
     padding: 0.7rem 1.2rem;
     font-size: 0.95rem;
-    min-width: unset; /* Usuń min-width, aby dostosować się do treści */
+    min-width: unset;
   }
-
   .buttonContainer {
-    flex-direction: column; /* Przyciski w kolumnie na małych ekranach */
+    flex-direction: column;
     gap: 0.8rem;
   }
-
   .closeButton {
     font-size: 1.8rem;
     top: 0.8rem;

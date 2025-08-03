@@ -6,12 +6,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.95); /* Jeszcze ciemniejsze tło dla maksymalnego odcięcia */
+  background-color: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(20px); /* Bardzo mocne rozmycie */
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
   opacity: 0;
@@ -28,28 +28,52 @@
 
 .modalContent {
   background: var(--neo-dark-bg, #1a1a1a);
-  /* Padding dynamiczny, minimalny 2rem, preferowany 4vw/4vh, maksymalny 3.5rem */
-  padding: clamp(2rem, 4vw, 3.5rem); /* Dostosowuje padding do rozmiaru viewportu */
-  border-radius: 10px; /* Nieco bardziej zaokrąglone rogi dla lepszego wrażenia */
-  /* Maksymalna szerokość ograniczona do 80% viewportu, ale nie mniej niż 320px i nie więcej niż 700px */
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: 10px;
   max-width: clamp(320px, 80vw, 700px);
-  /* Maksymalna wysokość ograniczona do 90% viewportu, zapewniając marginesy od góry/dołu */
-  max-height: 90vh; /* Zapewnia bufor od górnej i dolnej krawędzi */
-  overflow-y: auto; /* Włącza przewijanie, jeśli zawartość przekroczy max-height */
+  max-height: 90vh;
+  overflow-y: auto;
 
-  width: 90%; /* Nadal elastyczna szerokość */
+  width: 90%;
   position: relative;
-  box-shadow: 0 0 40px rgba(var(--neo-cyan-rgb), 0.7), 0 0 80px rgba(var(--neo-magenta-rgb), 0.5); /* Wzmocnione neony */
+  box-shadow: 0 0 40px rgba(var(--neo-cyan-rgb), 0.7), 0 0 80px rgba(var(--neo-magenta-rgb), 0.5);
   color: var(--neo-light-text, #add8e6);
   border: 1px solid var(--neo-cyan);
 
   transform: translateY(-5vh) scale(0.95);
   opacity: 0;
-  animation: modalEnter 0.5s forwards cubic-bezier(0.25, 0.8, 0.5, 1.2);
+  animation: modalEnter 0.5s forwards cubic-bezier(0.25, 0.8, 0.5, 1.2), pulseModalGlow 2.5s infinite alternate ease-in-out;
 }
 
 .modalContent.closing {
   animation: modalExit 0.4s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.modalContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    rgba(var(--neo-cyan-rgb), 0.1) 1px,
+    rgba(var(--neo-cyan-rgb), 0.1) 2px
+  ),
+  repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(var(--neo-cyan-rgb), 0.1) 1px,
+    rgba(var(--neo-cyan-rgb), 0.1) 2px
+  );
+  background-size: 20px 20px;
+  opacity: 0.1;
+  pointer-events: none;
+  animation: gridFade 5s infinite alternate;
 }
 
 @keyframes modalEnter {
@@ -74,6 +98,16 @@
   }
 }
 
+@keyframes pulseModalGlow {
+  from { box-shadow: 0 0 30px rgba(var(--neo-cyan-rgb), 0.7), 0 0 60px rgba(var(--neo-magenta-rgb), 0.5); }
+  to { box-shadow: 0 0 45px rgba(var(--neo-cyan-rgb), 0.9), 0 0 90px rgba(var(--neo-magenta-rgb), 0.7); }
+}
+
+@keyframes gridFade {
+  from { opacity: 0.1; }
+  to { opacity: 0.15; }
+}
+
 .closeButton {
   position: absolute;
   top: 1rem;
@@ -90,9 +124,9 @@
 
 .closeButton:hover {
   opacity: 1;
-  color: var(--ifm-color-danger);
+  color: var(--neo-magenta);
   transform: rotate(180deg) scale(1.1);
-  filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.9));
+  filter: drop-shadow(0 0 15px rgba(var(--neo-magenta-rgb), 0.9));
 }
 
 .modalContent h3 {
@@ -100,7 +134,7 @@
   color: var(--neo-cyan, #00ffff);
   text-align: center;
   margin-bottom: 1.5rem;
-  font-size: clamp(1.8rem, 4.5vw, 2.8rem); /* Lekko zmodyfikowany clamp dla nagłówka */
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-shadow: 0 0 12px rgba(var(--neo-cyan-rgb), 0.9), 0 0 25px rgba(var(--neo-cyan-rgb), 0.7);
@@ -108,12 +142,8 @@
 }
 
 @keyframes neonTextPulse {
-  from {
-    text-shadow: 0 0 10px rgba(var(--neo-cyan-rgb), 0.7), 0 0 15px rgba(var(--neo-cyan-rgb), 0.5);
-  }
-  to {
-    text-shadow: 0 0 15px rgba(var(--neo-cyan-rgb), 1), 0 0 25px rgba(var(--neo-cyan-rgb), 0.8), 0 0 40px rgba(var(--neo-cyan-rgb), 0.6);
-  }
+  from { text-shadow: 0 0 10px rgba(var(--neo-cyan-rgb), 0.7), 0 0 15px rgba(var(--neo-cyan-rgb), 0.5); }
+  to { text-shadow: 0 0 15px rgba(var(--neo-cyan-rgb), 1), 0 0 25px rgba(var(--neo-cyan-rgb), 0.8), 0 0 40px rgba(var(--neo-cyan-rgb), 0.6); }
 }
 
 .modalContent p {
@@ -148,16 +178,14 @@
   font-size: 1.8rem;
   top: 0.1em;
   filter: drop-shadow(0 0 8px rgba(var(--neo-magenta-rgb), 0.7));
-  animation: iconPulse 1.5s infinite alternate ease-in-out;
+  animation: iconFlicker 0.8s infinite alternate ease-in-out;
 }
 
-@keyframes iconPulse {
-  from {
-    filter: drop-shadow(0 0 8px rgba(var(--neo-magenta-rgb), 0.5));
-  }
-  to {
-    filter: drop-shadow(0 0 12px rgba(var(--neo-magenta-rgb), 0.9));
-  }
+@keyframes iconFlicker {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(var(--neo-magenta-rgb), 0.7)); opacity: 1; }
+  45% { filter: drop-shadow(0 0 2px rgba(var(--neo-magenta-rgb), 0.3)); opacity: 0.8; }
+  50% { filter: drop-shadow(0 0 15px rgba(var(--neo-magenta-rgb), 1)); opacity: 0.9; }
+  55% { filter: drop-shadow(0 0 2px rgba(var(--neo-magenta-rgb), 0.3)); opacity: 0.8; }
 }
 
 .discordContact {
@@ -181,7 +209,7 @@
   text-decoration: none;
   font-weight: bold;
   margin-top: 1.5rem;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(114, 137, 218, 0.8);
 }
 
@@ -210,36 +238,30 @@
 @media (max-width: 768px) {
   .modalContent {
     padding: 1.5rem;
-    max-width: 95vw; /* Zapewnij, że nie wyjedzie za bardzo na boki */
-    max-height: 90vh; /* Upewnij się, że mieści się w pionie */
+    max-width: 95vw;
+    max-height: 90vh;
   }
-
   .modalContent h3 {
     font-size: clamp(1.6rem, 8vw, 2rem);
   }
-
   .modalContent p,
   .modalContent ul li,
   .discordContact {
     font-size: 0.95rem;
   }
-
   .modalContent ul li::before {
     font-size: 1.5rem;
     top: 0.05em;
   }
-
   .discordContact a {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     gap: 0.5rem;
   }
-
   .discordIcon {
     width: 2rem;
     height: 2rem;
   }
-
   .closeButton {
     font-size: 2rem;
     top: 0.8rem;
