@@ -11,16 +11,46 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import RecruitmentModal from '../components/RecruitmentModal'; // Importuj komponent modala rekrutacji
 import LanguageWarningBanner from '../components/LanguageWarningBanner'; // Importuj komponent bannera ostrzegawczego o języku
+import DiscordVerificationModal from '../components/DiscordVerificationModal'; // <-- NOWY IMPORT: Modal weryfikacji Discorda
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const [isModalOpen, setIsModalOpen] = useState(false); // Stan do kontrolowania widoczności modala rekrutacji
+  const [isRecruitmentModalOpen, setIsRecruitmentModalOpen] = useState(false); // Stan do kontrolowania widoczności głównego modala rekrutacji
+  const [isDiscordVerificationModalOpen, setIsDiscordVerificationModalOpen] = useState(false); // <-- NOWY STAN: Kontrola widoczności modala weryfikacji Discorda
+
+  // Dane Discorda właściciela (do przekazania do modali)
+  const ownerDiscordUsername = "polonia.errorglitchtv"; // Twój nick Discord
+  const ownerDiscordId = "687701665771814939"; // Twój Discord ID (np. 123456789012345678)
+
+  // Link do dokumentacji "Dawna Elita"
+  const dawnaElitaDocUrl = "/docs/dawna-elita/dawni-czlonkowie"; // <-- UPEWNIJ SIĘ, ŻE TO POPRAWNA ŚCIEŻKA W Docusaurus
+
+  // Funkcja otwierająca główny modal rekrutacji
+  const handleOpenRecruitmentModal = () => {
+    setIsRecruitmentModalOpen(true);
+  };
+
+  // Funkcja zamykająca główny modal rekrutacji
+  const handleCloseRecruitmentModal = () => {
+    setIsRecruitmentModalOpen(false);
+  };
+
+  // <-- NOWA FUNKCJA: Wywoływana, gdy użytkownik zaakceptuje warunki w DiscordWarningModal
+  // i chce przejść do weryfikacji Discorda.
+  const handleDiscordAcceptAndVerify = () => {
+    setIsRecruitmentModalOpen(false); // Zamknij główny modal rekrutacji
+    setIsDiscordVerificationModalOpen(true); // Otwórz modal weryfikacji Discorda
+  };
+
+  // <-- NOWA FUNKCJA: Zamyka modal weryfikacji Discorda
+  const handleCloseDiscordVerificationModal = () => {
+    setIsDiscordVerificationModalOpen(false);
+  };
 
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         {/* TUTAJ UMIESZCZAMY KOMPONENT BANNERA OSTRZEGAWCZEGO O JĘZYKU */}
-        {/* Będzie renderowany bezpośrednio w kontenerze nagłówka, nad głównym tytułem */}
         <LanguageWarningBanner />
 
         <Heading as="h1" className="hero__title">
@@ -41,39 +71,49 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/category/kodeks-neo" // Sprawdź dokładny URL w przeglądarce
+            to="/docs/category/kodeks-neo"
           >
             📜 Kodeks N.E.O.
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/Wojenne%20Logi/wojenne-logi" // Sprawdź dokładny URL w przeglądarce
+            to="/docs/Wojenne%20Logi/wojenne-logi"
           >
-            ⚔️ Wojenne Logi
+            📊 Wojenne Logi {/* Zmieniono emotkę zgodnie z sugestią */}
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/category/struktura-i-hierarchia" // Sprawdź dokładny URL
+            to="/docs/category/struktura-i-hierarchia"
           >
             📊 Struktura i Hierarchia
           </Link>
 
-          {/* Przycisk, który otwiera modal rekrutacji */}
+          {/* Przycisk, który otwiera główny modal rekrutacji */}
           <button
             className="button button--primary button--lg"
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleOpenRecruitmentModal}
           >
             🤝 Rekrutacja do N.E.O.
           </button>
         </div>
       </div>
 
-      {/* Renderowanie komponentu modala rekrutacji */}
+      {/* Renderowanie głównego modala rekrutacji */}
       <RecruitmentModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)} // Funkcja do zamykania modala
-        discordUsername="polonia.errorglitchtv" // Twój nick Discord (bez tagu, jeśli masz nowy system)
-        discordId="687701665771814939" // Wstaw swój rzeczywisty ID użytkownika Discord
+        isOpen={isRecruitmentModalOpen}
+        onClose={handleCloseRecruitmentModal}
+        discordUsername={ownerDiscordUsername}
+        discordId={ownerDiscordId}
+        dawnaElitaDocUrl={dawnaElitaDocUrl} // <-- NOWY PROP: Link do Dawnej Elity
+        onDiscordAccept={handleDiscordAcceptAndVerify} // <-- NOWY PROP: Funkcja do wywołania po akceptacji DiscordWarningModal
+      />
+
+      {/* <-- NOWY KOMPONENT: Renderowanie modala weryfikacji Discorda */}
+      <DiscordVerificationModal
+        isOpen={isDiscordVerificationModalOpen}
+        onClose={handleCloseDiscordVerificationModal}
+        discordUsername={ownerDiscordUsername}
+        discordId={ownerDiscordId}
       />
     </header>
   );

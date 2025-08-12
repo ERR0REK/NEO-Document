@@ -58,7 +58,7 @@ Poniżej znajdziecie listę gier, z którymi **N.E.O** jest powiązana. Aktywnie
 ### **Nasze Główne Gry:**
 
 * **💥 MadCity – Chapter 1 & Chapter 2**
-    * **MadCity Chapter 1 (2019–2022)** to czas, w którym narodziła się tzw. **Sztuczna Elita** legendarna, nieformalna grupa graczy, która zdobyła reputację poprzez walki w więzieniu, konflikty z innymi nacjami i obecność na publicznych serwerach. To był okres budowania tożsamości, zasad i honoru – fundamentów, które przetrwały do dziś.
+    * **MadCity Chapter 1 (2019–2022)** to czas, w którym narodziła się tzw. **Sztuczna Elita** legendarna, nieformalna grupa graczy, która zdobyła reputację poprzez walki w więzieniu, konflikty z innymi nacjami i obecność na publicznych serwerach. To był okres budowania tożsamości, zasad i honoru, fundamentów, które przetrwały do dziś.
     * Wraz z premierą **MadCity Chapter 2 (2022–20XX)** przyszedł nowy rozdział **odrodzenie Elity pod nazwą N.E.O (Nowa Elitarna Organizacja)**. Nowa struktura, nowe pokolenie graczy, ale ten sam duch elitarności i lojalności wobec wspólnoty. W N.E.O kontynuujemy dziedzictwo, adaptując się do nowych mechanik, map i wyzwań.
     * > 🕊️ *Przeszłość tworzy legendy, ale to przyszłość pisze historię.*
     

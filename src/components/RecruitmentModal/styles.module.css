@@ -268,3 +268,18 @@
     right: 0.8rem;
   }
 }
+
+/* Nowy styl dla linku "Dawna Elita" */
+.dawnaElitaLink {
+  color: var(--neo-magenta); /* Neonowy kolor linku */
+  text-decoration: none; /* Bez podkreślenia */
+  font-weight: 600;
+  margin-left: 0.5rem; /* Mały odstęp od tekstu */
+  transition: all 0.3s ease;
+}
+
+.dawnaElitaLink:hover {
+  color: var(--neo-cyan); /* Zmiana koloru na hover */
+  text-shadow: 0 0 8px rgba(var(--neo-cyan-rgb), 0.7); /* Neonowy glow na hover */
+  text-decoration: underline; /* Podkreślenie na hover */
+}

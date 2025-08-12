@@ -64,8 +64,13 @@ const DiscordWarningModal = ({ isOpen, onClose }) => {
           Uwaga!
         </h3>
 
-        <p>Właściciel N.E.O. może mieć wyłączone wiadomości prywatne (DM) od osób spoza znajomych.</p>
-        <p>W takim przypadku, prosimy o dodanie go do znajomych na Discordzie, aby móc wysłać wiadomość.</p>
+        <p>
+          Właściciel N.E.O. może mieć wyłączone wiadomości prywatne (DM) od spoza wspólnych serwerów.
+        </p>
+        <p>
+          Jeśli nie możesz wysłać wiadomości bezpośrednio, prosimy o dodanie go do znajomych na Discordzie.
+          Po kliknięciu "Rozumiem i Akceptuję" pojawi się kolejne okno z instrukcjami.
+        </p>
 
         {/* Kontener dla przycisków - używamy nowej klasy styles.buttonContainer */}
         <div className={styles.buttonContainer}>

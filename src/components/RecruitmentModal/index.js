@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import DiscordWarningModal from '../DiscordWarningModal'; // Importujemy nowy komponent ostrzegawczy
+// Importujemy DiscordWarningModal, który będzie wywoływany z tego modala
+import DiscordWarningModal from '../DiscordWarningModal'; 
 
-const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId }) => {
+// Nowy prop: dawnaElitaDocUrl
+const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId, dawnaElitaDocUrl, onDiscordAccept }) => {
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [isClosing, setIsClosing] = useState(false);
   const [isWarningModalOpen, setIsWarningModalOpen] = useState(false);
@@ -15,16 +17,19 @@ const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId }) => {
     if (isOpen) {
       setShouldRender(true);
       setIsClosing(false);
+      document.body.style.overflow = 'hidden'; // Zablokuj scrollowanie tła
     } else {
       setIsClosing(true);
       const timeoutId = setTimeout(() => {
         setShouldRender(false);
         setIsClosing(false);
-      }, 350);
+        document.body.style.overflow = 'unset'; // Odblokuj scrollowanie tła
+      }, 350); // Czas trwania animacji zamykania
       return () => clearTimeout(timeoutId);
     }
   }, [isOpen]);
 
+  // Nie renderuj modala, jeśli nie powinien być w DOM
   if (!shouldRender) return null;
 
   // Funkcja obsługująca kliknięcie w link Discorda (z głównego modala rekrutacji)
@@ -33,13 +38,14 @@ const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId }) => {
     setIsWarningModalOpen(true); // Otwiera modal z ostrzeżeniem
   };
 
-  // ZMIENIONA FUNKCJA obsługująca zamknięcie modala ostrzegawczego
-  // Teraz przyjmuje argument `shouldRedirect`, który mówi, czy kliknięto "Rozumiem"
-  const handleWarningModalClose = (shouldRedirect = false) => { // Domyślnie false
+  // Funkcja obsługująca zamknięcie modala ostrzegawczego
+  // Teraz przyjmuje argument `accepted`, który mówi, czy kliknięto "Rozumiem i Akceptuję"
+  const handleWarningModalClose = (accepted) => {
     setIsWarningModalOpen(false); // Zamyka modal ostrzegawczy
-    if (shouldRedirect) {
-      // Tylko jeśli `shouldRedirect` jest true (czyli kliknięto "Rozumiem"), otwórz link
-      window.open(`https://discord.com/users/${discordId}`, '_blank');
+    if (accepted && onDiscordAccept) {
+        // Jeśli użytkownik zaakceptował i przekazano funkcję, wywołaj ją
+        // Ta funkcja (onDiscordAccept) będzie odpowiedzialna za otwarcie nowego modala weryfikacyjnego
+        onDiscordAccept(); 
     }
   };
 
@@ -52,14 +58,22 @@ const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId }) => {
         className={clsx(styles.modalContent, isClosing && styles.closing)}
         onClick={e => e.stopPropagation()}
       >
-        <button className={styles.closeButton} onClick={onClose}>
+        <button className={styles.closeButton} onClick={onClose} aria-label="Zamknij">
           &times;
         </button>
 
         <h3>Jak dołączyć do N.E.O.?</h3>
         <p>Proces rekrutacji do Nowej Elitarnej Organizacji jest ściśle powiązany z naszym dziedzictwem. Aby dołączyć do N.E.O., musisz spełnić jeden z poniższych warunków:</p>
         <ul>
-          <li>Być członkiem dawnej Elity lub posiadać znajomości w jej kręgach.</li>
+          <li>
+            Być członkiem dawnej Elity lub posiadać znajomości w jej kręgach.
+            {/* Dodajemy link do dokumentacji "Dawnej Elity" */}
+            {dawnaElitaDocUrl && (
+              <a href={dawnaElitaDocUrl} target="_blank" rel="noopener noreferrer" className={styles.dawnaElitaLink}>
+                (Zobacz listę dawnych członków)
+              </a>
+            )}
+          </li>
           <li>Mieć znajomego, który był lub jest w Elicie, który może Cię polecić.</li>
         </ul>
         <p>
@@ -79,15 +93,14 @@ const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId }) => {
           </a>
         </p>
         <p className={styles.modalFooter}>
-          Po skontaktowaniu się, otrzymasz formularz rekrutacyjny i rozpoczniesz proces.
+          Po skontaktowaniu się, rozpocznie się proces weryfikacji Twojej tożsamości i kwalifikacji do Elity.
         </p>
       </div>
 
-      {/* Modal ostrzegawczy */}
+      {/* Modal ostrzegawczy jest renderowany tutaj */}
       <DiscordWarningModal
         isOpen={isWarningModalOpen}
-        // TERAZ PRZEKAZUJEMY FUNKCJĘ, KTÓRA PODEJMUJE DECYZJĘ O PRZEKIEROWANIU
-        onClose={handleWarningModalClose}
+        onClose={handleWarningModalClose} // Przekazujemy funkcję, która podejmuje decyzję o dalszym kroku
       />
     </div>
   );
