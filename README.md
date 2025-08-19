@@ -1,41 +1,20 @@
-# Website
+# 🌐 Oficjalna strona dokumentacyjna Nowej Elitarnej Organizacji (N.E.O)
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Tutaj znajdziesz pełną dokumentację związaną z N.E.O oraz historią, która zaczęła się od Sztucznej Elity.  
 
-### Installation
+### 📜 Co znajdziesz w dokumentacji?
+- Czym była **Sztuczna Elita** i jak z niej wyłoniła się **Nowa Elitarna Organizacja (N.E.O)**.  
+- Kim byli członkowie **S.E.** oraz kto obecnie tworzy **N.E.O**.  
+- Jakie gry zostały przypisane do Elity na przestrzeni lat.  
+- Historia polskiej społeczności (głównie z perspektywy **MadCity**).  
+- Informacje o **sojuszach** i **wrogach** Elity.  
 
-```
-$ yarn
-```
+### 🛡️ Rekrutacja
+Dołączenie do Elity nie odbywa się bezpośrednio przez dokumentację.  
+Jeśli chcesz spróbować swoich sił – użyj specjalnego przycisku **Rekrutacja** dostępnego na stronie głównej.  
 
-### Local Development
+Proces jest wymagający i nie każdy kandydat zostanie przyjęty, ale jeśli uważasz, że masz to coś – spróbuj.  
 
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+### 🔗 Link
+[Otwórz stronę N.E.O Dokumentacja](https://neo-dokumentacja.netlify.app/)  
+Strona najlepiej działa na laptopie lub PC – na mniejszych ekranach część treści może być mniej wygodna do przeglądania.

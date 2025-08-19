@@ -51,9 +51,9 @@ const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId 
         <h3>Weryfikacja Rekrutacji</h3> {/* Zmieniony tytuł */}
         <p className={styles.introText}>
           Aby kontynuować proces rekrutacji do Elity, musisz najpierw nawiązać bezpośredni kontakt.
-          **Kliknij poniżej, aby otworzyć profil Discord właściciela i wyślij zaproszenie do znajomych.**
+          <strong>Kliknij poniżej, aby otworzyć profil Discord właściciela i wyślij zaproszenie do znajomych.</strong>
           <br />
-          W pierwszej wiadomości prywatnej **przedstaw się, podając swój DAWNY NICK Z ROBLOXA**.
+          W pierwszej wiadomości prywatnej <strong>przedstaw się, podając swój DAWNY NICK Z ROBLOXA</strong>.
           Jest to kluczowe do Twojej identyfikacji.
         </p>
 
