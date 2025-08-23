@@ -2,11 +2,11 @@
   "label": "Sojusze i Wrogowie",
   "link": {
     "type": "generated-index",
-    "title": "Sojusze i Konflikty N.E.O",
+    "title": "Sojusze i Wrogowie N.E.O",
     "description": "Dowiedz się, z kim N.E.O współpracuje, a z kim jest w konflikcie.",
     "slug": "/category/sojusze-i-wrogowie"
   },
   "customProps": {
-    "keywords": ["sojusze", "wrogowie", "konflikty"]
+    "keywords": ["sojusze", "wrogowie" ]
   }
 }

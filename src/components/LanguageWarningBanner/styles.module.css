@@ -212,3 +212,23 @@ html[data-theme='dark'] .closeBannerButton:hover {
     margin-top: 0.5rem;
   }
 }
+
+.moreInfoButton {
+    background-color: transparent;
+    border: 1px solid var(--neo-cyan);
+    color: var(--neo-cyan);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px var(--neo-cyan);
+}
+
+.moreInfoButton:hover {
+    background-color: var(--neo-cyan);
+    color: var(--neo-dark-bg);
+    box-shadow: 0 0 10px var(--neo-cyan), inset 0 0 5px var(--neo-cyan);
+    transform: scale(1.05);
+}

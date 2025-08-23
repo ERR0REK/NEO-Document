@@ -1,0 +1,128 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1003;
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modalOverlay.open {
+    opacity: 1;
+}
+
+.modalContent {
+    background: var(--neo-dark-bg, #1a1a1a);
+    padding: 2.5rem;
+    border-radius: 10px;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(var(--neo-magenta-rgb), 0.7), 0 0 60px rgba(var(--neo-cyan-rgb), 0.5);
+    color: var(--neo-light-text, #add8e6);
+    border: 1px solid var(--neo-magenta);
+    transform: translateY(-5vh) scale(0.95);
+    opacity: 0;
+    animation: modalEnter 0.5s forwards cubic-bezier(0.25, 0.8, 0.5, 1.2);
+}
+
+.modalContent.closing {
+    animation: modalExit 0.4s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.modalContent h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--neo-magenta);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 12px rgba(var(--neo-magenta-rgb), 0.9);
+}
+
+.modalContent p {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--neo-light-text);
+    text-align: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--neo-light-text, #add8e6);
+    opacity: 0.8;
+    transition: all 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+    opacity: 1;
+    transform: rotate(180deg) scale(1.1);
+    color: var(--neo-cyan);
+}
+
+.okButton {
+    background-color: var(--neo-cyan, #00ffff);
+    color: var(--neo-dark-bg, #1a1a1a);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(var(--neo-cyan-rgb), 0.7);
+}
+
+.okButton:hover {
+    background-color: #00e5e5;
+    box-shadow: 0 0 25px rgba(var(--neo-cyan-rgb), 0.9);
+    transform: scale(1.05);
+}
+
+@keyframes modalEnter {
+    from {
+        transform: translateY(-10vh) scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes modalExit {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(10vh) scale(0.85);
+        opacity: 0;
+    }
+}
+
+/* Dostosuj media queries, jeśli potrzebne */
+@media (max-width: 768px) {
+    .modalContent {
+        padding: 1.5rem;
+        max-width: 90vw;
+    }
+    .modalContent h3 {
+        font-size: 1.6rem;
+    }
+}
