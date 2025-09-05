@@ -1,17 +1,15 @@
 /* src/components/HomepageFeatures/styles.module.css */
 
 .features {
-  position: relative; /* Dodano, aby pseudo-element ::before był pozycjonowany względem tego elementu */
-  overflow: hidden;   /* Dodano, aby animacja siatki nie wychodziła poza sekcję */
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 4rem 0; /* Zwiększony padding sekcji dla lepszego odstępu */
+  padding: 4rem 0;
   width: 100%;
-  /* Opcjonalnie: subtelne tło lub separator dla całej sekcji */
-  /* background-color: var(--neo-card-background-alt, #f0f0f0); */
 }
 
-/* NOWE STYLE: Animowane tło siatki dla sekcji HomepageFeatures */
+/* Animowane tło siatki dla całej sekcji */
 .features::before {
   content: '';
   position: absolute;
@@ -19,58 +17,173 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* Tło dla trybu jasnego: delikatne, niemal niewidoczne linie */
   background:
-    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px), /* Ciemne linie pionowe */
-    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px); /* Ciemne linie poziome */
-  background-size: 25px 25px; /* Rozmiar komórek siatki (możesz dostosować) */
-  opacity: 0.1; /* Bardzo subtelny efekt */
-  animation: moveGrid 30s linear infinite; /* Powolna animacja ruchu */
-  pointer-events: none; /* Upewnij się, że nie blokuje interakcji */
-  z-index: 0; /* Upewnij się, że jest pod treścią kart */
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 25px 25px;
+  opacity: 0.1;
+  animation: moveGrid 30s linear infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Dostosowanie siatki dla trybu ciemnego */
 html[data-theme='dark'] .features::before {
-  /* Używamy Twoich zmiennych dla neonowych kolorów */
   background:
-    linear-gradient(var(--ifm-color-primary) 1px, transparent 1px), /* Linie pionowe w kolorze --ifm-color-primary (cyan) */
-    linear-gradient(90deg, var(--neo-accent-glow) 1px, transparent 1px); /* Linie poziome w kolorze --neo-accent-glow (magenta) */
-  background-size: 25px 25px; /* Zachowaj ten sam rozmiar komórek */
-  opacity: 0.08; /* Nieco bardziej widoczny neon */
+    linear-gradient(var(--ifm-color-primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--neo-magenta) 1px, transparent 1px);
+  background-size: 25px 25px;
+  opacity: 0.08;
 }
 
 /* Definicja animacji przesuwania siatki */
 @keyframes moveGrid {
   from { background-position: 0 0; }
-  to { background-position: 25px 25px; } /* Przesuwaj o rozmiar komórki, aby stworzyć iluzję nieskończonego ruchu */
+  to { background-position: 25px 25px; }
 }
 
-/* --- Pozostałe Twoje style (featureSvg itp.) pozostają bez zmian lub są tutaj poprawione --- */
+/* --- Style dla poszczególnych kart --- */
+.featureCard {
+  background-color: var(--neo-card-background-light);
+  border: 1px solid var(--neo-card-border-light);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+  box-shadow: var(--neo-box-shadow-light);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 100%; /* Upewnia się, że karty mają tę samą wysokość */
+}
 
+html[data-theme='dark'] .featureCard {
+    background-color: var(--neo-card-background);
+    border: 1px solid var(--neo-card-border);
+    box-shadow: var(--neo-box-shadow-dark);
+}
+
+/* Efekt "świecącej ramki" */
+.featureCard::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--ifm-color-primary-light), var(--neo-magenta), var(--neo-yellow), var(--ifm-color-primary-light));
+    background-size: 400% 400%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, background-position 0.4s ease-in-out;
+    border-radius: 14px;
+    filter: blur(10px);
+}
+
+html[data-theme='dark'] .featureCard::before {
+    background: linear-gradient(45deg, var(--neo-cyan), var(--neo-magenta), var(--neo-yellow), var(--neo-cyan));
+}
+
+.featureCard:hover::before {
+    opacity: 1;
+    background-position: 100% 100%;
+    animation: neonBorderPulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes neonBorderPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Efekt hover dla całej karty */
+.featureCard:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--neo-box-shadow-light);
+}
+
+html[data-theme='dark'] .featureCard:hover {
+    box-shadow: var(--neo-box-shadow-dark);
+}
+
+/* NOWOŚĆ: Efekt glitche'a na hover na tytule i opisie */
+.featureCard:hover .featureTitle,
+.featureCard:hover .featureDescription {
+    animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Stylizacja ikon SVG */
 .featureSvg {
-  /* Zamiast sztywnych wymiarów, możemy użyć max-width dla elastyczności */
-  max-width: 120px; /* Zmniejszona domyślna szerokość ikon */
-  height: auto; /* Zachowaj proporcje */
-  margin-bottom: 1.5rem; /* Większy odstęp od tekstu */
-
-  /* Dodajemy efekt glow/poświaty, który będzie się zmieniał z motywem */
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2)); /* Delikatny cień w trybie jasnym */
-  transition: transform 0.3s ease, filter 0.3s ease;
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Styl dla ikon w trybie ciemnym */
 html[data-theme='dark'] .featureSvg {
-  filter: drop-shadow(0 0 12px var(--ifm-color-primary)); /* Neonowy glow w trybie ciemnym */
+    filter: drop-shadow(0 0 12px var(--ifm-color-primary));
 }
 
-/* Efekt hover dla ikon - pozostawiamy tak jak jest w Twoim custom.css,
-   jeśli chcesz, aby globalne style miały pierwszeństwo.
-   Jeśli chcesz nadpisać je tylko dla tych ikon, przenieś to tutaj:
-*/
-/*
-.col.col--4:hover .featureSvg {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 15px var(--neo-accent-glow)); // Używa acccent-glow dla mocniejszego efektu
+.featureCard:hover .featureSvg {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 20px rgba(var(--neo-cyan-rgb), 0.9));
 }
-*/
+
+/* Stylizacja dla tekstu w kartach */
+.featureLinkIcon {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.featureTitle {
+    color: var(--ifm-color-primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.7rem;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 8px rgba(var(--ifm-color-primary-rgb), 0.5);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+html[data-theme='dark'] .featureTitle {
+    color: var(--neo-magenta);
+    text-shadow: 0 0 10px rgba(var(--neo-magenta-rgb), 0.8);
+}
+
+.featureDescription {
+    color: var(--ifm-font-color-base);
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+html[data-theme='dark'] .featureDescription {
+    color: var(--neo-light-text);
+}
+
+/* NOWOŚĆ: Przycisk w karcie */
+.featureButton {
+    margin-top: 1.5rem;
+    box-shadow: 0 0 15px rgba(var(--neo-yellow-rgb), 0.7);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.featureButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(var(--neo-yellow-rgb), 0.9), 0 0 40px rgba(var(--neo-yellow-rgb), 0.6);
+}

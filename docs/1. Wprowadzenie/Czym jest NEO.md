@@ -26,16 +26,16 @@ Dzisiaj **N.E.O.** to:
 
 Gramy tam, gdzie liczy się strategia i współpraca:
 
-**🪖 War Tycoon**  
+**War Tycoon**  
 Budujemy bazy, rozwijamy wojsko (Frakcje), zarządzamy zasobami i walczymy o kontrolę nad serwerem.
 
-**🕵️ Wanted**  
-Otwarty świat, w którym wcielamy się w policjantów, przestępców albo obywateli. Napady, misje, działania w mieście – to nasz żywioł. (P.S. Gra jeszcze w produkcji)
+**LockedUp**  
+Ta sama mechanika co w MadCity czy w Jailbreaku (P.S ta gra jest nadal w produkcji i napiszę więcej jak ono wyjdzie).
 
-**🏙️ Mad City Chapter 1 & 2**  
+**Mad City Chapter 1 & 2**  
 To tu wszystko się zaczęło. Do dziś działamy w Mad City, kontynuując historię Elity i biorąc udział w napadach, pościgach i strategicznych akcjach.
 
-**🔫 Weaponry**  
+**Weaponry**  
 Szybka, dynamiczna strzelanka PvP. Liczą się refleks, celność i dobre wyczucie chwili. Idealna do wspólnych treningów i zabawy.
 
 ---

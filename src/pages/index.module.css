@@ -7,11 +7,11 @@
 /* Nagłówek główny - Hero Banner */
 /* ========================================= */
 .heroBanner {
-  padding: 6rem 0; /* Zwiększony padding dla większej przestrzeni */
+  padding: 6rem 0;
   text-align: center;
   position: relative;
-  overflow: hidden; /* Ważne dla efektów tła i animacji */
-  transition: background-color 0.3s ease; /* Płynne przejście tła */
+  overflow: hidden;
+  transition: background-color 0.3s ease;
 
   /* Delikatny efekt "szumu/siatki" - kolor będzie się mieszał z tłem trybu */
   /* Ten efekt będzie widoczny w obu trybach, ale w trybie ciemnym będzie nadpisywany przez custom.css */
@@ -25,22 +25,21 @@
     /* W trybie jasnym: bardzo delikatne, ledwo widoczne linie */
     background: repeating-linear-gradient(
       45deg,
-      rgba(0, 188, 212, 0.01), /* Bardzo delikatny cyjan dla trybu jasnego */
+      rgba(0, 188, 212, 0.01),
       rgba(0, 188, 212, 0.01) 1px,
       transparent 1px,
       transparent 5px
     );
-    opacity: 0.1; /* Jeszcze bardziej subtelny efekt w trybie jasnym */
+    opacity: 0.1;
     pointer-events: none;
     z-index: 1;
-    /* Tryb ciemny ma swój własny, bardziej złożony efekt siatki z custom.css, który nadpisuje ten */
   }
 }
 
 /* Dostosowanie dla małych ekranów */
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 3rem 1rem; /* Mniejszy padding na mobilnych */
+    padding: 3rem 1rem;
   }
 }
 
@@ -50,24 +49,12 @@
 .hero__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: var(--ifm-color-primary); /* Użyj głównego koloru akcentu z custom.css */
+  color: var(--ifm-color-primary);
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
   font-size: 3.5rem;
   transition: all 0.3s ease;
-
-  /* Efekt neonu/glow dla trybu jasnego */
-  text-shadow: 0 0 10px rgba(var(--ifm-color-primary-rgb), 0.5), /* Subtelny niebieski glow */
-               0 0 20px rgba(var(--ifm-color-primary-rgb), 0.3);
-  animation: neonPulseLight 2s infinite alternate ease-in-out; /* Animacja w trybie jasnym */
-}
-
-/* Dodatkowy efekt cienia/neonu dla tytułu w TRYBIE CIEMNYM */
-html[data-theme='dark'] .hero__title {
-  color: var(--ifm-color-primary); /* Jasny neonowy kolor z custom.css (np. #00ffe1) */
-  text-shadow: 0 0 15px rgba(var(--ifm-color-primary-rgb), 0.8), /* Mocniejsza poświata cyan */
-               0 0 30px rgba(var(--ifm-color-primary-rgb), 0.6);
-  animation: neonPulseDark 2s infinite alternate ease-in-out; /* Animacja tylko dla trybu ciemnego */
+  /* Animacje i cienie są zdefiniowane w custom.css, więc usunięto je tutaj, aby uniknąć duplikacji */
 }
 
 /* Rozmiar tytułu na małych ekranach */
@@ -77,36 +64,24 @@ html[data-theme='dark'] .hero__title {
   }
 }
 
-/* Animacje neonowego pulsowania */
-@keyframes neonPulseLight {
-  from { text-shadow: 0 0 10px rgba(var(--ifm-color-primary-rgb), 0.4); }
-  to { text-shadow: 0 0 20px rgba(var(--ifm-color-primary-rgb), 0.7), 0 0 30px rgba(var(--ifm-color-primary-rgb), 0.5); }
-}
-
-@keyframes neonPulseDark {
-  from { text-shadow: 0 0 15px rgba(var(--ifm-color-primary-rgb), 0.7), 0 0 25px rgba(var(--ifm-color-primary-rgb), 0.5); }
-  to { text-shadow: 0 0 25px rgba(var(--ifm-color-primary-rgb), 0.9), 0 0 40px rgba(var(--ifm-color-primary-rgb), 0.7); }
-}
-
 /* ========================================= */
 /* Główny podtytuł (Oficjalna dokumentacja społeczności...) */
 /* ========================================= */
 .hero__subtitle {
   font-family: 'Open Sans', sans-serif;
-  color: var(--ifm-font-color-base); /* Kolor tekstu zależy od trybu */
+  color: var(--ifm-font-color-base);
   font-weight: 400;
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
-  transition: color 0.3s ease, text-shadow 0.3s ease; /* Dodana transycja cienia */
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.1); /* Bardzo subtelny cień w trybie jasnym */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 html[data-theme='dark'] .hero__subtitle {
-  color: var(--ifm-font-color-base); /* W trybie ciemnym bazowy kolor (jasny) */
-  text-shadow: 0 0 8px rgba(var(--ifm-font-color-base-rgb), 0.7); /* Lżejszy cień dla trybu ciemnego */
+  color: var(--ifm-font-color-base);
+  text-shadow: 0 0 8px rgba(var(--ifm-font-color-base-rgb), 0.7);
 }
-
 
 /* ========================================= */
 /* Slogan N.E.O. (Honor. Dyscyplina. Braterstwo.) */
@@ -118,26 +93,15 @@ html[data-theme='dark'] .hero__subtitle {
   margin-bottom: 3rem;
   letter-spacing: 1.5px;
   transition: all 0.3s ease;
-
-  /* Kolor i cień dla sloganu w trybie jasnym */
-  color: var(--ifm-font-color-secondary); /* Użyj ciemnego, ale nie czarnego koloru */
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Subtelny cień */
+  color: var(--ifm-font-color-secondary);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Kolor i cień dla sloganu w TRYBIE CIEMNYM */
 html[data-theme='dark'] .slogan {
-  color: var(--neo-magenta); /* Intensywny neonowy kolor z custom.css */
-  text-shadow: 0 0 10px rgba(var(--neo-magenta-rgb), 0.8),
-               0 0 20px rgba(var(--neo-magenta-rgb), 0.6);
-  animation: pulseSloganDark 2.2s infinite alternate ease-in-out; /* Przenieś animację tu */
+  color: var(--neo-magenta);
+  /* Animacja i cień są zdefiniowane w custom.css, więc usunięto je tutaj, aby uniknąć duplikacji */
 }
-
-/* Dodatkowa animacja dla sloganu w trybie ciemnym */
-@keyframes pulseSloganDark {
-  from { text-shadow: 0 0 8px rgba(var(--neo-magenta-rgb), 0.5); }
-  to { text-shadow: 0 0 15px rgba(var(--neo-magenta-rgb), 0.9); }
-}
-
 
 /* ========================================= */
 /* Kontener przycisków */
@@ -145,73 +109,11 @@ html[data-theme='dark'] .slogan {
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem; /* Zwiększony odstęp między przyciskami */
+  gap: 1.5rem;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
 }
 
-/* Ogólna stylizacja przycisków w heroBanner */
-.buttons .button {
-  font-family: 'Open Sans', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  border-width: 1px;
-  border-style: solid;
-  padding: 0.9rem 1.8rem;
-  font-size: 1.05rem;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  z-index: 2;
-  border-radius: 4px; /* Ostre, techniczne rogi */
-  font-weight: 600;
-}
-
-/* Stylizacja przycisków secondary (np. "Dowiedz się", "Kodeks") */
-.buttons .button--secondary {
-  background-color: transparent;
-  border-color: var(--ifm-color-primary); /* Jasny tryb: niebieska ramka */
-  color: var(--ifm-color-primary); /* Jasny tryb: niebieski tekst */
-  box-shadow: 0 0 5px rgba(var(--ifm-color-primary-rgb), 0.2); /* Subtelny niebieski cień */
-}
-
-.buttons .button--secondary:hover {
-  background-color: var(--ifm-color-primary);
-  color: #ffffff; /* Biały tekst na hover */
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 15px rgba(var(--ifm-color-primary-rgb), 0.7); /* Intensywniejsza poświata */
-  transform: translateY(-5px) scale(1.03);
-}
-
-html[data-theme='dark'] .buttons .button--secondary {
-  border-color: var(--neo-cyan); /* Ciemny tryb: neonowa ramka */
-  color: var(--neo-cyan); /* Ciemny tryb: neonowy tekst */
-  box-shadow: 0 0 10px rgba(var(--neo-cyan-rgb), 0.4);
-}
-
-html[data-theme='dark'] .buttons .button--secondary:hover {
-  background-color: var(--neo-cyan);
-  color: #1a1a1a; /* Ciemny tekst na neonowym tle */
-  border-color: var(--neo-cyan);
-  box-shadow: 0 0 20px rgba(var(--neo-cyan-rgb), 0.9), 0 0 30px rgba(var(--neo-cyan-rgb), 0.7);
-}
-
-
-/* Stylizacja przycisku primary (Rekrutacja) */
-.buttons .button--primary {
-  background-color: var(--neo-yellow); /* Kolor żółty z custom.css */
-  border-color: var(--neo-yellow);
-  color: #1a1a1a; /* Zawsze ciemny tekst na tym przycisku */
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(var(--neo-yellow-rgb), 0.7);
-}
-
-.buttons .button--primary:hover {
-  background-color: var(--neo-yellow); /* Pozostaw żółty, ale z mocniejszym glow */
-  border-color: var(--neo-yellow);
-  box-shadow: 0 0 25px rgba(var(--neo-yellow-rgb), 1), 0 0 40px rgba(var(--neo-yellow-rgb), 0.8);
-  transform: translateY(-5px) scale(1.03);
-  filter: brightness(1.1); /* Lekkie rozjaśnienie na hover */
-}
+/* Reszta stylów dla przycisków jest zdefiniowana w custom.css,
+   aby były globalnie dostępne i spójne */
