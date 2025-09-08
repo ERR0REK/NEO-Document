@@ -72,7 +72,7 @@ const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId 
             <p className={styles.smallText}>(Możesz zaznaczyć kilka albo wszystkie)</p>
             <ul className={styles.gameList}>
                 <li>War Tycoon</li>
-                <li>Wanted</li>
+                <li>LockedUp</li>
                 <li>Weaponry</li>
                 <li>MadCity: Chapter 1</li>
                 <li>MadCity: Chapter 2</li>
