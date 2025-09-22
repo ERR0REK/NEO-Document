@@ -200,8 +200,8 @@ html[data-theme='dark'] .hero__subtitle {
 
 /* Animacje neonowego glow */
 @keyframes neonGlowPulseLight {
-  from { text-shadow: 0 0 10px rgba(var(--neo-title-glow-color-light), 0.5); }
-  to { text-shadow: 0 0 20px rgba(var(--neo-title-glow-color-light), 0.8), 0 0 30px rgba(var(--neo-title-glow-color-light), 0.6); }
+  from { text-shadow: 0 0 10px rgba(var(--neo-title-glow-color-light), 0.4); }
+  to { text-shadow: 0 0 20px rgba(var(--neo-title-glow-color-light), 0.7), 0 0 30px rgba(var(--neo-title-glow-color-light), 0.5); }
 }
 
 @keyframes neonGlowPulseDark {
@@ -240,9 +240,9 @@ html[data-theme='dark'] .hero__paragraph {
   background-color: var(--neo-yellow);
   color: #1a1a1a;
   border: 2px solid var(--neo-yellow);
-  border-radius: 8px;
-  padding: 0.8rem 2.2rem;
-  font-size: 1.15rem;
+  border-radius: 4px; /* Ostre, techniczne rogi */
+  padding: 0.9rem 1.8rem; /* Dopasowane do nowych stylów */
+  font-size: 1.05rem; /* Dopasowane do nowych stylów */
   font-weight: bold;
   letter-spacing: 0.05em;
   box-shadow: 0 0 15px rgba(var(--neo-yellow-rgb), 0.7);
@@ -268,7 +268,7 @@ html[data-theme='dark'] .hero__paragraph {
 .button--primary:hover {
   background-color: var(--neo-yellow);
   border-color: var(--neo-yellow);
-  transform: translateY(-5px);
+  transform: translateY(-3px); /* Zmodyfikowana animacja */
   box-shadow: 0 0 25px rgba(var(--neo-yellow-rgb), 0.9), 0 0 40px rgba(var(--neo-yellow-rgb), 0.6);
   filter: brightness(1.1);
 }
@@ -283,44 +283,45 @@ html[data-theme='dark'] .button--primary {
 /* Zaktualizowany styl - podwójny cień neonowy */
 html[data-theme='dark'] .button--primary:hover {
   box-shadow: 0 0 30px rgba(var(--neo-yellow-rgb), 1), 0 0 50px rgba(var(--neo-magenta-rgb), 0.8);
+  transform: translateY(-5px); /* Mocniejsze przesunięcie */
 }
 
-
+/* Nowe style dla przycisku secondary */
 .button--secondary {
   background-color: transparent;
-  color: var(--ifm-font-color-base);
-  border: 2px solid var(--ifm-font-color-base);
-  border-radius: 8px;
-  padding: 0.8rem 2.2rem;
-  font-size: 1.15rem;
-  font-weight: bold;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 4px;
+  padding: 0.9rem 1.8rem;
+  font-size: 1.05rem;
+  font-weight: 600;
   letter-spacing: 0.05em;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  margin-left: 15px;
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(var(--ifm-color-primary-rgb), 0.2);
 }
 
 html[data-theme='dark'] .button--secondary {
-    color: var(--neo-light-text);
+    color: var(--neo-cyan);
     border-color: var(--neo-cyan);
-    box-shadow: 0 0 15px rgba(var(--neo-cyan-rgb), 0.5);
+    box-shadow: 0 0 10px rgba(var(--neo-cyan-rgb), 0.4);
 }
 
 .button--secondary:hover {
-  background-color: var(--ifm-font-color-base);
-  color: var(--ifm-background-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(var(--ifm-color-primary-rgb), 0.7);
 }
 
 html[data-theme='dark'] .button--secondary:hover {
   background-color: var(--neo-cyan);
-  color: var(--ifm-background-color);
-  box-shadow: 0 0 25px rgba(var(--neo-cyan-rgb), 0.9);
+  color: var(--neo-dark-bg);
+  box-shadow: 0 0 20px rgba(var(--neo-cyan-rgb), 0.9), 0 0 30px rgba(var(--neo-magenta-rgb), 0.7);
 }
+
 
 /* ========================================= */
 /* Interaktywne Karty (HomepageFeatures) */

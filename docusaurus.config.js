@@ -6,8 +6,6 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'N.E.O. - Dokumentacja',
@@ -40,10 +38,6 @@ const config = {
           editUrl:
             'https://github.com/ERR0REK/NEO-Document/tree/main/',
         },
-        // WAŻNE: To jest jedyna sekcja 'blog' w presets/classic.
-        // Konfiguruje ona bloga dla Twojego Changeloga.
-        // Jeśli nie używasz bloga, możesz ustawić blog: false
-        blog: false, // Ustawione na false, aby wyłączyć wbudowanego bloga
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -73,11 +67,11 @@ const config = {
           // Dodany link do Portfolio
           {
             label: 'Portfolio (Właściciela N.E.O.)',
-            href: 'https://err0rek-portfolio.netlify.app/', // Tymczasowy placeholder, zmień na URL portfolio
+            href: 'https://err0rek-portfolio.netlify.app/',
             position: 'right',
           },
           {
-            href: 'https://github.com/ERR0REK/NEO-Document', // Zmień na link do Twojego GitHub
+            href: 'https://github.com/ERR0REK/NEO-Document',
             label: 'GitHub',
             position: 'right',
           },
@@ -94,7 +88,7 @@ const config = {
               },
               {
                 label: 'Wojenne Logi',
-                to: '/docs/category/wojenne-logi', // Link do strony indeksowej kategorii
+                to: '/docs/category/wojenne-logi',
               },
             ],
           },
@@ -127,7 +121,6 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-      // Konfiguracja Algolia DocSearch
       algolia: {
         appId: '6EXZ8BISZ9',
         apiKey: '4ae3f0fb775185d45e72fba5bf608a05',

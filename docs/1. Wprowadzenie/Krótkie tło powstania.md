@@ -1,12 +1,12 @@
 # 🕰️ Krótkie Tło Powstania
 
-Początki **N.E.O (Nowej Elitarnej Organizacji)** sięgają **2020 roku**, kiedy powstała legendarna frakcja zwana **Sztuczną Elitą**. To była grupa graczy działająca w *Mad City (Chapter 1)*. W latach **2020–2022** Elita stała się jedną z najbardziej rozpoznawalnych i aktywnych sił w polskiej społeczności Roblox.
+Początki **N.E.O (Nowej Elitarnej Organizacji)** sięgają **2020 roku**, kiedy powstała grupa zwana **Sztuczną Elitą**. To była grupa graczy działająca w **MadCity Chapter 1**. W latach **2020-2022** Sztuczna Elita stała się jedną z wszystkich grup Polskich najbardziej aktywnych sił w całej Polskiej społeczności Robloxa.
 
 ---
 
 ## ⚔️ Czas Wojen i Chwały
 
-Elita zasłynęła dzięki udziałowi w licznych **„wojnach serwerowych”**. Rywalizowaliśmy z graczami z różnych krajów:
+Sztuczna Elita brała w udział w licznych **„wojnach serwerowych”**. Rywalizowaliśmy z graczami z różnych krajów:
 
 🇪🇸 Hiszpania  
 🇰🇷 Korea  
@@ -14,13 +14,13 @@ Elita zasłynęła dzięki udziałowi w licznych **„wojnach serwerowych”**. 
 🇮🇹 Włochy  
 🇵🇹 Portugalia  
 
-Bitwy toczyły się w mieście, w więzieniu i na publicznych serwerach. To właśnie wtedy powstały legendarne memy, opowieści i wewnętrzne żarty, które do dziś pamiętają weterani.
+Bitwy toczyły się w mieście, w więzieniu i na publicznych serwerach. To właśnie wtedy powstały legendarne memy o przegrywach, które do dziś pamiętają weterani.
 
 ---
 
 ## 🛑 Czas Cienia... i Odrodzenia
 
-Z czasem, gdy aktywność w Mad City spadła, a wielu członków odeszło, **Elita przestała działać jako zorganizowana siła**. Jednak duch grupy nie zgasł. Żył dalej w rozmowach, wspomnieniach i determinacji dawnych członków.
+Z czasem, gdy aktywność w Mad City spadła, a wielu członków odeszło, **Sztuczna Elita przestała działać jako zorganizowana siła**. Jednak duch grupy nie zgasł. Żył dalej w rozmowach, wspomnieniach i determinacji dawnych członków.
 
 ---
 
@@ -31,7 +31,7 @@ W latach **2023–202X** dawni weterani razem z nowymi rekrutami postanowili tch
 🧭 Nowe zasady i przejrzysty **kodeks**  
 🎖️ Ulepszona **hierarchia i organizacja**  
 💬 Rekrutacja odbywa się przez wiadomości prywatne (DM)  
-🕹️ Dostosowanie do aktualnych gier i trendów w Roblox
+🕹️ Dostosowanie do aktualnych gier w Robloxie
 
 ---
 

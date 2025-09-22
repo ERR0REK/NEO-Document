@@ -1,29 +1,26 @@
-// src/pages/index.js
-
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
-import RecruitmentModal from '../components/RecruitmentModal'; // Importuj komponent modala rekrutacji
-import LanguageWarningBanner from '../components/LanguageWarningBanner'; // Importuj komponent bannera ostrzegawczego o języku
-import DiscordVerificationModal from '../components/DiscordVerificationModal'; // <-- NOWY IMPORT: Modal weryfikacji Discorda
+import RecruitmentModal from '../components/RecruitmentModal';
+import LanguageWarningBanner from '../components/LanguageWarningBanner';
+import DiscordVerificationModal from '../components/DiscordVerificationModal';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const [isRecruitmentModalOpen, setIsRecruitmentModalOpen] = useState(false); // Stan do kontrolowania widoczności głównego modala rekrutacji
-  const [isDiscordVerificationModalOpen, setIsDiscordVerificationModalOpen] = useState(false); // <-- NOWY STAN: Kontrola widoczności modala weryfikacji Discorda
+  const [isRecruitmentModalOpen, setIsRecruitmentModalOpen] = useState(false);
+  const [isDiscordVerificationModalOpen, setIsDiscordVerificationModalOpen] = useState(false);
 
   // Dane Discorda właściciela (do przekazania do modali)
-  const ownerDiscordUsername = "polonia.errorglitchtv"; // Twój nick Discord
-  const ownerDiscordId = "687701665771814939"; // Twój Discord ID (np. 123456789012345678)
+  const ownerDiscordUsername = "polonia.errorglitchtv";
+  const ownerDiscordId = "687701665771814939";
 
   // Link do dokumentacji "Dawna Elita"
-  const dawnaElitaDocUrl = "/docs/dawna-elita/dawni-czlonkowie"; // <-- UPEWNIJ SIĘ, ŻE TO POPRAWNA ŚCIEŻKA W Docusaurus
+  const dawnaElitaDocUrl = "/docs/dawna-elita/dawni-czlonkowie";
 
   // Funkcja otwierająca główny modal rekrutacji
   const handleOpenRecruitmentModal = () => {
@@ -35,14 +32,11 @@ function HomepageHeader() {
     setIsRecruitmentModalOpen(false);
   };
 
-  // <-- NOWA FUNKCJA: Wywoływana, gdy użytkownik zaakceptuje warunki w DiscordWarningModal
-  // i chce przejść do weryfikacji Discorda.
   const handleDiscordAcceptAndVerify = () => {
-    setIsRecruitmentModalOpen(false); // Zamknij główny modal rekrutacji
-    setIsDiscordVerificationModalOpen(true); // Otwórz modal weryfikacji Discorda
+    setIsRecruitmentModalOpen(false);
+    setIsDiscordVerificationModalOpen(true);
   };
 
-  // <-- NOWA FUNKCJA: Zamyka modal weryfikacji Discorda
   const handleCloseDiscordVerificationModal = () => {
     setIsDiscordVerificationModalOpen(false);
   };
@@ -50,7 +44,6 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        {/* TUTAJ UMIESZCZAMY KOMPONENT BANNERA OSTRZEGAWCZEGO O JĘZYKU */}
         <LanguageWarningBanner />
 
         <Heading as="h1" className="hero__title">
@@ -79,7 +72,7 @@ function HomepageHeader() {
             className="button button--secondary button--lg"
             to="/docs/Wojenne%20Logi/wojenne-logi"
           >
-            📊 Wojenne Logi {/* Zmieniono emotkę zgodnie z sugestią */}
+            📊 Wojenne Logi
           </Link>
           <Link
             className="button button--secondary button--lg"
@@ -88,7 +81,13 @@ function HomepageHeader() {
             📊 Struktura i Hierarchia
           </Link>
 
-          {/* Przycisk, który otwiera główny modal rekrutacji */}
+          {/* NOWE PRZYCISKI W JEDNEJ LINII */}
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/category/sojusze-i-wrogowie"
+          >
+            Sojusze i Wrogowie ⚔️
+          </Link>
           <button
             className="button button--primary button--lg"
             onClick={handleOpenRecruitmentModal}
@@ -98,17 +97,15 @@ function HomepageHeader() {
         </div>
       </div>
 
-      {/* Renderowanie głównego modala rekrutacji */}
       <RecruitmentModal
         isOpen={isRecruitmentModalOpen}
         onClose={handleCloseRecruitmentModal}
         discordUsername={ownerDiscordUsername}
         discordId={ownerDiscordId}
-        dawnaElitaDocUrl={dawnaElitaDocUrl} // <-- NOWY PROP: Link do Dawnej Elity
-        onDiscordAccept={handleDiscordAcceptAndVerify} // <-- NOWY PROP: Funkcja do wywołania po akceptacji DiscordWarningModal
+        dawnaElitaDocUrl={dawnaElitaDocUrl}
+        onDiscordAccept={handleDiscordAcceptAndVerify}
       />
 
-      {/* <-- NOWY KOMPONENT: Renderowanie modala weryfikacji Discorda */}
       <DiscordVerificationModal
         isOpen={isDiscordVerificationModalOpen}
         onClose={handleCloseDiscordVerificationModal}

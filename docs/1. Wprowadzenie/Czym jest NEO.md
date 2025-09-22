@@ -1,14 +1,16 @@
 # 🌟 Czym jest N.E.O?
 
-**N.E.O – Nowa Elitarna Organizacja** to społeczność graczy na Robloxie. Ale to nie byle jaka grupa. Jesteśmy **spadkobiercami legendarnej Elity**, która działała w latach 2020–2022. N.E.O to **odrodzenie tamtego ducha** – łączy nas lojalność, zaangażowanie i klimat prawdziwej ekipy. Nie zmieniamy tylko nazwy, otwieramy **nowy rozdział**.
+**N.E.O - Nowa Elitarna Organizacja** to społeczność graczy na Robloxie. Ale to nie byle jaka organizacja. Jesteśmy **kontyunacją Sztucznej Elity**, która działała w latach 2020-2022. N.E.O to wkrzeszenie tamtego ducha którą łączy nas lojalność, zaangażowanie i klimat prawdziwej ekipy. Nie zmieniamy tylko nazwę ale otwieramy **nowy rozdział**! :D
+
+> - Jeszcze Elita nie zginęła
 
 ---
 
 ## 🧭 Skąd się wzięło N.E.O?
 
-W latach 2020–2022 istniała znana, choć nieformalna społeczność – **Elita**. Działała głównie w grze **Mad City (Chapter 1)**. Wspólne akcje, walki z innymi grupami, konkretne zasady i braterstwo – to był jej znak rozpoznawczy.
+W latach 2020-2022 istniała (mało)znana, choć nieformalna grupa czyli **SE (Sztuczna Elita)**. Działała głównie w grze **MadCity Chapter 1 w latach 2020-2022**. Wspólne akcje, napięcia w środku grupy, walki z innymi nacjami (poza Polski), nie miało żadnych zasad ani braterstwa (dochodziło do napięć czasami).
 
-Z czasem Elita przestała istnieć, ale pamięć przetrwała. Właśnie z tej historii powstała **N.E.O.**. Nie kopiujemy przeszłości – **rozwijamy ją** i robimy coś nowego.
+Z czasem SE przestała istnieć, ale pamięć przetrwała do dziś. Właśnie z tej historii powstała **N.E.0.**. Nie kopiujemy przeszłości tylko ją ulepszamy i rozwijamy żeby błędy z przeszłości nigdy się nie wydarzyły.
 
 ---
 
@@ -27,13 +29,13 @@ Dzisiaj **N.E.O.** to:
 Gramy tam, gdzie liczy się strategia i współpraca:
 
 **War Tycoon**  
-Budujemy bazy, rozwijamy wojsko (Frakcje), zarządzamy zasobami i walczymy o kontrolę nad serwerem.
+Budujemy bazy, rozwijamy wojsko (Frakcje) i walczymy o kontrolę nad serwerem.
 
 **LockedUp**  
 Ta sama mechanika co w MadCity czy w Jailbreaku (P.S ta gra jest nadal w produkcji i napiszę więcej jak ono wyjdzie).
 
 **Mad City Chapter 1 & 2**  
-To tu wszystko się zaczęło. Do dziś działamy w Mad City, kontynuując historię Elity i biorąc udział w napadach, pościgach i strategicznych akcjach.
+To tu wszystko się zaczęło. Do dziś działamy w Mad City, kontynuując historię Elity i biorąc udział w wojnach światowych oraz wojna z innymi nacjami.
 
 **Weaponry**  
 Szybka, dynamiczna strzelanka PvP. Liczą się refleks, celność i dobre wyczucie chwili. Idealna do wspólnych treningów i zabawy.
@@ -45,7 +47,7 @@ Szybka, dynamiczna strzelanka PvP. Liczą się refleks, celność i dobre wyczuc
 **N.E.O.** to nie tylko wspólne granie. To sposób bycia. Liczą się dla nas:
 
 • zasady – bez oszustw i nielojalności  
-• doświadczenie – wielu z nas to dawni członkowie Elity  
+• doświadczenie – wielu z nas to dawni członkowie Sztucznej Elity 
 • hierarchia – każdy zna swoje miejsce, a szacunek to podstawa  
 • jedność – nie zostawiamy nikogo samego, działamy jak rodzina
 
@@ -54,4 +56,4 @@ Pamiętamy, skąd pochodzimy i wiemy, dokąd idziemy.
 ---
 
 > **N.E.O. to coś więcej niż grupa. To wspólna historia, honor i nowy początek.**  
-> Jeśli czujesz, że to dla Ciebie – **witaj w rodzinie**.
+> Jeśli czujesz, że to dla Ciebie to **witaj w rodzinie**.

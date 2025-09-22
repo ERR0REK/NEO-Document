@@ -1,27 +1,41 @@
-/* src/components/DiscordWarningModal/styles.module.css */
+/* ========================================================================= */
+/* Ulepszone style dla modalu ostrzegawczego Discord */
+/* Zwiększona intensywność futurystycznego wyglądu */
+/* ========================================================================= */
 
-/* Definicje zmiennych dla modala ostrzegawczego */
+/* Globalne zmienne kolorów */
 :root {
-  /* Jasny tryb - zmienne */
-  --warning-shadow-light: 0 0 20px rgba(var(--neo-magenta-rgb), 0.4);
-  --warning-border-light: 1px solid var(--neo-magenta);
-  --warning-header-color-light: var(--ifm-color-danger);
-  --warning-header-shadow-light: 0 0 15px rgba(var(--ifm-color-danger-rgb), 0.9), 0 0 30px rgba(var(--ifm-color-danger-rgb), 0.6);
-  --warning-button-ok-shadow-light: 0 0 15px rgba(var(--neo-cyan-rgb), 0.5);
-  --warning-button-cancel-shadow-light: 0 0 15px rgba(var(--ifm-color-danger-rgb), 0.5);
+  --neo-cyan: #00ffff;
+  --neo-cyan-rgb: 0, 255, 255;
+  --neo-magenta: #ff00ff;
+  --neo-magenta-rgb: 255, 0, 255;
+  --neo-yellow: #ffff00;
+  --neo-yellow-rgb: 255, 255, 0;
+  --neo-dark-bg: #111111;
+  --neo-light-text: #e0e0e0;
 }
 
+/* ========================================================================= */
+/* Zmienne specyficzne dla modala (dostosowane do trybu ciemnego) */
+/* ========================================================================= */
 html[data-theme='dark'] {
-  /* Ciemny tryb - zmienne neonowe */
-  --warning-shadow-dark: 0 0 40px rgba(var(--neo-magenta-rgb), 0.7);
-  --warning-border-dark: 1px solid var(--neo-magenta);
-  --warning-header-color-dark: var(--ifm-color-danger);
-  --warning-header-shadow-dark: 0 0 15px rgba(var(--ifm-color-danger-rgb), 0.9), 0 0 30px rgba(var(--ifm-color-danger-rgb), 0.6);
-  --warning-button-ok-shadow-dark: 0 0 20px rgba(var(--neo-cyan-rgb), 0.8);
-  --warning-button-cancel-shadow-dark: 0 0 20px rgba(var(--neo-magenta-rgb), 0.8);
-  --neo-box-shadow-hover-dark: 0 12px 45px rgba(0, 0, 0, 0.7);
+  --warning-color: var(--neo-magenta);
+  --warning-border: 1px solid var(--warning-color);
+  --warning-glow: 0 0 25px rgba(var(--neo-magenta-rgb), 0.8);
+  --warning-text-glow: 0 0 15px rgba(var(--neo-magenta-rgb), 1);
+  
+  --ok-button-color: var(--neo-cyan);
+  --ok-button-glow: 0 0 25px rgba(var(--neo-cyan-rgb), 0.9);
+  --ok-button-hover-glow: 0 0 40px rgba(var(--neo-cyan-rgb), 1), 0 0 70px rgba(var(--neo-cyan-rgb), 0.7);
+  
+  --cancel-button-color: var(--neo-magenta);
+  --cancel-button-glow: 0 0 25px rgba(var(--neo-magenta-rgb), 0.9);
+  --cancel-button-hover-glow: 0 0 40px rgba(var(--neo-magenta-rgb), 1), 0 0 70px rgba(var(--neo-magenta-rgb), 0.7);
 }
 
+/* ========================================================================= */
+/* Główna warstwa modalu (overlay) */
+/* ========================================================================= */
 .warningOverlay {
   position: fixed;
   top: 0;
@@ -44,8 +58,11 @@ html[data-theme='dark'] {
   transition: opacity 0.4s ease-in;
 }
 
+/* ========================================================================= */
+/* Kontener treści */
+/* ========================================================================= */
 .warningContent {
-  background: var(--neo-dark-bg, #1a1a1a);
+  background: var(--neo-dark-bg);
   padding: clamp(2rem, 5vw, 3rem);
   border-radius: 8px;
   max-width: clamp(300px, 80vw, 500px);
@@ -53,59 +70,46 @@ html[data-theme='dark'] {
   overflow-y: auto;
   width: 90%;
   position: relative;
-  box-shadow: var(--warning-shadow-light);
-  color: var(--neo-light-text, #add8e6);
+  box-shadow: var(--warning-glow);
+  color: var(--neo-light-text);
   text-align: center;
-  border: var(--warning-border-light);
-
+  border: var(--warning-border);
   transform: scale(0.85);
   opacity: 0;
   animation: scaleIn 0.5s forwards cubic-bezier(0.25, 0.8, 0.5, 1.2), pulseGlow 3s infinite alternate ease-in-out;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-html[data-theme='dark'] .warningContent {
-  box-shadow: var(--warning-shadow-dark);
-  border: var(--warning-border-dark);
-}
-
 .warningContent.closing {
   animation: scaleOut 0.4s forwards cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Efekt przesuwającej się siatki w tle */
+.warningContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(var(--neo-cyan-rgb), 0.1) 1px, rgba(var(--neo-cyan-rgb), 0.1) 2px),
+              repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(var(--neo-cyan-rgb), 0.1) 1px, rgba(var(--neo-cyan-rgb), 0.1) 2px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+  pointer-events: none;
+  animation: gridFade 5s infinite alternate, gridScroll 20s linear infinite;
 }
 
-@keyframes scaleIn {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes scaleOut {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-}
-
-@keyframes pulseGlow {
-  from { box-shadow: 0 0 20px rgba(var(--neo-magenta-rgb), 0.5); }
-  to { box-shadow: 0 0 35px rgba(var(--neo-magenta-rgb), 0.9); }
-}
-
+/* ========================================================================= */
+/* Tytuł i ikona ostrzeżenia */
+/* ========================================================================= */
 .warningContent h3 {
   font-family: 'Montserrat', sans-serif;
-  color: var(--ifm-color-danger);
+  color: var(--neo-magenta);
   margin-bottom: 1rem;
   font-size: clamp(1.8rem, 5vw, 2.5rem);
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  text-shadow: 0 0 10px rgba(var(--neo-magenta-rgb), 0.9);
   position: relative;
   display: flex;
   align-items: center;
@@ -114,36 +118,26 @@ html[data-theme='dark'] .warningContent {
   animation: warningTextPulse 1.5s infinite alternate ease-in-out;
 }
 
-html[data-theme='dark'] .warningContent h3 {
-  color: var(--warning-header-color-dark);
-  text-shadow: var(--warning-header-shadow-dark);
-}
-
-@keyframes warningTextPulse {
-  from { text-shadow: 0 0 5px rgba(255, 0, 0, 0.7); }
-  to { text-shadow: 0 0 15px rgba(255, 0, 0, 1); }
-}
-
 .warningContent h3::before {
   content: '⚠';
   font-size: 1.2em;
   line-height: 1;
   color: inherit;
-  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+  filter: drop-shadow(0 0 8px rgba(var(--neo-magenta-rgb), 0.8));
   animation: warningIconPulse 1.5s infinite alternate ease-in-out;
 }
 
-@keyframes warningIconPulse {
-  from { filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.7)); }
-  to { filter: drop-shadow(0 0 15px rgba(255, 0, 0, 1)); }
-}
-
+/* ========================================================================= */
+/* Paragrafy i przyciski */
+/* ========================================================================= */
 .warningContent p {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.7;
   margin-bottom: 2rem;
   font-size: 1.05rem;
-  color: var(--neo-light-text, #add8e6);
+  color: var(--neo-light-text);
+  /* Dodanie delikatnego efektu migotania */
+  animation: glitch-flicker 2s infinite linear;
 }
 
 .buttonContainer {
@@ -166,49 +160,31 @@ html[data-theme='dark'] .warningContent h3 {
 }
 
 .okButton {
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-color-white);
-  border: 1px solid var(--ifm-color-primary);
-  box-shadow: var(--warning-button-ok-shadow-light);
-}
-
-html[data-theme='dark'] .okButton {
-  background-color: var(--ifm-color-primary-dark);
-  border-color: var(--neo-cyan);
-  box-shadow: var(--warning-button-ok-shadow-dark);
+  background-color: transparent;
+  color: var(--ok-button-color);
+  border: 1px solid var(--ok-button-color);
+  box-shadow: var(--ok-button-glow);
 }
 
 .okButton:hover {
-  background-color: var(--neo-cyan);
-  color: var(--ifm-color-white);
+  background-color: var(--ok-button-color);
+  color: var(--neo-dark-bg);
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 0 30px rgba(var(--neo-cyan-rgb), 0.8), 0 0 50px rgba(var(--neo-cyan-rgb), 0.5);
+  box-shadow: var(--ok-button-hover-glow);
 }
 
 .cancelButton {
   background-color: transparent;
-  color: var(--ifm-color-danger);
-  border: 1px solid var(--ifm-color-danger);
-  box-shadow: none;
-}
-
-html[data-theme='dark'] .cancelButton {
-  color: var(--neo-magenta);
-  border-color: var(--neo-magenta);
-  box-shadow: var(--warning-button-cancel-shadow-dark);
+  color: var(--cancel-button-color);
+  border: 1px solid var(--cancel-button-color);
+  box-shadow: var(--cancel-button-glow);
 }
 
 .cancelButton:hover {
-  background-color: var(--ifm-color-danger);
-  color: var(--ifm-color-white);
+  background-color: var(--cancel-button-color);
+  color: var(--neo-dark-bg);
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
-}
-
-html[data-theme='dark'] .cancelButton:hover {
-  background-color: var(--neo-magenta);
-  color: var(--ifm-color-white);
-  box-shadow: 0 0 30px rgba(var(--neo-magenta-rgb), 1), 0 0 50px rgba(var(--neo-magenta-rgb), 0.6);
+  box-shadow: var(--cancel-button-hover-glow);
 }
 
 .closeButton {
@@ -219,7 +195,7 @@ html[data-theme='dark'] .cancelButton:hover {
   border: none;
   font-size: 2.2rem;
   cursor: pointer;
-  color: var(--neo-light-text, #add8e6);
+  color: var(--neo-light-text);
   opacity: 0.7;
   transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.3s ease;
   filter: drop-shadow(0 0 5px rgba(var(--neo-cyan-rgb), 0.5));
@@ -227,12 +203,71 @@ html[data-theme='dark'] .cancelButton:hover {
 
 .closeButton:hover {
   opacity: 1;
-  color: var(--ifm-color-danger);
+  color: var(--warning-color);
   transform: rotate(90deg) scale(1.1);
-  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+  filter: drop-shadow(0 0 10px rgba(var(--neo-magenta-rgb), 0.8));
 }
 
-/* --- Responsywność --- */
+/* ========================================================================= */
+/* Animacje Keyframes */
+/* ========================================================================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.7); opacity: 0; }
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: var(--warning-glow); }
+  to { box-shadow: var(--warning-glow), 0 0 45px rgba(var(--neo-magenta-rgb), 0.9); }
+}
+
+@keyframes warningTextPulse {
+  from { text-shadow: var(--warning-text-glow); }
+  to { text-shadow: var(--warning-text-glow), 0 0 25px rgba(var(--neo-magenta-rgb), 1); }
+}
+
+@keyframes warningIconPulse {
+  from { filter: drop-shadow(0 0 8px rgba(var(--neo-magenta-rgb), 0.8)); }
+  to { filter: drop-shadow(0 0 15px rgba(var(--neo-magenta-rgb), 1)); }
+}
+
+@keyframes gridScroll {
+  from { background-position: 0 0; }
+  to { background-position: -200px -200px; }
+}
+
+@keyframes glitch-flicker {
+  0%, 100% {
+    transform: none;
+    opacity: 1;
+  }
+  25% {
+    transform: skewX(5deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: skewX(-5deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: skewX(2deg);
+    opacity: 1;
+  }
+}
+
+/* ========================================================================= */
+/* Responsywność */
+/* ========================================================================= */
 @media (max-width: 768px) {
   .warningContent {
     padding: 1.5rem;
