@@ -46,7 +46,7 @@ function Feature({ Image, title, description, link }) {
   return (
     <div className={clsx('col col--4', styles.featureCard)}>
       <div className="text--center">
-        <img src={Image} className={styles.featureSvg} alt={title} />
+        <img loading="lazy" decoding="async" src={Image} className={styles.featureSvg} alt={title} />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h2">{title}</Heading>

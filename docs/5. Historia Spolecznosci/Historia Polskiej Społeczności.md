@@ -20,9 +20,9 @@ Rok **2022** przyniósł spore zmiany wraz z premierą **Mad City: Chapter 2**. 
 
 ## 3. Odrodzenie i Nowa Nadzieja (2023–2024)
 
-Pod koniec **2023 roku** nasza społeczność zaczęła się odradzać. Dołączyli do nas nowi gracze, a starzy znajomi wrócili, szukając nowych wyzwań. Nasza aktywność rozkwitła w grach takich jak **Weaponry**, **Jailbreak**, **MM2**, a także w oczekiwaniu na premierę gry **Wanted (wcześniej LockedUp)**.
+Pod koniec **2023 roku** nasza społeczność zaczęła się odradzać. Dołączyli do nas nowi gracze, a starzy znajomi wrócili, szukając nowych wyzwań. Nasza aktywność rozkwitła w grach takich jak **Weaponry**, **Jailbreak**, **MM2**, a także w oczekiwaniu na premierę gry **LockedUp**.
 
-**Nowa Elita**, składająca się z weteranów Mad City, Jailbreak i MM2, tchnęła w grupę nową energię. Choć dołączyli też nowi gracze, ich wpływ był jeszcze ograniczony. Mimo to rywalizacja pozostawała zacięta, szczególnie w Weaponry, gdzie ja i **Tiuulgu1** zaczęliśmy wyraźnie pokazywać swój potencjał.
+**Nowa Elita**, składająca się z weteranów Mad City, Jailbreak i MM2, tchnęła w grupę nową energię. Choć dołączyli też nowi gracze, ich wpływ był jeszcze ograniczony. Mimo to rywalizacja pozostawała zacięta, szczególnie w Weaponry, gdzie ja (ERR0R_Gl1tchTV) i **Tiuulgu1** zaczęliśmy wyraźnie pokazywać swój potencjał.
 
 ---
 

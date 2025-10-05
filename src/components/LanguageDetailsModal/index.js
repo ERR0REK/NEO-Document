@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 import styles from '../LanguageDetailsModal/styles.module.css';
+import useFocusTrap from '../../hooks/useFocusTrap';
 
 const LanguageDetailsModal = ({ isOpen, onClose }) => {
   const [shouldRender, setShouldRender] = useState(isOpen);
@@ -18,14 +19,32 @@ const LanguageDetailsModal = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
+  // Obsługa ESC (hooki muszą być wywoływane zawsze, przed wczesnym return)
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') onClose();
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, handleKeyDown]);
+
+  const containerRef = useFocusTrap(isOpen);
+
   if (!shouldRender) return null;
 
   return (
     <div
       className={clsx(styles.modalOverlay, isOpen && styles.open)}
       onClick={onClose}
+      role="presentation"
     >
       <div
+        ref={containerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Informacje o języku i dostępności strony"
         className={clsx(styles.modalContent, !isOpen && styles.closing)}
         onClick={e => e.stopPropagation()}
       >

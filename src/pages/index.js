@@ -20,7 +20,7 @@ function HomepageHeader() {
   const ownerDiscordId = "687701665771814939";
 
   // Link do dokumentacji "Dawna Elita"
-  const dawnaElitaDocUrl = "/docs/dawna-elita/dawni-czlonkowie";
+  const dawnaElitaDocUrl = "/docs/Historia%20Organizacji/2.1%20Sztuczna%20Elita/2.3%20Lista%20dawnych%20członków";
 
   // Funkcja otwierająca główny modal rekrutacji
   const handleOpenRecruitmentModal = () => {

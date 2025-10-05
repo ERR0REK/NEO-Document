@@ -1,8 +1,9 @@
 // src/components/DiscordWarningModal/index.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import useFocusTrap from '../../hooks/useFocusTrap';
 
 // Komponent DiscordWarningModal przyjmuje 'isOpen' i 'onClose' jako propsy.
 // 'onClose' będzie wywoływane z wartością boolean:
@@ -38,6 +39,19 @@ const DiscordWarningModal = ({ isOpen, onClose }) => {
     }
   }, [isOpen]); // Ten efekt reaguje tylko na zmiany w propie 'isOpen'
 
+  // Obsługa ESC (hooki muszą być wywoływane zawsze, przed wczesnym return)
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') onClose(false);
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, handleKeyDown]);
+
+  const containerRef = useFocusTrap(isOpen);
+
   // Nie renderuj modala, jeśli nie powinien być w DOM (po zakończeniu animacji zamykania)
   if (!shouldRender) return null;
 
@@ -46,10 +60,15 @@ const DiscordWarningModal = ({ isOpen, onClose }) => {
     <div
       className={clsx(styles.warningOverlay, isClosing && styles.closing)}
       onClick={() => onClose(false)} // Kliknięcie na overlay -> zamknięcie (nie akceptuje)
+      role="presentation"
     >
       {/* Kontener zawartości ostrzeżenia - zatrzymuje propagację kliknięcia */}
       {/* Dodajemy klasę 'closing' również tutaj, aby animacje na zawartości działały */}
       <div
+        ref={containerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Ostrzeżenie przed przekierowaniem na Discord"
         className={clsx(styles.warningContent, isClosing && styles.closing)}
         onClick={e => e.stopPropagation()} // Zatrzymuje zamykanie modala przy kliknięciu w jego zawartość
       >

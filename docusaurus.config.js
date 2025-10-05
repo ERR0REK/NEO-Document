@@ -15,6 +15,15 @@ const config = {
   url: 'https://neo-dokumentacja.netlify.app/',
   baseUrl: '/',
 
+  // Preconnect & fonts: improve font loading performance
+  stylesheets: [
+    // Preconnect to Google Fonts domains
+    { href: 'https://fonts.googleapis.com', rel: 'preconnect' },
+    { href: 'https://fonts.gstatic.com', rel: 'preconnect', crossorigin: true },
+    // Load the fonts stylesheet (Montserrat + Open Sans)
+    { href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap' },
+  ],
+
   organizationName: 'ERR0REK',
   projectName: 'NEO-Document',
   deploymentBranch: 'gh-pages',
@@ -63,6 +72,11 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Dokumentacja',
+          },
+          {
+            to: '/o-nas',
+            label: 'O nas',
+            position: 'left',
           },
           // Dodany link do Portfolio
           {

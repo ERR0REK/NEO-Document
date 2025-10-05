@@ -53,8 +53,10 @@
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
   font-size: 3.5rem;
-  transition: all 0.3s ease;
-  /* Animacje i cienie są zdefiniowane w custom.css, więc usunięto je tutaj, aby uniknąć duplikacji */
+  transition: color 0.2s ease, transform 0.25s ease, opacity 0.25s ease;
+  will-change: transform, opacity;
+  /* Subtelna animacja typu 'fade-up' zamiast intensywnego neonowego pulsowania */
+  animation: fadeUp 520ms cubic-bezier(.2,.9,.3,1) both;
 }
 
 /* Rozmiar tytułu na małych ekranach */
@@ -74,8 +76,9 @@
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  transition: color 0.2s ease, opacity 0.25s ease;
+  will-change: opacity;
+  opacity: 0.98;
 }
 
 html[data-theme='dark'] .hero__subtitle {
@@ -92,9 +95,18 @@ html[data-theme='dark'] .hero__subtitle {
   font-size: 1.5rem;
   margin-bottom: 3rem;
   letter-spacing: 1.5px;
-  transition: all 0.3s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
   color: var(--ifm-font-color-secondary);
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Jeśli użytkownik chce mniej ruchu, wyłącz animacje */
+@media (prefers-reduced-motion: reduce) {
+  .hero__title, .hero__subtitle, .slogan { animation: none; transition: none; }
 }
 
 /* Kolor i cień dla sloganu w TRYBIE CIEMNYM */

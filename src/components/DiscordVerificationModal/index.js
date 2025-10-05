@@ -1,8 +1,9 @@
 // src/components/DiscordVerificationModal/index.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css'; // Zmieniono ścieżkę na './styles.module.css' dla spójności
+import useFocusTrap from '../../hooks/useFocusTrap';
 
 const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId }) => {
   const [shouldRender, setShouldRender] = useState(isOpen);
@@ -24,6 +25,19 @@ const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId 
     }
   }, [isOpen]);
 
+  // Obsługa ESC (hooki muszą być wywoływane zawsze, przed wczesnym return)
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') onClose();
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, handleKeyDown]);
+
+  const containerRef = useFocusTrap(isOpen);
+
   if (!shouldRender) return null;
 
   const handleOpenDiscordProfile = () => {
@@ -39,8 +53,13 @@ const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId 
     <div
       className={clsx(styles.modalOverlay, isOpen && styles.open, isClosing && styles.closing)}
       onClick={onClose}
+      role="presentation"
     >
       <div
+        ref={containerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Weryfikacja rekrutacji"
         className={clsx(styles.modalContent, isClosing && styles.closing)}
         onClick={e => e.stopPropagation()}
       >
@@ -102,7 +121,7 @@ const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId 
               className={styles.discordButton}
               onClick={handleOpenDiscordProfile}
             >
-              <img src="/img/discord-icon.png" alt="Discord Icon" className={styles.discordIcon} />
+              <img loading="lazy" src="/img/discord-icon.png" alt="Discord Icon" className={styles.discordIcon} />
               Otwórz profil Discord
             </a>
             {/* NOWY LINK ROBLOX */}
@@ -112,7 +131,7 @@ const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId 
               rel="noopener noreferrer"
               className={styles.robloxButton} // Nowa klasa do stylizacji
             >
-              <img src="/img/roblox.png" alt="Roblox Icon" className={styles.robloxIcon} /> {/* Będziesz potrzebować ikony Roblox */}
+              <img loading="lazy" src="/img/roblox.png" alt="Roblox Icon" className={styles.robloxIcon} /> {/* Będziesz potrzebować ikony Roblox */}
               Dodaj do znajomych (Roblox)
             </a>
         </div>

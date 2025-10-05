@@ -22,7 +22,7 @@
     linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 25px 25px;
   opacity: 0.1;
-  animation: moveGrid 30s linear infinite;
+    animation: moveGrid 60s linear infinite; /* wolniejszy ruch siatki, mniej rozpraszający */
   pointer-events: none;
   z-index: 0;
 }
@@ -44,21 +44,21 @@ html[data-theme='dark'] .features::before {
 
 /* --- Style dla poszczególnych kart --- */
 .featureCard {
-  background-color: var(--neo-card-background-light);
-  border: 1px solid var(--neo-card-border-light);
-  border-radius: 12px;
-  padding: 2rem;
-  margin-top: 2.5rem;
-  box-shadow: var(--neo-box-shadow-light);
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  height: 100%; /* Upewnia się, że karty mają tę samą wysokość */
+    background-color: var(--neo-card-background-light);
+    border: 1px solid var(--neo-card-border-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: var(--neo-box-shadow-light);
+    transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
 }
 
 html[data-theme='dark'] .featureCard {
@@ -68,30 +68,25 @@ html[data-theme='dark'] .featureCard {
 }
 
 /* Efekt "świecącej ramki" */
+/* Delikatniejszy border glow zamiast ciężkiego blurred gradient */
 .featureCard::before {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, var(--ifm-color-primary-light), var(--neo-magenta), var(--neo-yellow), var(--ifm-color-primary-light));
-    background-size: 400% 400%;
+    inset: 0;
     z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out, background-position 0.4s ease-in-out;
     border-radius: 14px;
-    filter: blur(10px);
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(var(--ifm-color-primary-rgb),0.06), transparent 30%);
+    opacity: 0;
+    transition: opacity 260ms ease, background-position 260ms ease;
 }
 
 html[data-theme='dark'] .featureCard::before {
-    background: linear-gradient(45deg, var(--neo-cyan), var(--neo-magenta), var(--neo-yellow), var(--neo-cyan));
+    background: linear-gradient(90deg, rgba(var(--neo-cyan-rgb),0.06), transparent 30%);
 }
 
 .featureCard:hover::before {
     opacity: 1;
-    background-position: 100% 100%;
-    animation: neonBorderPulse 2s infinite alternate ease-in-out;
 }
 
 @keyframes neonBorderPulse {
@@ -102,8 +97,8 @@ html[data-theme='dark'] .featureCard::before {
 
 /* Efekt hover dla całej karty */
 .featureCard:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--neo-box-shadow-light);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
 html[data-theme='dark'] .featureCard:hover {
@@ -111,36 +106,23 @@ html[data-theme='dark'] .featureCard:hover {
 }
 
 /* NOWOŚĆ: Efekt glitche'a na hover na tytule i opisie */
-.featureCard:hover .featureTitle,
-.featureCard:hover .featureDescription {
-    animation: glitch 1s linear infinite;
-}
+/* Usuń glitch dla lepszej czytelności i wydajności */
 
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
-}
 
 /* Stylizacja ikon SVG */
 .featureSvg {
-    max-width: 120px;
+    max-width: 110px;
     height: auto;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
-    transition: transform 0.3s ease, filter 0.3s ease;
+    margin-bottom: 1.25rem;
+    transition: transform 260ms ease, opacity 260ms ease;
 }
 
 html[data-theme='dark'] .featureSvg {
-    filter: drop-shadow(0 0 12px var(--ifm-color-primary));
+    opacity: 0.95;
 }
 
 .featureCard:hover .featureSvg {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 20px rgba(var(--neo-cyan-rgb), 0.9));
+    transform: scale(1.08);
 }
 
 /* Stylizacja dla tekstu w kartach */
@@ -155,8 +137,7 @@ html[data-theme='dark'] .featureSvg {
     margin-bottom: 0.75rem;
     font-size: 1.7rem;
     font-family: 'Montserrat', sans-serif;
-    text-shadow: 0 0 8px rgba(var(--ifm-color-primary-rgb), 0.5);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 html[data-theme='dark'] .featureTitle {
@@ -184,6 +165,11 @@ html[data-theme='dark'] .featureDescription {
 }
 
 .featureButton:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(var(--neo-yellow-rgb), 0.9), 0 0 40px rgba(var(--neo-yellow-rgb), 0.6);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 22px rgba(var(--neo-yellow-rgb), 0.12);
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .features::before, .featureCard, .featureSvg, .featureTitle { animation: none; transition: none; }
 }

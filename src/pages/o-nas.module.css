@@ -1,0 +1,70 @@
+/* Use global design tokens from src/css/custom.css to stay consistent */
+.container {
+  padding: 3.5rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: inherit;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 2000;
+}
+
+.modal {
+  background: var(--neo-card-background, var(--ifm-background-color));
+  color: var(--ifm-font-color-base);
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border-radius: 12px;
+  max-width: 720px;
+  width: 94%;
+  box-shadow: var(--neo-box-shadow-light, 0 10px 30px rgba(0,0,0,0.6));
+  border: 1px solid var(--neo-card-border-light, rgba(0,0,0,0.08));
+  position: relative;
+  transform: translateY(-6vh) scale(0.98);
+  opacity: 0;
+  animation: modalEnter 360ms cubic-bezier(.2,.9,.3,1) forwards;
+}
+
+.modal h2 {
+  margin-top: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--ifm-color-primary);
+}
+
+.modal p {
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.6;
+}
+
+.close {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+}
+
+/* Button alignment inside modal */
+.modal .button {
+  margin-top: 1rem;
+}
+
+@keyframes modalEnter {
+  from { transform: translateY(-6vh) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Respect user's preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .modal { animation: none; transform: none; }
+  .hero__title, .hero__subtitle { animation: none; }
+}

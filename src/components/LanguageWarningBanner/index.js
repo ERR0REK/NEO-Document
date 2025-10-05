@@ -47,6 +47,8 @@ const LanguageWarningBanner = () => {
           <button
             className={styles.moreInfoButton}
             onClick={handleOpenModal}
+            aria-expanded={isModalOpen}
+            aria-controls="language-details-modal"
           >
             Find out more by clicking here:
           </button>

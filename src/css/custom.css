@@ -1,7 +1,6 @@
 /* src/css/custom.css */
 
-/* IMPORT CZCIONEK NA SAMEJ GÓRZE PLIKU! */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
+/* Fonts are loaded via docusaurus.config.js stylesheets to improve loading (preconnect + preload) */
 
 /**
  * Docusaurus custom styles.
@@ -175,38 +174,41 @@ h1, h2, h3, h4, h5, h6 {
 .hero__title {
   color: var(--ifm-color-primary);
   font-size: 3.5rem;
-  text-shadow: 0 0 15px rgba(var(--neo-title-glow-color-light), 0.7);
-  animation: neonGlowPulseLight 1.5s infinite alternate ease-in-out;
+  /* lighter glow for performance and readability */
+  text-shadow: 0 0 8px rgba(var(--neo-title-glow-color-light), 0.55);
+  animation: neonGlowPulseLight 2.6s infinite alternate ease-in-out;
 }
 
 html[data-theme='dark'] .hero__title {
   color: var(--ifm-color-primary);
-  text-shadow: 0 0 20px rgba(var(--neo-title-glow-color-dark), 0.9),
-               0 0 30px rgba(var(--neo-title-glow-color-dark), 0.7);
-  animation: neonGlowPulseDark 1.8s infinite alternate ease-in-out;
+  /* softer dark-mode glow */
+  text-shadow: 0 0 10px rgba(var(--neo-title-glow-color-dark), 0.8),
+               0 0 16px rgba(var(--neo-title-glow-color-dark), 0.6);
+  animation: neonGlowPulseDark 3s infinite alternate ease-in-out;
 }
 
 .hero__subtitle {
   color: var(--ifm-font-color-base);
   font-size: 1.8rem;
-  text-shadow: 0 0 8px rgba(var(--neo-subtitle-glow-color-light), 0.5);
+  /* reduce subtitle shadow */
+  text-shadow: 0 0 5px rgba(var(--neo-subtitle-glow-color-light), 0.35);
 }
 
 html[data-theme='dark'] .hero__subtitle {
   color: var(--neo-light-text);
-  text-shadow: 0 0 15px rgba(var(--neo-subtitle-glow-color-dark), 0.8),
-               0 0 25px rgba(var(--neo-subtitle-glow-color-dark), 0.6);
+  text-shadow: 0 0 8px rgba(var(--neo-subtitle-glow-color-dark), 0.65),
+               0 0 14px rgba(var(--neo-subtitle-glow-color-dark), 0.45);
 }
 
 /* Animacje neonowego glow */
 @keyframes neonGlowPulseLight {
-  from { text-shadow: 0 0 10px rgba(var(--neo-title-glow-color-light), 0.4); }
-  to { text-shadow: 0 0 20px rgba(var(--neo-title-glow-color-light), 0.7), 0 0 30px rgba(var(--neo-title-glow-color-light), 0.5); }
+  from { text-shadow: 0 0 6px rgba(var(--neo-title-glow-color-light), 0.28); }
+  to { text-shadow: 0 0 12px rgba(var(--neo-title-glow-color-light), 0.48), 0 0 18px rgba(var(--neo-title-glow-color-light), 0.32); }
 }
 
 @keyframes neonGlowPulseDark {
-  from { text-shadow: 0 0 15px rgba(var(--neo-title-glow-color-dark), 0.7), 0 0 25px rgba(var(--neo-title-glow-color-dark), 0.5); }
-  to { text-shadow: 0 0 25px rgba(var(--neo-title-glow-color-dark), 0.9), 0 0 40px rgba(var(--neo-title-glow-color-dark), 0.7); }
+  from { text-shadow: 0 0 10px rgba(var(--neo-title-glow-color-dark), 0.55), 0 0 18px rgba(var(--neo-title-glow-color-dark), 0.38); }
+  to { text-shadow: 0 0 18px rgba(var(--neo-title-glow-color-dark), 0.78), 0 0 28px rgba(var(--neo-title-glow-color-dark), 0.52); }
 }
 
 /* Dodatkowe animacje dla sloganu */
@@ -223,13 +225,13 @@ html[data-theme='dark'] .hero__paragraph {
 }
 
 @keyframes pulseSloganLight {
-  from { text-shadow: 0 0 5px rgba(var(--neo-slogan-glow-color-light), 0.3); }
-  to { text-shadow: 0 0 10px rgba(var(--neo-slogan-glow-color-light), 0.6); }
+  from { text-shadow: 0 0 4px rgba(var(--neo-slogan-glow-color-light), 0.22); }
+  to { text-shadow: 0 0 8px rgba(var(--neo-slogan-glow-color-light), 0.42); }
 }
 
 @keyframes pulseSloganDark {
-  from { text-shadow: 0 0 8px rgba(var(--neo-slogan-glow-color-dark), 0.5); }
-  to { text-shadow: 0 0 15px rgba(var(--neo-slogan-glow-color-dark), 0.9); }
+  from { text-shadow: 0 0 6px rgba(var(--neo-slogan-glow-color-dark), 0.4); }
+  to { text-shadow: 0 0 12px rgba(var(--neo-slogan-glow-color-dark), 0.75); }
 }
 
 

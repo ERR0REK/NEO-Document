@@ -1,10 +1,11 @@
 // src/components/RecruitmentModal/index.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 // Importujemy DiscordWarningModal, który będzie wywoływany z tego modala
 import DiscordWarningModal from '../DiscordWarningModal'; 
+import useFocusTrap from '../../hooks/useFocusTrap';
 
 // Nowy prop: dawnaElitaDocUrl
 const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId, dawnaElitaDocUrl, onDiscordAccept }) => {
@@ -28,6 +29,20 @@ const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId, dawnaEl
       return () => clearTimeout(timeoutId);
     }
   }, [isOpen]);
+
+  // Obsługa ESC zamknięcia (HOOK musi być wywołany zawsze, przed wczesnym return)
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') onClose();
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, handleKeyDown]);
+
+  // focus-trap hook (wywołanie zawsze, nawet jeśli modal chwilowo nie renderuje DOM)
+  const containerRef = useFocusTrap(isOpen);
 
   // Nie renderuj modala, jeśli nie powinien być w DOM
   if (!shouldRender) return null;
@@ -88,7 +103,7 @@ const RecruitmentModal = ({ isOpen, onClose, discordUsername, discordId, dawnaEl
             rel="noopener noreferrer"
             onClick={handleDiscordLinkClick} // Nadal otwiera modal ostrzegawczy
           >
-            <img src="/img/discord-icon.png" alt="Discord Icon" className={styles.discordIcon} />
+            <img loading="lazy" src="/img/discord-icon.png" alt="Discord Icon" className={styles.discordIcon} />
             Wyślij wiadomość na Discordzie
           </a>
         </p>
