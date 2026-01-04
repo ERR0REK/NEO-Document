@@ -1,34 +1,18 @@
 /* ========================================================================= */
-/* Ulepszone style dla modalu rekrutacyjnego N.E.O. */
+/* Ulepszone style dla modalu rekrutacyjnego N.E.O. - Glassmorphism */
 /* ========================================================================= */
 
-:root {
-  --neo-cyan: #00ffff;
-  --neo-cyan-rgb: 0, 255, 255;
-  --neo-magenta: #ff00ff;
-  --neo-magenta-rgb: 255, 0, 255;
-  --neo-yellow: #ffff00;
-  --neo-yellow-rgb: 255, 255, 0;
-  --neo-dark-bg: #111111;
-  --neo-light-text: #e0e0e0;
-}
-
-/* ========================================================================= */
-/* Główna warstwa modalu (overlay) */
-/* ========================================================================= */
+/* Główna warstwa modalu (overlay) - using glass variables implicitly via backup */
 .modalOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.95);
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   opacity: 0;
   transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -45,20 +29,24 @@
 /* Kontener treści modalu */
 /* ========================================================================= */
 .modalContent {
-  background: var(--neo-dark-bg);
+  background: var(--neo-glass-bg);
+  /* Use global glass var */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--neo-glass-border);
+  box-shadow: var(--neo-glass-shadow);
+
   padding: clamp(2rem, 4vw, 3.5rem);
-  border-radius: 10px;
+  border-radius: 16px;
   max-width: clamp(320px, 80vw, 700px);
   max-height: 90vh;
   overflow-y: auto;
   width: 90%;
   position: relative;
-  box-shadow: 0 0 40px rgba(var(--neo-cyan-rgb), 0.7), 0 0 80px rgba(var(--neo-magenta-rgb), 0.5);
-  color: var(--neo-light-text);
-  border: 1px solid var(--neo-cyan);
+  color: var(--ifm-font-color-base);
   transform: translateY(-5vh) scale(0.95);
   opacity: 0;
-  animation: modalEnter 0.5s forwards cubic-bezier(0.25, 0.8, 0.5, 1.2), pulseModalGlow 2.5s infinite alternate ease-in-out;
+  animation: modalEnter 0.5s forwards cubic-bezier(0.25, 0.8, 0.5, 1.2);
 }
 
 .modalContent.closing {
@@ -69,16 +57,13 @@
 .modalContent::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(var(--neo-cyan-rgb), 0.1) 1px, rgba(var(--neo-cyan-rgb), 0.1) 2px),
-              repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(var(--neo-cyan-rgb), 0.1) 1px, rgba(var(--neo-cyan-rgb), 0.1) 2px);
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(0, 188, 212, 0.05) 1px, rgba(0, 188, 212, 0.05) 2px),
+    repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 188, 212, 0.05) 1px, rgba(0, 188, 212, 0.05) 2px);
   background-size: 20px 20px;
-  opacity: 0.1;
+  opacity: 0.5;
   pointer-events: none;
-  animation: gridFade 5s infinite alternate;
+  z-index: -1;
 }
 
 /* ========================================================================= */
@@ -90,19 +75,17 @@
   right: 1rem;
   background: none;
   border: none;
-  font-size: 2.5rem;
+  font-size: 2rem;
   cursor: pointer;
-  color: var(--neo-light-text);
-  opacity: 0.8;
-  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 5px rgba(var(--neo-cyan-rgb), 0.5));
+  color: var(--ifm-font-color-base);
+  opacity: 0.6;
+  transition: all 0.2s ease;
 }
 
 .closeButton:hover {
   opacity: 1;
   color: var(--neo-magenta);
-  transform: rotate(180deg) scale(1.1);
-  filter: drop-shadow(0 0 15px rgba(var(--neo-magenta-rgb), 0.9));
+  transform: rotate(90deg);
 }
 
 /* ========================================================================= */
@@ -110,22 +93,19 @@
 /* ========================================================================= */
 .modalContent h3 {
   font-family: 'Montserrat', sans-serif;
-  color: var(--neo-cyan);
+  color: var(--ifm-color-primary);
   text-align: center;
   margin-bottom: 1.5rem;
-  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-shadow: 0 0 12px rgba(var(--neo-cyan-rgb), 0.9), 0 0 25px rgba(var(--neo-cyan-rgb), 0.7);
-  animation: neonTextPulse 1.8s infinite alternate ease-in-out;
+  text-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
 }
 
 .modalContent p {
   font-family: 'Open Sans', sans-serif;
-  line-height: 1.8;
+  line-height: 1.6;
   margin-bottom: 1rem;
-  font-size: 1.05rem;
-  color: var(--neo-light-text);
+  font-size: 1rem;
 }
 
 .modalContent ul {
@@ -136,35 +116,28 @@
 }
 
 .modalContent ul li {
-  font-family: 'Open Sans', sans-serif;
   position: relative;
-  padding-left: 2.8rem;
-  margin-bottom: 1.2rem;
-  font-size: 1.1rem;
-  color: var(--neo-light-text);
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
 }
 
 .modalContent ul li::before {
   content: '⚡';
   position: absolute;
   left: 0;
-  color: var(--neo-magenta);
-  font-size: 1.8rem;
-  top: 0.1em;
-  filter: drop-shadow(0 0 8px rgba(var(--neo-magenta-rgb), 0.7));
-  animation: iconFlicker 0.8s infinite alternate ease-in-out;
+  color: var(--neo-yellow);
+  font-size: 1.2rem;
+  top: 0;
 }
 
 /* ========================================================================= */
 /* Przyciski i linki */
 /* ========================================================================= */
 .discordContact {
-  font-family: 'Open Sans', sans-serif;
   text-align: center;
-  margin-top: 3rem;
-  font-size: 1.2rem;
+  margin-top: 2rem;
   font-weight: bold;
-  color: var(--neo-light-text);
 }
 
 .discordContact a {
@@ -173,35 +146,34 @@
   justify-content: center;
   gap: 0.8rem;
   color: #ffffff;
-  background-color: #7289DA;
-  padding: 1rem 2rem;
-  border-radius: 10px;
+  background-color: #5865F2;
+  /* Discord Blurple */
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(114, 137, 218, 0.8);
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
 }
 
 .discordContact a:hover {
-  background-color: #677BC4;
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 35px rgba(114, 137, 218, 1), 0 0 60px rgba(114, 137, 218, 0.6);
+  background-color: #4752C4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
 }
 
 .discordIcon {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .modalFooter {
-  font-family: 'Open Sans', sans-serif;
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-style: italic;
   text-align: center;
-  opacity: 0.6;
-  font-size: 0.95rem;
-  color: var(--neo-light-text);
+  opacity: 0.7;
+  font-size: 0.9rem;
 }
 
 .dawnaElitaLink {
@@ -209,12 +181,9 @@
   text-decoration: none;
   font-weight: 600;
   margin-left: 0.5rem;
-  transition: all 0.3s ease;
 }
 
 .dawnaElitaLink:hover {
-  color: var(--neo-cyan);
-  text-shadow: 0 0 8px rgba(var(--neo-cyan-rgb), 0.7);
   text-decoration: underline;
 }
 
@@ -223,9 +192,10 @@
 /* ========================================================================= */
 @keyframes modalEnter {
   from {
-    transform: translateY(-10vh) scale(0.85);
+    transform: translateY(-5vh) scale(0.95);
     opacity: 0;
   }
+
   to {
     transform: translateY(0) scale(1);
     opacity: 1;
@@ -237,30 +207,9 @@
     transform: translateY(0) scale(1);
     opacity: 1;
   }
+
   to {
-    transform: translateY(10vh) scale(0.85);
+    transform: translateY(5vh) scale(0.95);
     opacity: 0;
   }
-}
-
-@keyframes pulseModalGlow {
-  from { box-shadow: 0 0 30px rgba(var(--neo-cyan-rgb), 0.5), 0 0 60px rgba(var(--neo-magenta-rgb), 0.4); }
-  to { box-shadow: 0 0 45px rgba(var(--neo-cyan-rgb), 0.8), 0 0 90px rgba(var(--neo-magenta-rgb), 0.6); }
-}
-
-@keyframes gridFade {
-  from { opacity: 0.1; }
-  to { opacity: 0.15; }
-}
-
-@keyframes neonTextPulse {
-  from { text-shadow: 0 0 10px rgba(var(--neo-cyan-rgb), 0.7), 0 0 15px rgba(var(--neo-cyan-rgb), 0.5); }
-  to { text-shadow: 0 0 15px rgba(var(--neo-cyan-rgb), 1), 0 0 25px rgba(var(--neo-cyan-rgb), 0.8), 0 0 40px rgba(var(--neo-cyan-rgb), 0.6); }
-}
-
-@keyframes iconFlicker {
-  0%, 100% { filter: drop-shadow(0 0 8px rgba(var(--neo-magenta-rgb), 0.7)); opacity: 1; }
-  45% { filter: drop-shadow(0 0 2px rgba(var(--neo-magenta-rgb), 0.3)); opacity: 0.8; }
-  50% { filter: drop-shadow(0 0 15px rgba(var(--neo-magenta-rgb), 1)); opacity: 0.9; }
-  55% { filter: drop-shadow(0 0 2px rgba(var(--neo-magenta-rgb), 0.3)); opacity: 0.8; }
 }

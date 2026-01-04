@@ -56,13 +56,10 @@ const LanguageDetailsModal = ({ isOpen, onClose }) => {
         <div className={styles.languageSection}>
             <h3>Additional Information: N.E.O.</h3>
             <p>
-              The New Elite Organization was created to unite the Polish-speaking gaming community. Our goal is not global expansion, but rather to build a strong and cohesive group within Roblox. 
+              The New Elite Organization was created to unite the Polish-speaking gaming community (from Sztuczna Elita and MadCity). Our goal is not global expansion (maybe in the future, who knows), but to build a strong and less chaotic organization in Roblox.
             </p>
             <p>
-              All our resources, protocols, and operational procedures are adapted to the specific needs of the Polish community, which allows for effective and organized collaboration. 
-            </p>
-            <p>
-              Therefore, all communication, documentation, and the recruitment process are conducted exclusively in Polish, which is a fundamental requirement for membership.
+              All documents, communication, and recruitment are conducted exclusively in Polish.
             </p>
         </div>
 

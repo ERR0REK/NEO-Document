@@ -5,36 +5,34 @@ import styles from './o-nas.module.css';
 
 const DIVISIONS = [
   {
-    title: 'N.E.O. (Kwatera Główna)',
+    title: 'N.E.O. HQ (Kwatera Główna)',
     desc:
-      'WIP'
+      'Główne centrum operacyjne odpowiedzialne za prowadzenie działań w grach MadCity, LockedUp oraz Weaponry. To tutaj zarządzamy strukturą i dbamy o najwyższy standard gry.'
   },
   {
     title: 'Frakcja — War Tycoon',
-    desc: 'WIP',
-    wip: true
+    desc: 'Oficjalna frakcja zintegrowana z naszą organizacją. Skupiamy się na budowaniu potęgi militarnej, dominacji na serwerach i ścisłej współpracy taktycznej.',
   },
   {
     title: 'Gildia — Minecraft',
-    desc: 'WIP',
-    wip: true
+    desc: 'Plany dotyczące stworzenia oficjalnej gildii są w toku. Czekamy na wybór odpowiedniego serwera i ustalenie zasad działania.',
   }
 ];
 
 const LEADERS = [
   {
-    role: 'Właściciel',
+    role: 'Główny Właściciel',
     nick: 'ERR0R_Gl1tchTV',
     img: '/img/pfp-owner.png',
     desc:
-      'Główny lider i założyciel N.E.O. Odpowiada za rozwój organizacji i weryfikacje członków oraz strategię w wybranych grach. Stary członek SE (Sztucznej Elity) w latach 2020-2022.'
+      'Założyciel i główny strateg N.E.O. Weteran "Sztucznej Elity" (2020-2022). Odpowiada za wizję organizacji, najważniejsze sojusze oraz pilnowanie, by Kodeks nigdy nie stał się tylko martwym zapisem.'
   },
   {
-    role: 'Współwłaściciel',
+    role: 'Współwłaściciel / Koordynator',
     nick: 'Tiuulgu1',
     img: '/img/pfp-partner.png',
     desc:
-      'WIP - Szczegóły wkrótce.'
+      'Prawa ręka dowództwa. Odpowiada za codzienne życie organizacji, organizację wypadów w Weaponry i Mad City oraz dbanie o to, by każdy członek czuł się częścią zgranej ekipy.'
   }
 ];
 
@@ -49,7 +47,7 @@ export default function AboutPage() {
             <div className={styles.titleLine} aria-hidden></div>
             <p className={styles.subtitle}>
               N.E.O. (Nowa Elitarna Organizacja) to społeczność doświadczonych graczy,
-              dowódców i strategów — utrzymujemy dyscyplinę, strukturę i wysoką jakość działań
+              dowódców i strategów utrzymujemy dyscyplinę, strukturę i wysoką jakość działań
               w grach, w których działamy.
             </p>
             <p className={styles.ctaNote}>

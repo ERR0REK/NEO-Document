@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -43,9 +43,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Upewnij się, że ta ścieżka do Twojego repozytorium jest poprawna
           editUrl:
             'https://github.com/ERR0REK/NEO-Document/tree/main/',
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -89,7 +90,8 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-        ]},
+        ]
+      },
       footer: {
         style: 'dark',
         links: [
@@ -111,7 +113,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.gg/your-discord-invite', // Upewnij się, że to Twój link!
+                href: 'https://discord.gg/A7JqMvSjPj', // Zaktualizowany link (jeśli to ten właściwy, jeśli nie - podaj swój!)
               },
               {
                 label: 'Grupa RBLX',

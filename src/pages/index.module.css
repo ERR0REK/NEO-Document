@@ -7,39 +7,35 @@
 /* Nagłówek główny - Hero Banner */
 /* ========================================= */
 .heroBanner {
-  padding: 6rem 0;
+  padding: 8rem 0 6rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s ease;
+  /* background is handled by global .hero class */
+}
 
-  /* Delikatny efekt "szumu/siatki" - kolor będzie się mieszał z tłem trybu */
-  /* Ten efekt będzie widoczny w obu trybach, ale w trybie ciemnym będzie nadpisywany przez custom.css */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* W trybie jasnym: bardzo delikatne, ledwo widoczne linie */
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(0, 188, 212, 0.01),
-      rgba(0, 188, 212, 0.01) 1px,
+/* Delikatny efekt "szumu/siatki" - kolor będzie się mieszał z tłem trybu */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(45deg,
+      rgba(0, 188, 212, 0.03),
+      rgba(0, 188, 212, 0.03) 1px,
       transparent 1px,
-      transparent 5px
-    );
-    opacity: 0.1;
-    pointer-events: none;
-    z-index: 1;
-  }
+      transparent 10px);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Dostosowanie dla małych ekranów */
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
   }
 }
 
@@ -48,21 +44,20 @@
 /* ========================================= */
 .hero__title {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--ifm-color-primary);
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-  font-size: 3.5rem;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+  font-size: 4rem;
   transition: color 0.2s ease, transform 0.25s ease, opacity 0.25s ease;
   will-change: transform, opacity;
-  /* Subtelna animacja typu 'fade-up' zamiast intensywnego neonowego pulsowania */
-  animation: fadeUp 520ms cubic-bezier(.2,.9,.3,1) both;
+  animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 /* Rozmiar tytułu na małych ekranach */
 @media screen and (max-width: 768px) {
   .hero__title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 }
 
@@ -74,16 +69,10 @@
   color: var(--ifm-font-color-base);
   font-weight: 400;
   margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.2rem;
-  transition: color 0.2s ease, opacity 0.25s ease;
-  will-change: opacity;
-  opacity: 0.98;
-}
-
-html[data-theme='dark'] .hero__subtitle {
-  color: var(--ifm-font-color-base);
-  text-shadow: 0 0 8px rgba(var(--ifm-font-color-base-rgb), 0.7);
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  opacity: 0.9;
+  animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
 }
 
 /* ========================================= */
@@ -92,28 +81,38 @@ html[data-theme='dark'] .hero__subtitle {
 .slogan {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
   margin-bottom: 3rem;
-  letter-spacing: 1.5px;
-  transition: color 0.2s ease, transform 0.2s ease;
-  color: var(--ifm-font-color-secondary);
+  letter-spacing: 3px;
+  color: var(--neo-cyan);
+  animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
 }
 
 @keyframes fadeUp {
-  from { transform: translateY(8px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Jeśli użytkownik chce mniej ruchu, wyłącz animacje */
 @media (prefers-reduced-motion: reduce) {
-  .hero__title, .hero__subtitle, .slogan { animation: none; transition: none; }
+
+  .hero__title,
+  .hero__subtitle,
+  .slogan {
+    animation: none;
+    transition: none;
+  }
 }
 
-/* Kolor i cień dla sloganu w TRYBIE CIEMNYM */
-html[data-theme='dark'] .slogan {
-  color: var(--neo-magenta);
-  /* Animacja i cień są zdefiniowane w custom.css, więc usunięto je tutaj, aby uniknąć duplikacji */
-}
+/* Kolor i cień dla sloganu w TRYBIE CIEMNYM handled by custom.css mostly */
 
 /* ========================================= */
 /* Kontener przycisków */
@@ -125,7 +124,5 @@ html[data-theme='dark'] .slogan {
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+  animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
 }
-
-/* Reszta stylów dla przycisków jest zdefiniowana w custom.css,
-   aby były globalnie dostępne i spójne */

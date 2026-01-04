@@ -50,7 +50,7 @@ function HomepageHeader() {
           N.E.O. – Nowa Elitarna Organizacja
         </Heading>
         <p className="hero__subtitle">
-          Oficjalna dokumentacja społeczności graczy Roblox – kontynuacja dziedzictwa legendarnej Elity z lat 2020–2022.
+          Oficjalne centrum dowodzenia N.E.O. Poznaj naszą historię, zasady i dołącz do elitarnej społeczności graczy Roblox, która kontynuuje dziedzictwo legendarnej Sztucznej Elity.
         </p>
         <p className={clsx(styles.heroSubtitle, styles.slogan)}>
           Honor. Dyscyplina. Braterstwo.

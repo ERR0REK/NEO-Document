@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
-import styles from './styles.module.css'; // Zmieniono ścieżkę na './styles.module.css' dla spójności
+import styles from './styles.module.css';
 import useFocusTrap from '../../hooks/useFocusTrap';
 
 const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId }) => {
@@ -82,31 +82,31 @@ const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId 
         </p>
 
         <div className={styles.questionSection}>
-            <h4>1. Czy byłeś(-aś) członkiem Elity w latach 2020–2022?</h4>
-            <p className={styles.answerPrompt}>(Odpowiedź: Tak / Nie)</p>
+          <h4>1. Czy byłeś(-aś) członkiem Elity w latach 2020–2022?</h4>
+          <p className={styles.answerPrompt}>(Odpowiedź: Tak / Nie)</p>
         </div>
 
         <div className={styles.questionSection}>
-            <h4>2. Do której z gier chcesz należeć?</h4>
-            <p className={styles.smallText}>(Możesz zaznaczyć kilka albo wszystkie)</p>
-            <ul className={styles.gameList}>
-                <li>War Tycoon</li>
-                <li>LockedUp</li>
-                <li>Weaponry</li>
-                <li>MadCity: Chapter 1</li>
-                <li>MadCity: Chapter 2</li>
-            </ul>
+          <h4>2. Do której z gier chcesz należeć?</h4>
+          <p className={styles.smallText}>(Możesz zaznaczyć kilka albo wszystkie)</p>
+          <ul className={styles.gameList}>
+            <li>War Tycoon</li>
+            <li>LockedUp</li>
+            <li>Weaponry</li>
+            <li>MadCity: Chapter 1</li>
+            <li>MadCity: Chapter 2</li>
+          </ul>
         </div>
 
         <div className={styles.questionSection}>
-            <h4>3. Czy chcesz zostać członkiem Elity?</h4>
-            <p className={styles.smallText}>(Odpowiedź: Tak → trafiasz na listę jako Nowy albo Stary członek (zależnie od pytania 1))</p>
-            <p className={styles.smallText}>(Odpowiedź: Nie → nie trafiasz do Elity, ale możesz być sojusznikiem)</p>
+          <h4>3. Czy chcesz zostać członkiem Elity?</h4>
+          <p className={styles.smallText}>(Odpowiedź: Tak → trafiasz na listę jako Nowy albo Stary członek (zależnie od pytania 1))</p>
+          <p className={styles.smallText}>(Odpowiedź: Nie → nie trafiasz do Elity, ale możesz być sojusznikiem)</p>
         </div>
 
         <div className={styles.questionSection}>
-            <h4>4. Jaki jest Twój realny nick na Robloxie?</h4>
-            <p className={styles.smallText}>(Chodzi o nazwę konta, np. <strong>@Piesel724</strong> — nie wyświetlaną nazwę)</p>
+          <h4>4. Jaki jest Twój realny nick na Robloxie?</h4>
+          <p className={styles.smallText}>(Chodzi o nazwę konta, np. <strong>@Piesel724</strong> — nie wyświetlaną nazwę)</p>
         </div>
 
         <p className={styles.contactInstruction}>
@@ -114,26 +114,26 @@ const DiscordVerificationModal = ({ isOpen, onClose, discordUsername, discordId 
         </p>
 
         <div className={styles.contactButtons}> {/* Nowy kontener dla przycisków kontaktowych */}
-            <a
-              href={`https://discord.com/users/${discordId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.discordButton}
-              onClick={handleOpenDiscordProfile}
-            >
-              <img loading="lazy" src="/img/discord-icon.png" alt="Discord Icon" className={styles.discordIcon} />
-              Otwórz profil Discord
-            </a>
-            {/* NOWY LINK ROBLOX */}
-            <a
-              href={robloxFriendInviteLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.robloxButton} // Nowa klasa do stylizacji
-            >
-              <img loading="lazy" src="/img/roblox.png" alt="Roblox Icon" className={styles.robloxIcon} /> {/* Będziesz potrzebować ikony Roblox */}
-              Dodaj do znajomych (Roblox)
-            </a>
+          <a
+            href={`https://discord.com/users/${discordId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.discordButton}
+            onClick={handleOpenDiscordProfile}
+          >
+            <img loading="lazy" src="/img/discord-icon.png" alt="Discord Icon" className={styles.discordIcon} />
+            Otwórz profil Discord
+          </a>
+          {/* NOWY LINK ROBLOX */}
+          <a
+            href={robloxFriendInviteLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.robloxButton} // Nowa klasa do stylizacji
+          >
+            <img loading="lazy" src="/img/roblox.png" alt="Roblox Icon" className={styles.robloxIcon} /> {/* Będziesz potrzebować ikony Roblox */}
+            Dodaj do znajomych (Roblox)
+          </a>
         </div>
       </div>
     </div>
